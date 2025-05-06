@@ -16,7 +16,7 @@ createRoot(document.getElementById('root')!).render(
   outerAlpha={0.3}
   innerScale={1}
   outerScale={2}
-  hasBlendMode={true}
+  // hasBlendMode={true}
   clickables={[
     'a',
     'button',
