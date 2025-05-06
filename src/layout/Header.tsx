@@ -12,7 +12,11 @@ export const Header = () => {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-slate-300/50 backdrop-blur-md shadow-sm">
+    <header className={`fixed top-0 left-0 w-full z-50 bg-slate-300/50 backdrop-blur-md shadow-sm ${scrolled
+      ? "bg-slate-800/80 backdrop-blur-md shadow-md border-b border-white/10"
+      : "bg-gradient-to-b from-white/10 to-white/10 backdrop-blur-md border-b border-white/10"}
+  `}>
+
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* 좌측 로고 */}
         <div className="text-white text-xl font-semibold">KTW's Portfolio</div>
