@@ -1,4 +1,4 @@
-- ** 프로젝트  :** 김태우 포트폴리오
-- ** 프로젝트 기간 :** 2023.05.07 ~ 진행중
-- ** 링크 :** [배포 사이트](https://taewoo-portfolio.vercel.app/)
-- ** Stack :** Vite, React, TypeScript, Tailwind CSS, Styled Components
+- **프로젝트:** 김태우 포트폴리오
+- **프로젝트 기간:** 2023.05.07 ~ 진행중
+- **링크:** [배포 사이트](https://taewoo-portfolio.vercel.app/)
+- **Stack:** Vite, React, TypeScript, Tailwind CSS, Styled Components
