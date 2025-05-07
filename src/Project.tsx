@@ -1,5 +1,5 @@
 // import React from "react";
-import { FaUser, FaPhone, FaCalendarAlt, FaEnvelope, FaMapMarkerAlt, FaUniversity } from "react-icons/fa";
+
 
 
 export const Project = () => {
