@@ -2,15 +2,17 @@ import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import FOG from "vanta/dist/vanta.fog.min";
 
-import { FaGithub, FaGlobe, FaUser, FaPhone, FaCalendarAlt, FaEnvelope, FaMapMarkerAlt, FaUniversity } from "react-icons/fa";
+import { FaGithub, FaGlobe } from "react-icons/fa";
 import { Header } from "./layout/Header";
 
 import ScrollIndicator from "./components/ScrollIndicator";
+import { About_me } from "./About_me";
+import { Project } from "./Project";
 
 const VantaBackground = () => {
     const vantaRef = useRef(null);
     const [vantaEffect, setVantaEffect] = useState<ReturnType<typeof FOG> | null>(null);
-    
+
 
     useEffect(() => {
         if (!vantaEffect && vantaRef.current) {
@@ -53,7 +55,7 @@ const VantaBackground = () => {
                 <div className="flex gap-4 mb-6">
                     <button
                         onClick={() => scrollToSection("projects")}
-                        className="px-4 py-2 border border-blue-400 text-blue-400 rounded hover:bg-blue-500 hover:text-white transition"
+                        className="px-4 py-2 border border-blue-400 text-whit rounded hover:bg-blue-500 hover:text-white transition"
                     >
                         View Projects
                     </button>
@@ -64,12 +66,12 @@ const VantaBackground = () => {
                         Contact Me
                     </button>
                 </div>
-                
+
                 <div className="flex gap-6 text-2xl mb-8">
-                    <a href="https://github.com/kim3360" target="_blank" rel="noreferrer" className="hover:text-orange-400">
+                    <a href="https://github.com/kim3360" target="_blank" rel="noreferrer" className="hover:text-blue-400">
                         <FaGithub />
                     </a>
-                    <a href="https://yourblog.com" target="_blank" rel="noreferrer" className="hover:text-orange-400">
+                    <a href="https://yourblog.com" target="_blank" rel="noreferrer" className="hover:text-blue-400">
                         <FaGlobe />
                     </a>
                 </div>
@@ -77,64 +79,11 @@ const VantaBackground = () => {
                 <ScrollIndicator />
 
             </div>
-            <div id="ABOUT ME" className="h-32 bg-gradient-to-b from-transparent to-black/50"></div>
-            {/* ABOUT ME 섹션 */}
-            <div className="min-h-screen bg-black/50 backdrop-blur-sm text-white flex flex-col items-center py-16">
-                <h1 className="text-4xl font-bold mb-12">ABOUT ME</h1>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl w-full text-center">
-                    {/* Column 1 */}
-                    <div>
-                        <div className="flex items-center gap-2 mb-1 text-lg font-semibold justify-center ">
-                            <FaUser />
-                            이름
-                        </div>
-                        <p className="mb-4 text-gray-300">김태우</p>
-
-                        <div className="flex items-center gap-2 mb-1 text-lg font-semibold justify-center">
-                            <FaPhone />
-                            연락처
-                        </div>
-                        <p className="text-gray-300">010-2332-0838</p>
-                    </div>
-
-                    {/* Column 2 */}
-                    <div>
-                        <div className="flex items-center gap-2 mb-1 text-lg font-semibold justify-center">
-                            <FaCalendarAlt />
-                            생년월일
-                        </div>
-                        <p className="mb-4 text-gray-300">2002.12.26</p>
-
-                        <div className="flex items-center gap-2 mb-1 text-lg font-semibold justify-center">
-                            <FaEnvelope />
-                            이메일
-                        </div>
-                        <p className="text-gray-300">rlaxkd1226@naver.com</p>
-                    </div>
-
-                    {/* Column 3 */}
-                    <div>
-                        <div className="flex items-center gap-2 mb-1 text-lg font-semibold justify-center">
-                            <FaMapMarkerAlt />
-                            위치
-                        </div>
-                        <p className="mb-4 text-gray-300">경기도 성남시</p>
-
-                        <div className="flex items-center gap-2 mb-1 text-lg font-semibold justify-center">
-                            <FaUniversity />
-                            학력
-                        </div>
-                        <p className="text-gray-300">동양미래대학교<br />(컴퓨터소프트웨어과)</p>
-                    </div>
-                </div>
-            </div>
+            <About_me />
+            <Project/>
 
 
-            {/* Transition Gradient */}
-            <div className="h-32 bg-gradient-to-b from-black/50 to-[#0f172a]"></div>
-
-            <div className="h-screen bg-[#0f172a] text-white"></div>
+          
             {/* CONTACT 섹션 */}
             {/* <div id="contact" className="h-screen bg-red backdrop-blur-sm"></div> */}
         </>
