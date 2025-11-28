@@ -15,6 +15,7 @@ import { useState } from "react";
 import {
   Github,
   Linkedin,
+  Instagram,
   Mail,
   ExternalLink,
   Code2,
@@ -207,23 +208,23 @@ export default function Home() {
             <ScrollAnimatedElement type="fadeInUp" delay={0.3}>
               <div className="flex items-center justify-center gap-4 pt-8">
                 <a
-                  href="https://github.com"
+                  href="https://github.com/kim3360"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 rounded-full bg-card hover:bg-primary/20 transition-colors"
                 >
                   <Github className="w-6 h-6" />
                 </a>
-                <a
+                {/* <a
                   href="https://linkedin.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 rounded-full bg-card hover:bg-primary/20 transition-colors"
                 >
                   <Linkedin className="w-6 h-6" />
-                </a>
+                </a> */}
                 <a
-                  href="mailto:developer@example.com"
+                  href="mailto:rlaxkd1226@naver.com"
                   className="p-3 rounded-full bg-card hover:bg-primary/20 transition-colors"
                 >
                   <Mail className="w-6 h-6" />
