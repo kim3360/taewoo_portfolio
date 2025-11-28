@@ -288,13 +288,14 @@ export default function Home() {
                   <p className="text-lg text-muted-foreground leading-relaxed">
                     안녕하세요! 저는{" "}
                     <span className="text-foreground font-semibold">
-                      5년 이상의 경력
+                      프론트엔드 개발자
                     </span>
-                    을 가진 프론트엔드 개발자입니다. 사용자 중심의 인터페이스를
-                    설계하고 구현하는 것에 열정을 가지고 있습니다.
+                    가 되기 위해 꾸준히 학습하고 있는 신입 개발자입니다. 사용자
+                    중심의 인터페이스를 설계하고 구현하는 것에 열정을 가지고
+                    있으며, 끊임없이 성장하고자 합니다.
                   </p>
                   <p className="text-lg text-muted-foreground leading-relaxed">
-                    React와 TypeScript를 주력으로 사용하며, 성능 최적화와
+                    React와 TypeScript를 주력으로 학습하며, 성능 최적화와
                     접근성을 고려한 웹 애플리케이션 개발을 지향합니다. 새로운
                     기술을 배우고 적용하는 것을 즐기며, 팀과의 협업을 통해 더
                     나은 결과물을 만들어내는 것을 중요하게 생각합니다.
