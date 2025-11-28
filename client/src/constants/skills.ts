@@ -1,0 +1,30 @@
+export const skills = {
+  frontend: [
+    "React",
+    "Next.js",
+    "TypeScript",
+    "JavaScript",
+    "HTML5",
+    "CSS3",
+    "Tailwind CSS",
+    "Sass",
+  ],
+  tools: [
+    "Git",
+    "GitHub",
+    "Figma",
+    "VS Code",
+    "Webpack",
+    "Vite",
+    "npm",
+    "pnpm",
+  ],
+  additional: [
+    "Responsive Design",
+    "RESTful API",
+    "GraphQL",
+    "Performance Optimization",
+    "SEO",
+    "Accessibility",
+  ],
+};
