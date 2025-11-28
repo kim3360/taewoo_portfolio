@@ -25,6 +25,7 @@ import {
   GraduationCap,
   Calendar,
 } from "lucide-react";
+import { skills, projects, experiences, education } from "@/constants";
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<any>(null);
@@ -35,112 +36,6 @@ export default function Home() {
     setSelectedProject(project);
     setIsProjectModalOpen(true);
   };
-
-  const skills = {
-    frontend: [
-      "React",
-      "Next.js",
-      "TypeScript",
-      "JavaScript",
-      "HTML5",
-      "CSS3",
-      "Tailwind CSS",
-      "Sass",
-    ],
-    tools: [
-      "Git",
-      "GitHub",
-      "Figma",
-      "VS Code",
-      "Webpack",
-      "Vite",
-      "npm",
-      "pnpm",
-    ],
-    additional: [
-      "Responsive Design",
-      "RESTful API",
-      "GraphQL",
-      "Performance Optimization",
-      "SEO",
-      "Accessibility",
-    ],
-  };
-
-  const projects = [
-    {
-      title: "E-Commerce Platform",
-      description:
-        "현대적인 UI/UX를 갖춘 전자상거래 플랫폼. React와 TypeScript로 구축하여 장바구니, 결제, 사용자 인증 기능을 구현했습니다.",
-      image: "../assets/project-1.png",
-      tags: ["React", "TypeScript", "Tailwind CSS", "REST API"],
-      link: "#",
-      liveDemo: "https://example.com/ecommerce",
-      github: "https://github.com/example/ecommerce",
-      details:
-        "이 프로젝트는 완전한 전자상거래 플랫폼으로, 상품 검색, 장바구니 관리, 결제 처리, 주문 추적 등의 기능을 포함합니다. Redux를 사용한 상태 관리와 Stripe API를 통한 결제 처리가 구현되어 있습니다.",
-    },
-    {
-      title: "Task Management App",
-      description:
-        "직관적인 드래그 앤 드롭 인터페이스를 갖춘 태스크 관리 애플리케이션. 실시간 동기화와 팀 협업 기능을 제공합니다.",
-      image: "../assets/project-2.png",
-      tags: ["Next.js", "React", "Framer Motion", "Firebase"],
-      link: "#",
-      liveDemo: "https://example.com/taskapp",
-      github: "https://github.com/example/taskapp",
-      details:
-        "Framer Motion을 활용한 부드러운 드래그 앤 드롭 애니메이션과 Firebase Realtime Database를 통한 실시간 동기화가 특징입니다. 팀 멤버 초대, 권한 관리, 알림 기능 등이 포함되어 있습니다.",
-    },
-  ];
-
-  const experiences = [
-    {
-      title: "시니어 프론트엔드 개발자",
-      company: "테크 스타트업",
-      period: "2022.03 - 현재",
-      description:
-        "React 기반 웹 애플리케이션 개발 및 팀 리딩. 성능 최적화로 로딩 속도 40% 개선, 컴포넌트 라이브러리 구축으로 개발 생산성 향상.",
-    },
-    {
-      title: "프론트엔드 개발자",
-      company: "디지털 에이전시",
-      period: "2020.01 - 2022.02",
-      description:
-        "다양한 클라이언트 프로젝트의 프론트엔드 개발 담당. 반응형 웹사이트 및 랜딩 페이지 제작, 크로스 브라우저 호환성 확보.",
-    },
-    {
-      title: "주니어 웹 개발자",
-      company: "IT 솔루션 기업",
-      period: "2018.06 - 2019.12",
-      description:
-        "웹 애플리케이션 유지보수 및 신규 기능 개발. HTML, CSS, JavaScript를 활용한 UI 구현 및 API 연동 작업.",
-    },
-  ];
-
-  const education = [
-    {
-      school: "대학교",
-      degree: "컴퓨터공학 학사",
-      period: "2014.03 - 2018.02",
-      description:
-        "웹 개발, 데이터베이스, 알고리즘 등 컴퓨터과학 기초 학습. 캡스톤 프로젝트로 React 기반 웹 애플리케이션 개발.",
-    },
-    {
-      school: "온라인 교육 플랫폼",
-      degree: "Advanced React & TypeScript",
-      period: "2021.06 - 2021.09",
-      description:
-        "React 고급 패턴, TypeScript 심화, 성능 최적화 등을 학습. 실무 프로젝트 기반 교육 이수.",
-    },
-    {
-      school: "개발자 부트캠프",
-      degree: "Full Stack Web Development",
-      period: "2017.09 - 2018.02",
-      description:
-        "HTML, CSS, JavaScript, Node.js, MongoDB 등 풀스택 개발 기술 습득. 4개의 실무 프로젝트 완료.",
-    },
-  ];
 
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
