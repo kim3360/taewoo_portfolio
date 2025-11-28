@@ -34,7 +34,7 @@ export default function Navigation() {
             }}
             className="text-xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent"
           >
-            Portfolio
+            kimtaewoo's portfolio
           </a>
 
           {/* Desktop Navigation */}
