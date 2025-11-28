@@ -1,12 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { useState } from "react";
-import { Link, useLocation } from "wouter";
 import { useTheme } from "@/contexts/ThemeContext";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [location] = useLocation();
   const { theme, toggleTheme } = useTheme();
 
   const navItems = [
@@ -14,9 +12,6 @@ export default function Navigation() {
     { label: "소개", href: "#about" },
     { label: "기술", href: "#skills" },
     { label: "프로젝트", href: "#projects" },
-    { label: "경력", href: "#experience" },
-    { label: "교육", href: "#education" },
-    { label: "연락처", href: "#contact" },
   ];
 
   const scrollToSection = (href: string) => {
