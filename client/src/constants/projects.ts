@@ -4,7 +4,8 @@ export const projects = [
     description:
       "많은 사용자들이 스마트폰으로 강의자료, 회의 내용, 설정 정보 등을 스크린샷으로 저장하지만, 나중에 다시 확인하려고 할 때 어떤 내용인지 기억하기 어렵고, 정리되지 않아 찾기 힘든 문제가 발생합니다. 이를 해결하기 위해, 스크린샷 이미지 안의 텍스트를 자동으로 추출하고, OpenAI를 활용해 요약 + 카테고리 분류 + 폴더 저장까지 자동화하는 서비스",
 
-    image: "../assets/project-1.png",
+    thumbnail: "../assets/Data_Fairy_Thumbnail.png",
+    image: "../assets/Data_Fairy_Thumbnail.png",
     tags: [
       "React Native",
       "TypeScript",
@@ -27,6 +28,35 @@ export const projects = [
     title: "Task Management App",
     description:
       "직관적인 드래그 앤 드롭 인터페이스를 갖춘 태스크 관리 애플리케이션. 실시간 동기화와 팀 협업 기능을 제공합니다.",
+
+    thumbnail: "../assets/project-2.png",
+    image: "../assets/project-2.png",
+    tags: ["React", "Framer Motion", "Firebase"],
+    link: "#",
+    liveDemo: "https://example.com/taskapp",
+    github: "https://github.com/Zerotone-ClearShot",
+    details:
+      "Framer Motion을 활용한 부드러운 드래그 앤 드롭 애니메이션과 Firebase Realtime Database를 통한 실시간 동기화가 특징입니다. 팀 멤버 초대, 권한 관리, 알림 기능 등이 포함되어 있습니다.",
+  },
+
+  {
+    title: "Task Management App",
+    description:
+      "직관적인 드래그 앤 드롭 인터페이스를 갖춘 태스크 관리 애플리케이션. 실시간 동기화와 팀 협업 기능을 제공합니다.",
+    thumbnail: "../assets/project-2.png",
+    image: "../assets/project-2.png",
+    tags: ["React", "Framer Motion", "Firebase"],
+    link: "#",
+    liveDemo: "https://example.com/taskapp",
+    github: "https://github.com/Zerotone-ClearShot",
+    details:
+      "Framer Motion을 활용한 부드러운 드래그 앤 드롭 애니메이션과 Firebase Realtime Database를 통한 실시간 동기화가 특징입니다. 팀 멤버 초대, 권한 관리, 알림 기능 등이 포함되어 있습니다.",
+  },
+  {
+    title: "Task Management App",
+    description:
+      "직관적인 드래그 앤 드롭 인터페이스를 갖춘 태스크 관리 애플리케이션. 실시간 동기화와 팀 협업 기능을 제공합니다.",
+    thumbnail: "../assets/project-2.png",
     image: "../assets/project-2.png",
     tags: ["React", "Framer Motion", "Firebase"],
     link: "#",
