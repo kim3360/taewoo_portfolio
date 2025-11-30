@@ -45,6 +45,8 @@ import {
   Slack,
   FileText,
   Book,
+  Clock,
+  Users,
 } from "lucide-react";
 import { skills, projects, experiences, education } from "@/constants";
 import {
@@ -73,7 +75,7 @@ import {
 import { FaGitAlt } from "react-icons/fa";
 
 // 스킬 아이콘과 색상 매핑
-const getSkillIcon = (skill: string) => {
+export const getSkillIcon = (skill: string) => {
   const iconMap: Record<
     string,
     {
@@ -464,9 +466,25 @@ export default function Home() {
                     </div>
                     <CardHeader>
                       <CardTitle>{project.title}</CardTitle>
-                      <CardDescription>{project.description}</CardDescription>
+                      <CardDescription className="line-clamp-2">
+                        {project.description}
+                      </CardDescription>
                     </CardHeader>
-                    <CardContent>
+                    <CardContent className="space-y-4">
+                      <div className="flex items-center gap-4 text-sm text-muted-foreground">
+                        {project.period && (
+                          <div className="flex items-center gap-1.5">
+                            <Clock className="w-4 h-4" />
+                            <span>{project.period}</span>
+                          </div>
+                        )}
+                        {project.teamSize && (
+                          <div className="flex items-center gap-1.5">
+                            <Users className="w-4 h-4" />
+                            <span>{project.teamSize}</span>
+                          </div>
+                        )}
+                      </div>
                       <div className="flex flex-wrap gap-2">
                         {project.tags.map((tag) => (
                           <Badge key={tag} variant="outline">
@@ -548,9 +566,9 @@ export default function Home() {
                         <div>
                           <CardTitle className="flex items-center gap-2">
                             <GraduationCap className="w-5 h-5 text-accent" />
-                            {edu.degree}
+                            {edu.school}
                           </CardTitle>
-                          <CardDescription>{edu.school}</CardDescription>
+                          <CardDescription>{edu.degree}</CardDescription>
                         </div>
                         <Badge variant="outline" className="ml-2">
                           <Calendar className="w-3 h-3 mr-1" />
