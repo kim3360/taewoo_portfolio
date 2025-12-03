@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 
 import { MainComponent } from "@/components/MainComponent";
 import { AboutComponent } from "@/components/AboutComponent";
-import { SkillComponent } from "@/components/SkillComponent";
+import { SkillComponent } from "@/components/Skill/SkillComponent";
 import { ProjectComponent } from "@/components/Project/ProjectComponent";
 import { ExperienceComponent } from "@/components/Career/ExperienceComponent";
 import { EducationComponent } from "@/components/Career/EducationComponent";
