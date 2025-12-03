@@ -2,9 +2,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, Clock, Users, Link as LinkIcon, FileDown } from "lucide-react";
 import { getSkillIcon } from "@/pages/Home";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { ExternalLink } from "lucide-react";
 import { Github } from "lucide-react";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay, Thumbs } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
+import { useState } from "react";
 
 interface ProjectModalProps {
   isOpen: boolean;
@@ -12,7 +19,7 @@ interface ProjectModalProps {
   project: {
     title: string;
     description: string;
-    image: string;
+    image: string[];
     tags: string[];
     link: string;
     liveDemo?: string;
@@ -30,6 +37,8 @@ export default function ProjectModal({
   onClose,
   project,
 }: ProjectModalProps) {
+  const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
+
   if (!project) return null;
 
   return (
@@ -65,6 +74,7 @@ export default function ProjectModal({
                       className="w-12 h-12 rounded-lg object-contain"
                     />
                   )}
+
                   <h2 className="text-2xl font-bold">{project.title}</h2>
                 </div>
                 <button
@@ -81,13 +91,60 @@ export default function ProjectModal({
                   {/* 프로젝트 설명 */}
 
                   {/* 이미지 */}
-                  {project.image && (
-                    <div className="relative overflow-hidden rounded-lg aspect-video bg-muted">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover"
-                      />
+                  {project.image && project.image.length > 0 && (
+                    <div className="space-y-4">
+                      {/* 메인 이미지 - 모바일 프레임 */}
+                      <Swiper
+                        modules={[Navigation, Pagination, Autoplay, Thumbs]}
+                        loop={project.image.length > 3}
+                        autoplay={{
+                          delay: 3000,
+                          disableOnInteraction: false,
+                          pauseOnMouseEnter: true,
+                        }}
+                        navigation={project.image.length > 3}
+                        pagination={
+                          project.image.length > 3
+                            ? { clickable: true, dynamicBullets: true }
+                            : false
+                        }
+                        thumbs={{ swiper: thumbsSwiper }}
+                        breakpoints={{
+                          320: {
+                            slidesPerView: 1,
+                            spaceBetween: 10,
+                          },
+                          640: {
+                            slidesPerView: 2,
+                            spaceBetween: 15,
+                          },
+                          1024: {
+                            slidesPerView: 3,
+                            spaceBetween: 20,
+                          },
+                        }}
+                        className="rounded-3xl overflow-visible h-[480px]"
+                      >
+                        {project.image.map((img, index) => (
+                          <SwiperSlide key={index}>
+                            <div className="flex justify-center items-center">
+                              {/* 모바일 기기 프레임 */}
+                              <div className="relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-[3rem] p-2 shadow-2xl mx-auto">
+                                {/* 노치 */}
+                                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-5 bg-gray-900 rounded-b-xl z-10"></div>
+                                {/* 스크린 */}
+                                <div className="relative w-[200px] h-[430px] rounded-[2rem] overflow-hidden bg-black shadow-inner">
+                                  <img
+                                    src={img}
+                                    alt={`${project.title} - 이미지 ${index + 1}`}
+                                    className="w-full h-full object-cover"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          </SwiperSlide>
+                        ))}
+                      </Swiper>
                     </div>
                   )}
                   <div>

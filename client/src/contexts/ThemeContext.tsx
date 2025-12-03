@@ -12,7 +12,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 interface ThemeProviderProps {
   children: React.ReactNode;
-  defaultTheme?: Theme;
+  defaultTheme: Theme;
   switchable?: boolean;
 }
 
@@ -23,10 +23,10 @@ export function ThemeProvider({
 }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(() => {
     if (switchable) {
-      const stored = localStorage.getItem("theme");
-      return (stored as Theme) || defaultTheme;
+      const defaultTheme = localStorage.getItem("theme");
+      return defaultTheme as Theme;
     }
-    return defaultTheme;
+    return defaultTheme as Theme;
   });
 
   useEffect(() => {
@@ -44,7 +44,7 @@ export function ThemeProvider({
 
   const toggleTheme = switchable
     ? () => {
-        setTheme(prev => (prev === "light" ? "dark" : "light"));
+        setTheme((prev) => (prev === "light" ? "dark" : "light"));
       }
     : undefined;
 

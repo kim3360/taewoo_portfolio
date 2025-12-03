@@ -268,11 +268,11 @@ export default function Home() {
             </ScrollAnimatedElement>
             <div className="grid md:grid-cols-2 gap-5 items-center">
               <ScrollAnimatedElement type="fadeInLeft">
-                <div className="ml-15">
+                <div className="">
                   <img
                     src="../assets/aboutme.jpeg"
                     alt="Developer Workspace"
-                    className="rounded-lg w-[400px] h-[500px]"
+                    className="rounded-lg "
                   />
                 </div>
               </ScrollAnimatedElement>
@@ -351,7 +351,7 @@ export default function Home() {
                                 className="w-6 h-6 group-hover:scale-110 transition-transform duration-300"
                                 style={{ color }}
                               />
-                              <p className="text-center font-medium text-sm">
+                              <p className="text-center font-medium text-sm ">
                                 {skill}
                               </p>
                             </div>
