@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Clock, Users, Link as LinkIcon, FileDown } from "lucide-react";
-import { getSkillIcon } from "@/pages/Home";
+import { getSkillIcon } from "@/lib/skillIcons";
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 import { Github } from "lucide-react";

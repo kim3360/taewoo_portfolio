@@ -12,6 +12,7 @@ import ScrollAnimatedElement from "@/components/ScrollAnimatedElement";
 import ProjectModal from "@/components/ProjectModal";
 import ContactModal from "@/components/ContactModal";
 import { useState } from "react";
+import { SkillComponent } from "@/components/SkillComponent";
 import {
   Github,
   Linkedin,
@@ -48,82 +49,8 @@ import {
   Clock,
   Users,
 } from "lucide-react";
-import { skills, projects, experiences, education } from "@/constants";
-import {
-  SiReact,
-  SiReactrouter,
-  SiTypescript,
-  SiJavascript,
-  SiHtml5,
-  SiCss3,
-  SiTailwindcss,
-  SiZod,
-  SiReactquery,
-  SiStorybook,
-  SiGit,
-  SiGithub,
-  SiFigma,
-  SiSlack,
-  SiWebpack,
-  SiVite,
-  SiNpm,
-  SiPnpm,
-  SiYarn,
-  SiPostman,
-  SiVercel,
-} from "react-icons/si";
-import { FaGitAlt } from "react-icons/fa";
-
-// 스킬 아이콘과 색상 매핑
-export const getSkillIcon = (skill: string) => {
-  const iconMap: Record<
-    string,
-    {
-      Icon: React.ComponentType<{
-        className?: string;
-        style?: React.CSSProperties;
-      }>;
-      color: string;
-    }
-  > = {
-    // Frontend
-    React: { Icon: SiReact, color: "#61DAFB" },
-    "React Native": { Icon: SiReact, color: "#61DAFB" },
-    TypeScript: { Icon: SiTypescript, color: "#3178C6" },
-    JavaScript: { Icon: SiJavascript, color: "#F7DF1E" },
-    HTML5: { Icon: SiHtml5, color: "#E34F26" },
-    CSS3: { Icon: SiCss3, color: "#1572B6" },
-    "Tailwind CSS": { Icon: SiTailwindcss, color: "#06B6D4" },
-    Zustand: { Icon: Box, color: "#764ABC" },
-    ZOD: { Icon: SiZod, color: "#3E63DD" },
-    "TanstackQuery(ReactQuery)": { Icon: SiReactquery, color: "#FF4154" },
-    Storybook: { Icon: SiStorybook, color: "#FF4785" },
-    "React-Router-Dom v6": { Icon: SiReactrouter, color: "#CA4245" },
-    // Tools
-    Git: { Icon: FaGitAlt, color: "#F05032" },
-    GitHub: { Icon: SiGithub, color: "#181717" },
-    Figma: { Icon: SiFigma, color: "#F24E1E" },
-    Slack: { Icon: SiSlack, color: "#4A154B" },
-    "VS Code": { Icon: Code2, color: "#007ACC" },
-    Cursor: { Icon: Terminal, color: "#000000" },
-    Webpack: { Icon: SiWebpack, color: "#8DD6F9" },
-    Vite: { Icon: SiVite, color: "#646CFF" },
-    npm: { Icon: SiNpm, color: "#CB3837" },
-    pnpm: { Icon: SiPnpm, color: "#F69220" },
-    yarn: { Icon: SiYarn, color: "#2C8EBB" },
-    Postman: { Icon: SiPostman, color: "#FF6C37" },
-    // Additional
-    "Responsive Design": { Icon: Monitor, color: "#6366F1" },
-    "RESTful API": { Icon: Globe, color: "#3B82F6" },
-    "Performance Optimization": { Icon: Gauge, color: "#10B981" },
-    SEO: { Icon: Search, color: "#8B5CF6" },
-    SSE: { Icon: Cloud, color: "#06B6D4" },
-    Vercel: { Icon: SiVercel, color: "#000000" },
-    "CI/CD": { Icon: Workflow, color: "#7C3AED" },
-  };
-
-  return iconMap[skill] || { Icon: Code2, color: "#6366F1" };
-};
+import { projects, experiences, education } from "@/constants";
+import { getSkillIcon } from "@/lib/skillIcons";
 
 export default function Home() {
   const [selectedProject, setSelectedProject] = useState<any>(null);
@@ -229,7 +156,7 @@ export default function Home() {
               <div className="grid grid-cols-3 gap-6 pt-12 mt-8 border-t border-border">
                 <div className="text-center">
                   <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
-                    5+
+                    0+
                   </div>
                   <p className="text-sm md:text-base text-muted-foreground">
                     Years Experience
@@ -237,7 +164,7 @@ export default function Home() {
                 </div>
                 <div className="text-center">
                   <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
-                    20+
+                    5+
                   </div>
                   <p className="text-sm md:text-base text-muted-foreground">
                     Projects Completed
@@ -245,7 +172,7 @@ export default function Home() {
                 </div>
                 <div className="text-center">
                   <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
-                    15+
+                    5+
                   </div>
                   <p className="text-sm md:text-base text-muted-foreground">
                     Happy Clients
@@ -268,11 +195,11 @@ export default function Home() {
             </ScrollAnimatedElement>
             <div className="grid md:grid-cols-2 gap-5 items-center">
               <ScrollAnimatedElement type="fadeInLeft">
-                <div className="">
+                <div className=" ">
                   <img
                     src="../assets/aboutme.jpeg"
                     alt="Developer Workspace"
-                    className="rounded-lg "
+                    className="rounded-lg  "
                   />
                 </div>
               </ScrollAnimatedElement>
@@ -315,127 +242,7 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-20 ">
-        <div className="container">
-          <div className="max-w-6xl mx-auto">
-            <ScrollAnimatedElement type="fadeInUp">
-              <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
-                Skills
-              </h2>
-              <p className="text-center text-muted-foreground mb-12 text-lg">
-                제가 사용하는 기술 스택입니다
-              </p>
-            </ScrollAnimatedElement>
-
-            <div className="space-y-12">
-              {/* Frontend Skills */}
-              <ScrollAnimatedElement type="fadeInUp" delay={0}>
-                <div>
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-1 h-8 bg-gradient-to-b from-primary to-accent rounded-full"></div>
-                    <h3 className="text-2xl font-bold">Frontend</h3>
-                  </div>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    {skills.frontend.map((skill) => {
-                      const { Icon, color } = getSkillIcon(skill);
-                      return (
-                        <div
-                          key={skill}
-                          className="group relative rounded-lg border border-border hover:border-transparent transition-all duration-300 hover:-translate-y-1"
-                        >
-                          <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-primary via-accent to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
-                          <div className="absolute inset-[2px] rounded-lg bg-card"></div>
-                          <div className="relative p-4">
-                            <div className="flex items-center gap-3 relative z-10">
-                              <Icon
-                                className="w-6 h-6 group-hover:scale-110 transition-transform duration-300"
-                                style={{ color }}
-                              />
-                              <p className="text-center font-medium text-sm ">
-                                {skill}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              </ScrollAnimatedElement>
-
-              {/* Tools */}
-              <ScrollAnimatedElement type="fadeInUp" delay={0.1}>
-                <div>
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-1 h-8 bg-gradient-to-b from-accent to-primary rounded-full"></div>
-                    <h3 className="text-2xl font-bold">Tools</h3>
-                  </div>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    {skills.tools.map((skill) => {
-                      const { Icon, color } = getSkillIcon(skill);
-                      return (
-                        <div
-                          key={skill}
-                          className="group relative rounded-lg border border-border hover:border-transparent transition-all duration-300 hover:-translate-y-1"
-                        >
-                          <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-accent via-primary to-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
-                          <div className="absolute inset-[2px] rounded-lg bg-card"></div>
-                          <div className="relative p-4">
-                            <div className="flex items-center gap-2 relative z-10">
-                              <Icon
-                                className="w-6 h-6 group-hover:scale-110 transition-transform duration-300"
-                                style={{ color }}
-                              />
-                              <p className="text-center font-medium text-sm">
-                                {skill}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              </ScrollAnimatedElement>
-
-              {/* Additional Skills */}
-              <ScrollAnimatedElement type="fadeInUp" delay={0.2}>
-                <div>
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-1 h-8 bg-gradient-to-b from-primary via-accent to-primary rounded-full"></div>
-                    <h3 className="text-2xl font-bold">Additional</h3>
-                  </div>
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    {skills.additional.map((skill) => {
-                      const { Icon, color } = getSkillIcon(skill);
-                      return (
-                        <div
-                          key={skill}
-                          className="group relative rounded-lg border border-border hover:border-transparent transition-all duration-300 hover:-translate-y-1"
-                        >
-                          <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-primary via-accent to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
-                          <div className="absolute inset-[2px] rounded-lg bg-card"></div>
-                          <div className="relative p-4">
-                            <div className="flex items-center gap-3 relative z-10">
-                              <Icon
-                                className="w-6 h-6 group-hover:scale-110 transition-transform duration-300"
-                                style={{ color }}
-                              />
-                              <p className="text-center font-medium text-sm">
-                                {skill}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              </ScrollAnimatedElement>
-            </div>
-          </div>
-        </div>
-      </section>
+      <SkillComponent />
 
       {/* Projects Section */}
       <section id="projects" className="py-20">
