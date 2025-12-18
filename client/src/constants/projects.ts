@@ -124,12 +124,7 @@ export const projects = [
   {
     thumbnail: "../assets/DASOM/banner.png",
     logo: "../assets/DASOM/Logo.png",
-    image: [
-      "../assets/DataFairy/1.png",
-      "../assets/DataFairy/2.png",
-      "../assets/DataFairy/3.png",
-      "../assets/DataFairy/4.png",
-    ],
+    image: ["../assets/DASOM/1.png"],
 
     title: "DASOM",
     description:

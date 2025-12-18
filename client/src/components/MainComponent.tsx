@@ -92,15 +92,15 @@ export const MainComponent = () => {
             <div className="grid grid-cols-3 gap-6 pt-12 mt-8 border-t border-border">
               <div className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
-                  0+
+                  10+
                 </div>
                 <p className="text-sm md:text-base text-muted-foreground">
-                  Years Experience
+                  Tech Stack
                 </p>
               </div>
               <div className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
-                  5+
+                  4
                 </div>
                 <p className="text-sm md:text-base text-muted-foreground">
                   Projects Completed
@@ -108,10 +108,10 @@ export const MainComponent = () => {
               </div>
               <div className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-primary mb-2">
-                  5+
+                  Always
                 </div>
                 <p className="text-sm md:text-base text-muted-foreground">
-                  Happy Clients
+                  Learning
                 </p>
               </div>
             </div>
