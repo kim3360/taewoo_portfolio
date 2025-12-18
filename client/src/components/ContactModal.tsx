@@ -102,12 +102,12 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="message">인스타</Label>
+            <Label htmlFor="message">전화번호</Label>
             <div className="flex items-center gap-3 px-4 py-3 rounded-lg bg-muted/50 border border-border hover:border-primary/50 transition-colors">
               <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10">
                 <Instagram className="w-5 h-5 text-primary" />
               </div>
-              <span className="text-sm font-medium">rein_icio</span>
+              <span className="text-sm font-medium">010-2332-0838</span>
             </div>
           </div>
         </form>
