@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Mail } from "lucide-react";
+import { Mail, User, Instagram } from "lucide-react";
 import { toast } from "sonner";
 
 interface ContactModalProps {
@@ -83,58 +83,32 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="space-y-2">
             <Label htmlFor="name">이름</Label>
-            <Input
-              id="name"
-              name="name"
-              placeholder="이름을 입력해주세요"
-              value={formData.name}
-              onChange={handleChange}
-              disabled={isSubmitting}
-            />
+            <div className="flex items-center gap-3 px-4 py-3 rounded-lg bg-muted/50 border border-border hover:border-primary/50 transition-colors">
+              <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10">
+                <User className="w-5 h-5 text-primary" />
+              </div>
+              <span className="text-sm font-medium">김태우</span>
+            </div>
           </div>
 
           <div className="space-y-2">
             <Label htmlFor="email">이메일</Label>
-            <Input
-              id="email"
-              name="email"
-              type="email"
-              placeholder="이메일을 입력해주세요"
-              value={formData.email}
-              onChange={handleChange}
-              disabled={isSubmitting}
-            />
+            <div className="flex items-center gap-3 px-4 py-3 rounded-lg bg-muted/50 border border-border hover:border-primary/50 transition-colors">
+              <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10">
+                <Mail className="w-5 h-5 text-primary" />
+              </div>
+              <span className="text-sm font-medium">rlaxkd1226@naver.com</span>
+            </div>
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="message">메시지</Label>
-            <Textarea
-              id="message"
-              name="message"
-              placeholder="메시지를 입력해주세요"
-              rows={5}
-              value={formData.message}
-              onChange={handleChange}
-              disabled={isSubmitting}
-            />
-          </div>
-
-          <div className="flex gap-3 justify-end pt-4">
-            <Button
-              type="button"
-              variant="outline"
-              onClick={onClose}
-              disabled={isSubmitting}
-            >
-              취소
-            </Button>
-            <Button
-              type="submit"
-              className="bg-primary hover:bg-primary/90"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? "전송 중..." : "전송"}
-            </Button>
+            <Label htmlFor="message">인스타</Label>
+            <div className="flex items-center gap-3 px-4 py-3 rounded-lg bg-muted/50 border border-border hover:border-primary/50 transition-colors">
+              <div className="flex items-center justify-center w-10 h-10 rounded-full bg-primary/10">
+                <Instagram className="w-5 h-5 text-primary" />
+              </div>
+              <span className="text-sm font-medium">rein_icio</span>
+            </div>
           </div>
         </form>
       </DialogContent>

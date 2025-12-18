@@ -11,7 +11,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/autoplay";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 interface ProjectModalProps {
   isOpen: boolean;
@@ -27,6 +28,7 @@ interface ProjectModalProps {
     details?: string;
     period?: string;
     teamSize?: string;
+    members?: string;
     logo?: string;
     pdf?: string;
   } | null;
@@ -38,6 +40,8 @@ export default function ProjectModal({
   project,
 }: ProjectModalProps) {
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
+  const prevRef = useRef<HTMLButtonElement | null>(null);
+  const nextRef = useRef<HTMLButtonElement | null>(null);
 
   if (!project) return null;
 
@@ -65,7 +69,7 @@ export default function ProjectModal({
           >
             <div className="bg-card border border-border rounded-xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden flex flex-col">
               {/* Header */}
-              <div className="sticky top-0 flex items-center justify-between p-6 border-b border-border bg-card/95 backdrop-blur-sm z-10">
+              <div className=" static top-0 flex items-center justify-between p-6 border-b border-border bg-card/95 backdrop-blur-sm z-10">
                 <div className="flex items-center gap-4">
                   {project.logo && (
                     <img
@@ -94,44 +98,79 @@ export default function ProjectModal({
                   {project.image && project.image.length > 0 && (
                     <div className="space-y-4">
                       {/* 메인 이미지 - 모바일 프레임 */}
-                      <Swiper
-                        modules={[Navigation, Pagination, Autoplay, Thumbs]}
-                        loop={project.image.length > 3}
-                        autoplay={{
-                          delay: 3000,
-                          disableOnInteraction: false,
-                          pauseOnMouseEnter: true,
-                        }}
-                        navigation={project.image.length > 3}
-                        pagination={
-                          project.image.length > 3
-                            ? { clickable: true, dynamicBullets: true }
-                            : false
-                        }
-                        thumbs={{ swiper: thumbsSwiper }}
-                        breakpoints={{
-                          320: {
-                            slidesPerView: 1,
-                            spaceBetween: 10,
-                          },
-                          640: {
-                            slidesPerView: 2,
-                            spaceBetween: 15,
-                          },
-                          1024: {
-                            slidesPerView: 3,
-                            spaceBetween: 20,
-                          },
-                        }}
-                        className="rounded-3xl overflow-visible h-[480px]"
-                      >
-                        {project.image.map((img, index) => (
-                          <SwiperSlide key={index}>
-                            <div className="flex justify-center items-center">
-                              {/* 모바일 기기 프레임 */}
-                              <div className="relative bg-gradient-to-br from-gray-900 to-gray-800 rounded-[3rem] p-2 shadow-2xl mx-auto">
-                                {/* 노치 */}
-                                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-5 bg-gray-900 rounded-b-xl z-10"></div>
+                      <div className="relative">
+                        <style>{`
+                          .project-swiper .swiper-pagination-bullet {
+                            background: rgba(156, 163, 175, 0.5) !important;
+                            opacity: 1;
+                          }
+                          .project-swiper .swiper-pagination-bullet-active {
+                            background: blue !important;
+                          }
+                        `}</style>
+                        {project.image.length > 1 && (
+                          <>
+                            <button
+                              ref={prevRef}
+                              className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/60 text-white shadow-lg backdrop-blur hover:bg-primary transition-all flex items-center justify-center"
+                            >
+                              <ChevronLeft className="w-5 h-5" />
+                            </button>
+                            <button
+                              ref={nextRef}
+                              className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/60 text-white shadow-lg backdrop-blur hover:bg-primary transition-all flex items-center justify-center"
+                            >
+                              <ChevronRight className="w-5 h-5" />
+                            </button>
+                          </>
+                        )}
+
+                        <Swiper
+                          modules={[Navigation, Pagination, Autoplay, Thumbs]}
+                          loop={project.image.length > 3}
+                          autoplay={{
+                            delay: 3000,
+                            disableOnInteraction: false,
+                            pauseOnMouseEnter: true,
+                          }}
+                          navigation={{
+                            prevEl: prevRef.current,
+                            nextEl: nextRef.current,
+                          }}
+                          onBeforeInit={(swiper) => {
+                            if (
+                              swiper.params.navigation &&
+                              typeof swiper.params.navigation !== "boolean"
+                            ) {
+                              swiper.params.navigation.prevEl = prevRef.current;
+                              swiper.params.navigation.nextEl = nextRef.current;
+                            }
+                          }}
+                          pagination={
+                            project.image.length > 3
+                              ? { clickable: true, dynamicBullets: true }
+                              : false
+                          }
+                          thumbs={{ swiper: thumbsSwiper }}
+                          breakpoints={{
+                            320: {
+                              slidesPerView: 1,
+                              spaceBetween: 10,
+                            },
+                            640: {
+                              slidesPerView: 2,
+                              spaceBetween: 15,
+                            },
+                            1024: {
+                              slidesPerView: 3,
+                              spaceBetween: 20,
+                            },
+                          }}
+                          className="project-swiper rounded-3xl overflow-visible h-[480px]"
+                        >
+                          {project.image.map((img, index) => (
+                            <SwiperSlide key={index}>
+                              <div className="flex justify-center items-center">
                                 {/* 스크린 */}
                                 <div className="relative w-[200px] h-[430px] rounded-[2rem] overflow-hidden bg-black shadow-inner">
                                   <img
@@ -141,10 +180,10 @@ export default function ProjectModal({
                                   />
                                 </div>
                               </div>
-                            </div>
-                          </SwiperSlide>
-                        ))}
-                      </Swiper>
+                            </SwiperSlide>
+                          ))}
+                        </Swiper>
+                      </div>
                     </div>
                   )}
                   <div>
@@ -177,14 +216,14 @@ export default function ProjectModal({
 
                   {/* 참여인원, 기간, 관련 링크 */}
                   <div className="grid grid-cols-3 gap-4 pt-4 border-t border-border">
-                    {project.teamSize && (
+                    {project.members && (
                       <div>
                         <h4 className="text-sm font-semibold mb-2 text-muted-foreground">
                           참여인원
                         </h4>
                         <div className="flex items-center gap-2">
                           <Users className="w-4 h-4 text-primary" />
-                          <span className="text-sm">{project.teamSize}</span>
+                          <span className="text-sm">{project.members}</span>
                         </div>
                       </div>
                     )}
@@ -232,7 +271,7 @@ export default function ProjectModal({
 
                   {/* Links */}
                   <div className="flex gap-3 pt-4">
-                    {project.liveDemo && (
+                    {project.liveDemo ? (
                       <a
                         href={project.liveDemo}
                         target="_blank"
@@ -244,7 +283,18 @@ export default function ProjectModal({
                           라이브 데모
                         </Button>
                       </a>
+                    ) : (
+                      <div className="flex-1">
+                        <Button
+                          disabled
+                          className="w-full bg-primary/50 hover:bg-primary/50 cursor-not-allowed opacity-60"
+                        >
+                          <ExternalLink className="w-4 h-4 mr-2" />
+                          라이브 데모
+                        </Button>
+                      </div>
                     )}
+
                     {project.github && (
                       <a
                         href={project.github}

@@ -13,11 +13,11 @@ export const AboutComponent = () => {
           </ScrollAnimatedElement>
           <div className="grid md:grid-cols-2 gap-5 items-center">
             <ScrollAnimatedElement type="fadeInLeft">
-              <div className=" ">
+              <div className="">
                 <img
                   src="../assets/aboutme.jpeg"
                   alt="Developer Workspace"
-                  className="rounded-lg  "
+                  className="  "
                 />
               </div>
             </ScrollAnimatedElement>
