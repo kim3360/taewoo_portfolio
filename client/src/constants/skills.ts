@@ -9,7 +9,7 @@ export const skills = {
     "Tailwind CSS",
     "Zustand",
     "ZOD",
-    "TanstackQuery(ReactQuery)",
+    "TanstackQuery",
     "Storybook",
     "React-Router-Dom v6",
   ],

@@ -1,11 +1,11 @@
-import { motion } from 'framer-motion';
-import { ReactNode } from 'react';
-import { useScrollAnimation } from '@/hooks/useScrollAnimation';
+import { motion } from "framer-motion";
+import { ReactNode } from "react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 interface ScrollAnimatedElementProps {
   children: ReactNode;
   delay?: number;
-  type?: 'fadeInUp' | 'fadeInLeft' | 'fadeInRight' | 'scale' | 'slideInUp';
+  type?: "fadeInUp" | "fadeInLeft" | "fadeInRight" | "scale" | "slideInUp";
   className?: string;
 }
 
@@ -35,8 +35,8 @@ const animationVariants = {
 export default function ScrollAnimatedElement({
   children,
   delay = 0,
-  type = 'fadeInUp',
-  className = '',
+  type = "fadeInUp",
+  className = "",
 }: ScrollAnimatedElementProps) {
   const { ref, isVisible } = useScrollAnimation();
 
@@ -44,12 +44,12 @@ export default function ScrollAnimatedElement({
     <motion.div
       ref={ref}
       initial="hidden"
-      animate={isVisible ? 'visible' : 'hidden'}
+      animate={isVisible ? "visible" : "hidden"}
       variants={animationVariants[type]}
       transition={{
         duration: 0.6,
         delay,
-        ease: 'easeOut',
+        ease: "easeOut",
       }}
       exit="hidden"
       className={className}
