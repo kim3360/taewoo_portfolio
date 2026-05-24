@@ -138,11 +138,7 @@
     transform: translateX(-50%);
     width: min(90vw, 900px);
     height: 400px;
-    background: radial-gradient(
-      ellipse,
-      rgba(248, 91, 225, 0.08) 0%,
-      transparent 65%
-    );
+    background: radial-gradient(ellipse, rgba(248, 91, 225, 0.08) 0%, transparent 65%);
     pointer-events: none;
   }
 
@@ -152,13 +148,7 @@
     top: 42%;
     width: 4px;
     height: 140px;
-    background: repeating-linear-gradient(
-      180deg,
-      rgba(250, 250, 250, 0.15) 0px,
-      rgba(250, 250, 250, 0.15) 8px,
-      transparent 8px,
-      transparent 16px
-    );
+    background: repeating-linear-gradient(180deg, rgba(250, 250, 250, 0.15) 0px, rgba(250, 250, 250, 0.15) 8px, transparent 8px, transparent 16px);
     pointer-events: none;
     display: none;
   }
@@ -176,12 +166,7 @@
       width: 100%;
       height: 24px;
       transform: translateY(-50%);
-      background: linear-gradient(
-        180deg,
-        transparent,
-        rgba(248, 91, 225, 0.6),
-        transparent
-      );
+      background: linear-gradient(180deg, transparent, rgba(248, 91, 225, 0.6), transparent);
     }
   }
 
@@ -203,12 +188,7 @@
 
   .portfolio-section__header-line {
     @apply mt-6 h-px w-full max-w-md;
-    background: linear-gradient(
-      90deg,
-      rgba(248, 91, 225, 0.55),
-      rgba(248, 91, 225, 0.1),
-      transparent
-    );
+    background: linear-gradient(90deg, rgba(248, 91, 225, 0.55), rgba(248, 91, 225, 0.1), transparent);
   }
 
   .portfolio-filters {
@@ -276,12 +256,7 @@
     position: absolute;
     inset: 0;
     z-index: 5;
-    background: linear-gradient(
-      105deg,
-      transparent 40%,
-      rgba(255, 255, 255, 0.04) 50%,
-      transparent 60%
-    );
+    background: linear-gradient(105deg, transparent 40%, rgba(255, 255, 255, 0.04) 50%, transparent 60%);
     transform: translateX(-100%);
     transition: transform 0.8s ease;
     pointer-events: none;
@@ -308,12 +283,7 @@
 
   .portfolio-slide__preview-overlay {
     @apply absolute inset-0;
-    background: linear-gradient(
-      180deg,
-      rgba(15, 15, 15, 0.1) 0%,
-      rgba(15, 15, 15, 0.55) 45%,
-      rgba(10, 10, 10, 0.95) 100%
-    );
+    background: linear-gradient(180deg, rgba(15, 15, 15, 0.1) 0%, rgba(15, 15, 15, 0.55) 45%, rgba(10, 10, 10, 0.95) 100%);
   }
 
   .portfolio-slide__preview-meta {
@@ -385,11 +355,7 @@
 
   .portfolio-slide:hover .portfolio-slide__journey-line,
   .portfolio-slide--active .portfolio-slide__journey-line {
-    background: linear-gradient(
-      90deg,
-      rgba(248, 91, 225, 0.6),
-      rgba(250, 250, 250, 0.15)
-    );
+    background: linear-gradient(90deg, rgba(248, 91, 225, 0.6), rgba(250, 250, 250, 0.15));
   }
 
   .portfolio-slide__arrow-btn {
@@ -437,12 +403,7 @@
 
   .portfolio-project-card__overlay {
     @apply absolute inset-0 opacity-80 transition-opacity duration-500;
-    background: linear-gradient(
-      to top,
-      rgba(15, 15, 15, 0.95) 0%,
-      rgba(15, 15, 15, 0.2) 50%,
-      transparent 100%
-    );
+    background: linear-gradient(to top, rgba(15, 15, 15, 0.95) 0%, rgba(15, 15, 15, 0.2) 50%, transparent 100%);
   }
 
   .portfolio-project-card:hover .portfolio-project-card__overlay {
@@ -693,6 +654,10 @@
     scrollbar-color: rgba(248, 91, 225, 0.25) transparent;
   }
 
+  .landing-stack {
+    @apply flex flex-col gap-5 min-w-0;
+  }
+
   /* Education | Activities 동일 너비 2열 */
   .landing-col--split {
     @apply grid gap-y-5 min-h-0 overflow-y-auto;
@@ -708,12 +673,12 @@
       row-gap: 1.75rem;
     }
 
-    .landing-block--edu {
+    .landing-stack--left {
       grid-column: 1;
       grid-row: 1;
     }
 
-    .landing-block--act {
+    .landing-stack--right {
       grid-column: 2;
       grid-row: 1;
     }
@@ -741,12 +706,7 @@
     transform: translate(-50%, -50%);
     width: min(100%, 200px);
     height: 220px;
-    background: radial-gradient(
-      ellipse,
-      rgba(248, 91, 225, 0.14) 0%,
-      rgba(248, 91, 225, 0.04) 45%,
-      transparent 70%
-    );
+    background: radial-gradient(ellipse, rgba(248, 91, 225, 0.14) 0%, rgba(248, 91, 225, 0.04) 45%, transparent 70%);
     pointer-events: none;
   }
 
@@ -794,39 +754,154 @@
     @apply text-[11px] leading-relaxed;
   }
 
-  /* 스킬 아이콘 */
+  /* 스킬 아이콘 — 카테고리 2열 */
   .landing-skills {
-    @apply space-y-5;
+    @apply grid gap-x-4 gap-y-3.5;
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+
+  /* 홀수 개일 때 마지막 그룹( Tools & Collab ) 전체 너비 */
+  .landing-skills > .landing-skill-group:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+
+  @media (max-width: 520px) {
+    .landing-skills {
+      grid-template-columns: 1fr;
+    }
+
+    .landing-skills > .landing-skill-group:last-child:nth-child(odd) {
+      grid-column: auto;
+    }
   }
 
   .landing-skill-group__label {
-    @apply text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mb-2;
+    @apply text-[10px] font-semibold uppercase tracking-wider text-muted-foreground mb-1.5;
   }
 
   .landing-skill-group__icons {
-    @apply flex flex-wrap gap-2;
+    @apply flex flex-wrap gap-1.5;
   }
 
   .landing-skill-icon {
-    @apply flex items-center justify-center w-11 h-11 md:w-12 md:h-12 rounded-lg border border-border/50 bg-pearl-surface/60 transition-all duration-200;
+    @apply relative flex items-center justify-center w-9 h-9 md:w-10 md:h-10 rounded-lg border border-border/40 bg-pearl-surface/50 cursor-default;
+    transition:
+      border-color 0.25s ease,
+      box-shadow 0.25s ease,
+      transform 0.25s ease,
+      background-color 0.25s ease;
   }
 
-  .landing-skill-icon:hover {
-    @apply border-pearl-accent/40 scale-105;
-    box-shadow: 0 0 16px rgba(248, 91, 225, 0.15);
+  .landing-skill-icon svg {
+    @apply relative z-[1] w-4 h-4 md:w-[18px] md:h-[18px];
+    transition:
+      transform 0.25s ease,
+      filter 0.25s ease;
   }
 
-  /* 하단 마퀴 */
-  .landing-footer {
-    @apply border-t border-border/20;
+  .landing-skill-icon:hover,
+  .landing-skill-icon[data-state="open"],
+  .landing-skill-icon[data-state="delayed-open"],
+  .landing-skill-icon[data-state="instant-open"] {
+    @apply border-pearl-accent/50 bg-pearl-surface;
+    transform: translateY(-2px);
+    box-shadow:
+      0 0 0 1px rgba(248, 91, 225, 0.15),
+      0 6px 16px rgba(0, 0, 0, 0.35),
+      0 0 14px rgba(248, 91, 225, 0.2);
   }
 
-  .landing-footer__marquee {
-    background: linear-gradient(
-      180deg,
-      rgba(248, 91, 225, 0.03) 0%,
-      transparent 100%
-    );
+  .landing-skill-icon:hover svg,
+  .landing-skill-icon[data-state="open"] svg,
+  .landing-skill-icon[data-state="delayed-open"] svg,
+  .landing-skill-icon[data-state="instant-open"] svg {
+    transform: scale(1.06);
+    filter: drop-shadow(0 0 6px rgba(248, 91, 225, 0.35));
+  }
+
+  /* 스킬 툴팁 — Radix 기본 박스/줌 제거 */
+  .landing-skill-tooltip {
+    overflow: visible !important;
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    color: inherit !important;
+    box-shadow: none !important;
+    animation: landing-tooltip-in 0.2s cubic-bezier(0.22, 1, 0.36, 1) forwards !important;
+    transform-origin: center bottom;
+  }
+
+  .landing-skill-tooltip[data-state="closed"] {
+    animation: landing-tooltip-out 0.15s ease-in forwards !important;
+  }
+
+  .landing-skill-tooltip > svg {
+    display: none !important;
+  }
+
+  @keyframes landing-tooltip-in {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes landing-tooltip-out {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(4px);
+    }
+  }
+
+  .landing-skill-tooltip__pill {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    max-width: 200px;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid rgba(248, 91, 225, 0.35);
+    background: rgba(12, 12, 12, 0.94);
+    backdrop-filter: blur(12px);
+    box-shadow:
+      0 4px 14px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+
+  .landing-skill-tooltip__pill::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+    width: 7px;
+    height: 7px;
+    transform: translateX(-50%) rotate(45deg);
+    background: rgba(12, 12, 12, 0.94);
+    border-right: 1px solid rgba(248, 91, 225, 0.35);
+    border-bottom: 1px solid rgba(248, 91, 225, 0.35);
+    pointer-events: none;
+  }
+
+  .landing-skill-tooltip__text {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+    white-space: nowrap;
+    color: var(--pearl-fg);
+    background: linear-gradient(90deg, #fafafa 0%, #f0abfc 55%, #f85be1 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   /* 사원증 ID badge */
@@ -854,11 +929,7 @@
 
   .id-badge__strap {
     @apply relative block w-0.5 h-11 md:h-12 rounded-full;
-    background: linear-gradient(
-      180deg,
-      rgba(248, 91, 225, 0.35) 0%,
-      rgba(248, 91, 225, 0.95) 100%
-    );
+    background: linear-gradient(180deg, rgba(248, 91, 225, 0.35) 0%, rgba(248, 91, 225, 0.95) 100%);
     box-shadow:
       0 0 8px rgba(248, 91, 225, 0.5),
       0 0 20px rgba(248, 91, 225, 0.25);
@@ -906,12 +977,7 @@
     bottom: 18%;
     width: 55%;
     height: 35%;
-    background: linear-gradient(
-      135deg,
-      rgba(255, 255, 255, 0.22) 0%,
-      rgba(255, 255, 255, 0.06) 40%,
-      transparent 70%
-    );
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.06) 40%, transparent 70%);
     pointer-events: none;
     border-radius: 50%;
     filter: blur(2px);
@@ -920,12 +986,7 @@
   .id-badge__shine {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      115deg,
-      transparent 40%,
-      rgba(255, 255, 255, 0.18) 50%,
-      transparent 60%
-    );
+    background: linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, 0.18) 50%, transparent 60%);
     animation: id-badge-shine 5s ease-in-out infinite;
     pointer-events: none;
   }
@@ -1021,12 +1082,7 @@
     right: -10%;
     width: min(55vw, 480px);
     height: min(55vw, 480px);
-    background: radial-gradient(
-      circle,
-      rgba(248, 91, 225, 0.12) 0%,
-      rgba(248, 91, 225, 0.04) 40%,
-      transparent 70%
-    );
+    background: radial-gradient(circle, rgba(248, 91, 225, 0.12) 0%, rgba(248, 91, 225, 0.04) 40%, transparent 70%);
     pointer-events: none;
   }
 
@@ -1064,12 +1120,7 @@
 
   .fields-section__header-line {
     @apply mt-6 h-px w-full max-w-md;
-    background: linear-gradient(
-      90deg,
-      rgba(248, 91, 225, 0.6),
-      rgba(248, 91, 225, 0.15),
-      transparent
-    );
+    background: linear-gradient(90deg, rgba(248, 91, 225, 0.6), rgba(248, 91, 225, 0.15), transparent);
   }
 
   .fields-section__body {
@@ -1082,11 +1133,7 @@
 
   .fields-section__card {
     @apply relative rounded-2xl border border-border/50 p-6 md:p-7 overflow-hidden transition-shadow duration-500;
-    background: linear-gradient(
-      160deg,
-      rgba(28, 28, 28, 0.95) 0%,
-      rgba(15, 15, 15, 0.85) 100%
-    );
+    background: linear-gradient(160deg, rgba(28, 28, 28, 0.95) 0%, rgba(15, 15, 15, 0.85) 100%);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
   }
 
@@ -1097,12 +1144,7 @@
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(248, 91, 225, 0.45),
-      transparent
-    );
+    background: linear-gradient(90deg, transparent, rgba(248, 91, 225, 0.45), transparent);
   }
 
   .fields-section__card:hover {
@@ -1118,11 +1160,7 @@
     right: -30%;
     width: 60%;
     height: 100%;
-    background: radial-gradient(
-      circle,
-      rgba(248, 91, 225, 0.06) 0%,
-      transparent 65%
-    );
+    background: radial-gradient(circle, rgba(248, 91, 225, 0.06) 0%, transparent 65%);
     pointer-events: none;
   }
 
@@ -1150,12 +1188,7 @@
     top: 0;
     bottom: 0;
     width: 1px;
-    background: linear-gradient(
-      180deg,
-      rgba(248, 91, 225, 0.45) 0%,
-      rgba(250, 250, 250, 0.12) 50%,
-      transparent 100%
-    );
+    background: linear-gradient(180deg, rgba(248, 91, 225, 0.45) 0%, rgba(250, 250, 250, 0.12) 50%, transparent 100%);
   }
 
   .fields-section__item {

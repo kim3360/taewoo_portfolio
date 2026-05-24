@@ -1,1 +1,1 @@
-export { profile, awards, activities } from "./model/profile";
+export { profile, awards, internships, activities } from "./model/profile";

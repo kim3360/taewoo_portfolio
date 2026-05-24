@@ -1,5 +1,3 @@
-export const HERO_MARQUEE_ITEMS = ["PRODUCTS", "WEBSITES", "DESIGN SYSTEMS", "USER INTERFACES", "INCLUSIVE SOLUTIONS", "SMOOTH USER JOURNEYS", "STUNNING PORTFOLIOS"] as const
-
 export const SERVICES = ["Frontend Development", "React / TypeScript", "React Native", "UI Implementation", "REST API Integration", "State Management", "Performance Optimization", "Responsive Design"] as const
 
 export const EXPERTISE_FIELDS = ["React Development", "TypeScript", "React Native", "UI / UX", "Design Systems", "REST API", "Accessibility", "Performance"] as const
