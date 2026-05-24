@@ -1,18 +1,23 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { stackIntro, stackCategories, stackTools, getSkillIcon } from "@/entities/skill";
+import {
+  stackIntro,
+  stackCategories,
+  stackPrimary,
+  getSkillIcon,
+} from "@/entities/skill";
 import { scrollToSection } from "@/shared/lib/scrollTo";
 
 function splitTags(tags: string) {
   return tags.split(" · ").map((t) => t.trim());
 }
 
-function ToolPill({
+function StackCard({
   name,
   subtitle,
   index,
 }: {
-  name: (typeof stackTools)[number]["name"];
+  name: (typeof stackPrimary)[number]["name"];
   subtitle: string;
   index: number;
 }) {
@@ -20,28 +25,26 @@ function ToolPill({
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 12 }}
+      initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.4, delay: 0.05 * index }}
-      whileHover={{ y: -3 }}
-      className="tool-pill shrink-0"
+      transition={{ duration: 0.4, delay: 0.06 * index }}
+      whileHover={{ y: -4 }}
+      className="fields-stack-card"
     >
       <span
-        className="tool-pill__icon-wrap"
+        className="fields-stack-card__icon"
         style={{
           color,
           backgroundColor: `${color}18`,
-          boxShadow: `0 0 20px ${color}22`,
+          boxShadow: `0 0 24px ${color}20`,
         }}
         aria-hidden
       >
-        <Icon className="w-5 h-5" />
+        <Icon className="w-6 h-6" />
       </span>
-      <div className="tool-pill__text">
-        <p className="tool-pill__title">{name}</p>
-        <p className="tool-pill__subtitle">{subtitle}</p>
-      </div>
+      <p className="fields-stack-card__name">{name}</p>
+      <p className="fields-stack-card__sub">{subtitle}</p>
     </motion.div>
   );
 }
@@ -66,13 +69,32 @@ export function FieldsSection() {
           >
             <div className="fields-section__eyebrow-row">
               <p className="fields-section__eyebrow">{stackIntro.eyebrow}</p>
-              <span className="fields-section__count badge-pulse">
-                {stackTools.length} tools
-              </span>
+              <span className="fields-section__count badge-pulse">Frontend</span>
             </div>
-            <p className="fields-section__lead hero-headline">{stackIntro.lead}</p>
+            <h2 className="fields-section__lead hero-headline">{stackIntro.lead}</h2>
+            <p className="fields-section__summary">{stackIntro.summary}</p>
             <div className="fields-section__header-line" aria-hidden />
           </motion.header>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.08 }}
+            className="fields-section__primary"
+          >
+            <p className="fields-section__primary-label">주요 스택</p>
+            <div className="fields-stack-grid">
+              {stackPrimary.map((tool, i) => (
+                <StackCard
+                  key={tool.name}
+                  name={tool.name}
+                  subtitle={tool.subtitle}
+                  index={i}
+                />
+              ))}
+            </div>
+          </motion.div>
 
           <div className="fields-section__body">
             <div className="fields-section__grid">
@@ -82,7 +104,7 @@ export function FieldsSection() {
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.55, delay: 0.1 * catIndex }}
+                  transition={{ duration: 0.55, delay: 0.08 * catIndex }}
                   whileHover={{ y: -4 }}
                   className="fields-section__card"
                 >
@@ -92,9 +114,7 @@ export function FieldsSection() {
                     <span className="fields-section__group-num">
                       {String(catIndex + 1).padStart(2, "0")}
                     </span>
-                    <h3 className="fields-section__group-title">
-                      {category.title}
-                    </h3>
+                    <h3 className="fields-section__group-title">{category.title}</h3>
                   </div>
 
                   <ul className="fields-section__list">
@@ -104,12 +124,10 @@ export function FieldsSection() {
                         initial={{ opacity: 0, x: -8 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.35, delay: 0.06 * i }}
+                        transition={{ duration: 0.35, delay: 0.05 * i }}
                         className="fields-section__item"
                       >
-                        <p className="fields-section__item-headline">
-                          {item.headline}
-                        </p>
+                        <p className="fields-section__item-headline">{item.headline}</p>
                         <div className="fields-section__tags">
                           {splitTags(item.tags).map((tag) => (
                             <span key={tag} className="fields-tag-chip">
@@ -125,13 +143,16 @@ export function FieldsSection() {
             </div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
+          <motion.footer
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.15 }}
+            transition={{ duration: 0.5 }}
             className="fields-section__footer"
           >
+            <p className="fields-section__footer-note">
+              프로젝트에서 어떻게 쓰였는지는 아래 포트폴리오에서 확인할 수 있어요.
+            </p>
             <button
               type="button"
               onClick={() => scrollToSection("#portfolio")}
@@ -142,23 +163,9 @@ export function FieldsSection() {
               <span className="fields-nav__btn">
                 <ArrowRight className="w-3.5 h-3.5" />
               </span>
-              <span className="fields-nav__label">Portfolio</span>
+              <span className="fields-nav__label">View Projects</span>
             </button>
-
-            <div className="fields-section__tools-wrap">
-              <p className="fields-section__tools-label">Core tools</p>
-              <div className="fields-section__tools">
-                {stackTools.map((tool, i) => (
-                  <ToolPill
-                    key={tool.name}
-                    name={tool.name}
-                    subtitle={tool.subtitle}
-                    index={i}
-                  />
-                ))}
-              </div>
-            </div>
-          </motion.div>
+          </motion.footer>
         </div>
       </div>
     </section>

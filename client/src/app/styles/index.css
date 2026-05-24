@@ -1095,11 +1095,11 @@
   }
 
   .fields-section__inner {
-    @apply flex flex-col min-h-[min(85vh,760px)] md:min-h-[80vh];
+    @apply flex flex-col;
   }
 
   .fields-section__header {
-    @apply mb-10 md:mb-14;
+    @apply mb-8 md:mb-10;
   }
 
   .fields-section__eyebrow-row {
@@ -1115,7 +1115,11 @@
   }
 
   .fields-section__lead {
-    @apply mt-4 text-2xl sm:text-3xl md:text-[2.75rem] font-extrabold tracking-tight max-w-3xl leading-[1.15];
+    @apply mt-4 text-2xl sm:text-3xl md:text-[2.5rem] font-extrabold tracking-tight max-w-2xl leading-[1.2];
+  }
+
+  .fields-section__summary {
+    @apply mt-4 text-sm md:text-base text-muted-foreground leading-relaxed max-w-2xl;
   }
 
   .fields-section__header-line {
@@ -1123,8 +1127,44 @@
     background: linear-gradient(90deg, rgba(248, 91, 225, 0.6), rgba(248, 91, 225, 0.15), transparent);
   }
 
+  .fields-section__primary {
+    @apply mb-10 md:mb-12;
+  }
+
+  .fields-section__primary-label {
+    @apply text-[10px] font-bold uppercase tracking-[0.35em] text-muted-foreground/70 mb-4;
+  }
+
+  .fields-stack-grid {
+    @apply grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-4;
+  }
+
+  .fields-stack-card {
+    @apply flex flex-col items-center text-center gap-2 rounded-xl border border-border/50 p-4 md:py-5 transition-all duration-300 cursor-default;
+    background: linear-gradient(165deg, rgba(30, 30, 30, 0.95) 0%, rgba(14, 14, 14, 0.98) 100%);
+  }
+
+  .fields-stack-card:hover {
+    border-color: rgba(248, 91, 225, 0.35);
+    box-shadow:
+      0 8px 28px rgba(0, 0, 0, 0.4),
+      0 0 28px rgba(248, 91, 225, 0.1);
+  }
+
+  .fields-stack-card__icon {
+    @apply flex items-center justify-center w-12 h-12 rounded-lg border border-border/40;
+  }
+
+  .fields-stack-card__name {
+    @apply text-[11px] md:text-xs font-semibold text-foreground leading-tight px-1;
+  }
+
+  .fields-stack-card__sub {
+    @apply text-[10px] text-muted-foreground leading-snug;
+  }
+
   .fields-section__body {
-    @apply flex-1 flex items-center;
+    @apply w-full;
   }
 
   .fields-section__grid {
@@ -1240,7 +1280,11 @@
   }
 
   .fields-section__footer {
-    @apply mt-12 md:mt-16 pt-8 border-t border-border/40 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between;
+    @apply mt-12 md:mt-14 pt-8 border-t border-border/40 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between;
+  }
+
+  .fields-section__footer-note {
+    @apply text-sm text-muted-foreground leading-relaxed max-w-md;
   }
 
   .fields-nav {
