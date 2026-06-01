@@ -32,12 +32,12 @@ export const awards = [
   {
     period: "2025.03",
     title: "단국대학교 해커톤",
-    subtitle: "대상",
+    subtitle: "스크린샷 정리 자동화 AI 서비스 (대상)",
   },
   {
     period: "2024.11",
     title: "SW개발 교내경진대회",
-    subtitle: "최우수상",
+    subtitle: "국내 여행 추천 AI 서비스 (최우수상)",
   },
 ] as const
 
