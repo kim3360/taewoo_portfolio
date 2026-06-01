@@ -1,11 +1,9 @@
 import type { ReactNode } from "react";
 import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
 import { TimelineRow } from "@/shared/ui/TimelineRow";
 import { profile, activities, awards, internships } from "@/entities/profile";
 import { education } from "@/entities/education";
 import { getSkillIcon, landingSkillGroups } from "@/entities/skill";
-import { scrollToSection } from "@/shared/lib/scrollTo";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/shared/ui/tooltip";
 import { IdBadge } from "./IdBadge";
 
@@ -154,15 +152,6 @@ export function HomeLanding() {
           </motion.div>
         </div>
       </div>
-
-      <button
-        type="button"
-        onClick={() => scrollToSection("#skills")}
-        aria-label="기술 스택 보기"
-        className="scroll-fab"
-      >
-        <ChevronDown className="w-5 h-5" />
-      </button>
     </section>
   );
 }
