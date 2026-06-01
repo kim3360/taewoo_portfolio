@@ -43,7 +43,6 @@ export const ProjectComponent = () => {
       className="portfolio-section section-padding section-glow relative overflow-hidden"
     >
       <div className="portfolio-section__glow" aria-hidden />
-      <div className="portfolio-section__decor" aria-hidden />
 
       <div className="container relative z-10 mb-8 md:mb-12">
         <motion.div

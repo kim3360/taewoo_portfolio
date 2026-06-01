@@ -142,34 +142,6 @@
     pointer-events: none;
   }
 
-  .portfolio-section__decor {
-    position: absolute;
-    right: 1.5rem;
-    top: 42%;
-    width: 4px;
-    height: 140px;
-    background: repeating-linear-gradient(180deg, rgba(250, 250, 250, 0.15) 0px, rgba(250, 250, 250, 0.15) 8px, transparent 8px, transparent 16px);
-    pointer-events: none;
-    display: none;
-  }
-
-  @media (min-width: 1024px) {
-    .portfolio-section__decor {
-      display: block;
-    }
-
-    .portfolio-section__decor::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 50%;
-      width: 100%;
-      height: 24px;
-      transform: translateY(-50%);
-      background: linear-gradient(180deg, transparent, rgba(248, 91, 225, 0.6), transparent);
-    }
-  }
-
   .portfolio-section__header {
     @apply max-w-3xl;
   }
