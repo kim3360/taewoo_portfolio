@@ -1254,6 +1254,112 @@
     @apply text-sm text-muted-foreground leading-relaxed max-w-md;
   }
 
+  /* Cover letter — single column: header → accordion */
+  .cover-letter-section__glow {
+    position: absolute;
+    left: -10%;
+    top: 25%;
+    width: min(50vw, 440px);
+    height: min(50vw, 440px);
+    background: radial-gradient(circle, rgba(248, 91, 225, 0.12) 0%, rgba(248, 91, 225, 0.03) 45%, transparent 72%);
+    pointer-events: none;
+  }
+
+  .cover-letter-section__noise {
+    opacity: 0.025;
+  }
+
+  .cover-letter-section__inner {
+    @apply flex w-full flex-col gap-10 md:gap-12 lg:gap-14;
+  }
+
+  .cover-letter-section__header {
+    @apply max-w-4xl;
+  }
+
+  .cover-letter-section__eyebrow {
+    @apply text-sm md:text-base font-medium text-pearl-accent tracking-wide;
+  }
+
+  .cover-letter-section__lead {
+    @apply mt-3 text-3xl sm:text-4xl md:text-[2.75rem] lg:text-5xl font-extrabold tracking-tight leading-[1.1] text-foreground;
+  }
+
+  .cover-letter-section__summary {
+    @apply mt-5 text-base md:text-lg text-muted-foreground leading-relaxed max-w-3xl;
+  }
+
+  .cover-letter-section__header-line {
+    @apply mt-8 h-px w-full max-w-none;
+    background: linear-gradient(90deg, rgba(248, 91, 225, 0.5), rgba(248, 91, 225, 0.1), transparent);
+  }
+
+  .cover-letter-section__panel {
+    @apply w-full rounded-2xl border border-border/55 overflow-hidden;
+    background: linear-gradient(165deg, rgba(26, 26, 26, 0.95) 0%, rgba(10, 10, 10, 0.98) 100%);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  }
+
+  .cover-letter-section__accordion {
+    @apply w-full;
+  }
+
+  .cover-letter-section__item {
+    @apply border-b border-border/50 last:border-b-0 transition-colors duration-200;
+  }
+
+  .cover-letter-section__item:hover {
+    background: rgba(248, 91, 225, 0.04);
+  }
+
+  .cover-letter-section__item[data-state="open"] {
+    background: rgba(248, 91, 225, 0.05);
+  }
+
+  .cover-letter-section__trigger {
+    @apply px-6 py-5 md:px-8 md:py-6 lg:px-10 lg:py-7;
+  }
+
+  .cover-letter-section__trigger[data-slot="accordion-trigger"] svg {
+    @apply size-4 shrink-0 text-muted-foreground/70 transition-colors duration-200;
+  }
+
+  .cover-letter-section__item:hover .cover-letter-section__trigger[data-slot="accordion-trigger"] svg,
+  .cover-letter-section__item[data-state="open"] .cover-letter-section__trigger[data-slot="accordion-trigger"] svg {
+    @apply text-pearl-accent;
+  }
+
+  .cover-letter-section__index {
+    font-family: var(--font-mono);
+    @apply w-10 md:w-12 shrink-0 text-sm md:text-base tabular-nums text-pearl-accent/80 transition-colors duration-200;
+  }
+
+  .cover-letter-section__item:hover .cover-letter-section__index,
+  .cover-letter-section__item[data-state="open"] .cover-letter-section__index {
+    @apply text-pearl-accent;
+  }
+
+  .cover-letter-section__title {
+    @apply flex-1 text-left text-lg font-semibold text-foreground transition-colors duration-200 md:text-xl;
+  }
+
+  .cover-letter-section__item:hover .cover-letter-section__title,
+  .cover-letter-section__item[data-state="open"] .cover-letter-section__title {
+    @apply text-pearl-accent;
+  }
+
+  .cover-letter-section__content {
+    @apply pb-0;
+  }
+
+  .cover-letter-section__content > div {
+    @apply border-t border-border/40 px-6 pb-6 pt-0 md:px-8 md:pb-8 lg:px-10 lg:pb-9;
+  }
+
+  .cover-letter-section__body {
+    @apply pt-5 pl-14 md:pl-[4.5rem] lg:pl-[5.5rem] text-base leading-[1.85] text-muted-foreground md:text-lg md:leading-[1.8] max-w-4xl;
+  }
+
   .fields-nav {
     @apply flex items-center gap-3 self-start;
   }

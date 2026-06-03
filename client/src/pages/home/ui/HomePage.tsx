@@ -6,6 +6,7 @@ import { FieldsSection } from "@/widgets/fields-section";
 import { PortfolioSection } from "@/widgets/portfolio-section";
 import { ServicesSection } from "@/widgets/services-section";
 import { ExperienceSection } from "@/widgets/experience-section";
+import { CoverLetterSection } from "@/widgets/cover-letter-section";
 import { ContactSection } from "@/widgets/contact-section";
 
 export function HomePage() {
@@ -20,6 +21,7 @@ export function HomePage() {
           <PortfolioSection />
           <ServicesSection />
           <ExperienceSection />
+          <CoverLetterSection />
           <ContactSection />
         </main>
         <Footer />
