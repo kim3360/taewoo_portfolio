@@ -1,34 +1,31 @@
 export const projects = [
+  //
+  {
+    thumbnail: "../assets/MyformReform/Myform_Reform_Thumbnail.jpg",
+    logo: "../assets/Subom/Title_Logo.png",
+    image: ["../assets/Subom/Subom_Login.png", "../assets/Subom/2.png", "../assets/Subom/3.png", "../assets/Subom/4.png", "../assets/Subom/5.png", "../assets/Subom/6.png", "../assets/Subom/7.png"],
+
+    title: "내폼리폼",
+    description: "스포츠 유니폼 리폼 구매자와 리폼러 연결 통합 플랫폼",
+
+    tags: ["React", "TypeScript", "Tailwind CSS", "REST API", "OpenAI", "Zustand", "Storybook", "ZOD", "SSE", "TanstackQuery(ReactQuery)"],
+    link: "#",
+    liveDemo: "https://myform-reform.vercel.app",
+    github: "https://github.com/Myform-Reform",
+    period: "2025.12 - 2026.02",
+    teamSize: "8명",
+    members: "PM 1명, 디자이너 1명, 프론트엔드 3명, 백엔드 3명",
+  },
   // 스위프 웹 11기 써봄 프로젝트
   {
     thumbnail: "../assets/Subom/subom_Thumbnail.png",
     logo: "../assets/Subom/Title_Logo.png",
-    image: [
-      "../assets/Subom/Subom_Login.png",
-      "../assets/Subom/2.png",
-      "../assets/Subom/3.png",
-      "../assets/Subom/4.png",
-      "../assets/Subom/5.png",
-      "../assets/Subom/6.png",
-      "../assets/Subom/7.png",
-    ],
+    image: ["../assets/Subom/Subom_Login.png", "../assets/Subom/2.png", "../assets/Subom/3.png", "../assets/Subom/4.png", "../assets/Subom/5.png", "../assets/Subom/6.png", "../assets/Subom/7.png"],
 
     title: "써봄",
-    description:
-      "대학생들의 사고력 향상 위한 AI 피드백 기반 글쓰기 루틴 서비스",
+    description: "대학생들의 사고력 향상 위한 AI 피드백 기반 글쓰기 루틴 서비스",
 
-    tags: [
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "REST API",
-      "OpenAI",
-      "Zustand",
-      "Storybook",
-      "ZOD",
-      "SSE",
-      "TanstackQuery(ReactQuery)",
-    ],
+    tags: ["React", "TypeScript", "Tailwind CSS", "REST API", "OpenAI", "Zustand", "Storybook", "ZOD", "SSE", "TanstackQuery(ReactQuery)"],
     link: "#",
     liveDemo: "https://seobom.site",
     github: "https://github.com/SWYP-SUBOM",
@@ -48,26 +45,12 @@ export const projects = [
   {
     thumbnail: "../assets/Wait/Group.png",
     logo: "../assets/Wait/Logo.png",
-    image: [
-      "../assets/Wait/1.png",
-      "../assets/Wait/2.png",
-      "../assets/Wait/3.png",
-      "../assets/Wait/4.png",
-    ],
+    image: ["../assets/Wait/1.png", "../assets/Wait/2.png", "../assets/Wait/3.png", "../assets/Wait/4.png"],
 
     title: "WAIT:IT",
     description: "오프라인 공간에서 줄서기를 간편하게 만들어주는 웨이팅 시스템",
 
-    tags: [
-      "React",
-      "React Native",
-      "TypeScript",
-      "Tailwind CSS",
-      "REST API",
-      "Zustand",
-      "ZOD",
-      "TanstackQuery(ReactQuery)",
-    ],
+    tags: ["React", "React Native", "TypeScript", "Tailwind CSS", "REST API", "Zustand", "ZOD", "TanstackQuery(ReactQuery)"],
     link: "#",
     github: "https://github.com/DMU-Capstone",
     period: "2025.03 - 2025.10",
@@ -87,25 +70,12 @@ export const projects = [
   {
     thumbnail: "../assets/DataFairy/Data_Fairy_Thumbnail.png",
     logo: "../assets/DataFairy/Logo.png",
-    image: [
-      "../assets/DataFairy/1.png",
-      "../assets/DataFairy/2.png",
-      "../assets/DataFairy/3.png",
-      "../assets/DataFairy/4.png",
-    ],
+    image: ["../assets/DataFairy/1.png", "../assets/DataFairy/2.png", "../assets/DataFairy/3.png", "../assets/DataFairy/4.png"],
 
     title: "자료요정",
-    description:
-      "많은 사용자들이 스마트폰으로 강의자료, 회의 내용, 설정 정보 등을 스크린샷으로 저장하지만, 나중에 다시 확인하려고 할 때 어떤 내용인지 기억하기 어렵고, 정리되지 않아 찾기 힘든 문제가 발생합니다. 이를 해결하기 위해, 스크린샷 이미지 안의 텍스트를 자동으로 추출하고, OpenAI를 활용해 요약 + 카테고리 분류 + 폴더 저장까지 자동화하는 서비스",
+    description: "많은 사용자들이 스마트폰으로 강의자료, 회의 내용, 설정 정보 등을 스크린샷으로 저장하지만, 나중에 다시 확인하려고 할 때 어떤 내용인지 기억하기 어렵고, 정리되지 않아 찾기 힘든 문제가 발생합니다. 이를 해결하기 위해, 스크린샷 이미지 안의 텍스트를 자동으로 추출하고, OpenAI를 활용해 요약 + 카테고리 분류 + 폴더 저장까지 자동화하는 서비스",
 
-    tags: [
-      "React Native",
-      "Expo",
-      "TypeScript",
-      "Style Component",
-      "REST API",
-      "OpenAI",
-    ],
+    tags: ["React Native", "Expo", "TypeScript", "Style Component", "REST API", "OpenAI"],
     link: "#",
 
     github: "https://github.com/Zerotone-ClearShot",
@@ -127,8 +97,7 @@ export const projects = [
     image: ["../assets/DASOM/1.png"],
 
     title: "DASOM",
-    description:
-      "동양미래대학교 컴퓨터공학부 전공동아리 다솜의 공식 홈페이지입니다. 동아리 소개, 개발 기록, 회원 관리 등 동아리 운영에 필요한 기능을 제공하는 반응형 웹사이트입니다.",
+    description: "동양미래대학교 컴퓨터공학부 전공동아리 다솜의 공식 홈페이지입니다. 동아리 소개, 개발 기록, 회원 관리 등 동아리 운영에 필요한 기능을 제공하는 반응형 웹사이트입니다.",
 
     tags: ["React", "TypeScript", "Tailwind CSS", "REST API"],
     link: "#",
@@ -146,4 +115,4 @@ export const projects = [
       "회원가입 및 로그인 기능을 구현하여 동아리 멤버 관리 시스템을 구축했습니다. REST API를 통해 서버와 통신하며, 인증 토큰을 활용한 세션 관리를 구현했습니다. 회원 정보 수정 및 프로필 관리 기능도 포함했습니다.\n\n" +
       "사용자 경험 개선을 위해 페이지 전환 애니메이션과 로딩 상태를 명확하게 표시했습니다. 에러 처리와 폼 유효성 검사를 구현하여 사용자가 입력한 정보의 정확성을 보장했습니다. 또한 SEO 최적화를 고려하여 메타 태그와 시맨틱 HTML을 적절히 활용했습니다.",
   },
-];
+]
