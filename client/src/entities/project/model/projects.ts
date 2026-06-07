@@ -1,5 +1,5 @@
 export const projects = [
-  //
+  // 내폼리폼 프로젝트
   {
     thumbnail: "../assets/MyformReform/Myform_Reform_Thumbnail.jpg",
     logo: "../assets/Subom/Title_Logo.png",
@@ -16,6 +16,23 @@ export const projects = [
     teamSize: "8명",
     members: "PM 1명, 디자이너 1명, 프론트엔드 3명, 백엔드 3명",
   },
+
+  // 스위프 웹 12기 밍글링 프로젝트
+  {
+    thumbnail: "../assets/Mingling/Mingling_Thubnail.png",
+    logo: "../assets/Mingling/Logo.png",
+    image: ["../assets/Mingling/1.png"],
+
+    title: "밍글링",
+    description: "대학생들의 사고력 향상 위한 AI 피드백 기반 글쓰기 루틴 서비스",
+
+    tags: ["React", "TypeScript", "Tailwind CSS", "REST API", "OpenAI", "Zustand", "Storybook", "ZOD", "SSE", "TanstackQuery(ReactQuery)"],
+    link: "#",
+    liveDemo: "https://www.mingling.kr/",
+    github: "https://github.com/SWYP-mingling/Frontend",
+    period: "2025.12 - 2025.01",
+  },
+
   // 스위프 웹 11기 써봄 프로젝트
   {
     thumbnail: "../assets/Subom/subom_Thumbnail.png",
@@ -91,6 +108,7 @@ export const projects = [
       "사용자 경험 개선을 위해 직관적인 UI/UX를 설계했습니다. 스타일 컴포넌트를 활용하여 일관된 디자인 시스템을 구축했고, 로딩 상태와 에러 처리를 명확하게 표시하여 사용자가 앱의 상태를 쉽게 파악할 수 있도록 했습니다. 또한 자동 저장 기능과 검색 기능을 구현하여 사용자가 저장한 자료를 빠르게 찾을 수 있도록 했습니다.",
   },
 
+  // DASOM 프로젝트
   {
     thumbnail: "../assets/DASOM/banner.png",
     logo: "../assets/DASOM/Logo.png",
