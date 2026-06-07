@@ -85,20 +85,10 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
 
                         {project.image.length > 1 && (
                           <>
-                            <button
-                              ref={prevRef}
-                              type="button"
-                              aria-label="이전 이미지"
-                              className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/60 text-white shadow-lg backdrop-blur hover:bg-primary transition-all flex items-center justify-center"
-                            >
+                            <button ref={prevRef} type="button" aria-label="이전 이미지" className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/60 text-white shadow-lg backdrop-blur hover:bg-primary transition-all flex items-center justify-center">
                               <ChevronLeft className="w-5 h-5" />
                             </button>
-                            <button
-                              ref={nextRef}
-                              type="button"
-                              aria-label="다음 이미지"
-                              className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/60 text-white shadow-lg backdrop-blur hover:bg-primary transition-all flex items-center justify-center"
-                            >
+                            <button ref={nextRef} type="button" aria-label="다음 이미지" className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/60 text-white shadow-lg backdrop-blur hover:bg-primary transition-all flex items-center justify-center">
                               <ChevronRight className="w-5 h-5" />
                             </button>
                           </>
@@ -108,19 +98,11 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
                           <div className="flex justify-center items-center">
                             {project.type === "web" ? (
                               <div className="relative w-full max-w-[760px] aspect-[760/469] overflow-hidden rounded-lg shadow-inner">
-                                <img
-                                  src={project.image[0]}
-                                  alt={`${project.title} - 이미지`}
-                                  className="w-full h-full object-cover"
-                                />
+                                <img src={project.image[0]} alt={`${project.title} - 이미지`} className="w-full h-full object-cover" />
                               </div>
                             ) : (
                               <div className="relative w-[200px] h-[430px] rounded-[2rem] overflow-hidden bg-black shadow-inner">
-                                <img
-                                  src={project.image[0]}
-                                  alt={`${project.title} - 이미지`}
-                                  className="w-full h-full object-cover"
-                                />
+                                <img src={project.image[0]} alt={`${project.title} - 이미지`} className="w-full h-full object-cover" />
                               </div>
                             )}
                           </div>
@@ -143,11 +125,7 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
                                 swiper.params.navigation.nextEl = nextRef.current
                               }
                             }}
-                            pagination={
-                              project.type === "mobile"
-                                ? { clickable: true, dynamicBullets: true }
-                                : { clickable: true }
-                            }
+                            pagination={project.type === "mobile" ? { clickable: true, dynamicBullets: true } : { clickable: true }}
                             thumbs={{ swiper: thumbsSwiper }}
                             slidesPerView={1}
                             spaceBetween={project.type === "web" ? 24 : 10}
@@ -158,30 +136,18 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
                                 1024: { slidesPerView: 3, spaceBetween: 20 },
                               },
                             })}
-                            className={
-                              project.type === "web"
-                                ? "project-swiper project-swiper--web rounded-lg overflow-hidden"
-                                : "project-swiper rounded-3xl overflow-visible h-[480px]"
-                            }
+                            className={project.type === "web" ? "project-swiper project-swiper--web rounded-lg overflow-hidden" : "project-swiper rounded-3xl overflow-visible h-[480px]"}
                           >
                             {project.image.map((img, index) => (
                               <SwiperSlide key={index}>
                                 <div className="flex justify-center items-center">
                                   {project.type === "web" ? (
                                     <div className="relative w-full max-w-[760px] aspect-[760/469] overflow-hidden rounded-lg shadow-inner">
-                                      <img
-                                        src={img}
-                                        alt={`${project.title} - 이미지 ${index + 1}`}
-                                        className="w-full h-full object-cover"
-                                      />
+                                      <img src={img} alt={`${project.title} - 이미지 ${index + 1}`} className="w-full h-full object-cover" />
                                     </div>
                                   ) : (
                                     <div className="relative w-[200px] h-[430px] rounded-[2rem] overflow-hidden bg-black shadow-inner">
-                                      <img
-                                        src={img}
-                                        alt={`${project.title} - 이미지 ${index + 1}`}
-                                        className="w-full h-full object-cover"
-                                      />
+                                      <img src={img} alt={`${project.title} - 이미지 ${index + 1}`} className="w-full h-full object-cover" />
                                     </div>
                                   )}
                                 </div>

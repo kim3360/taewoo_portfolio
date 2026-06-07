@@ -1,97 +1,56 @@
-import { projects } from "@/entities/project";
-import { PORTFOLIO_CATEGORIES } from "@/entities/site";
-import { useState } from "react";
-import { ProjectModal } from "@/features/project-modal";
-import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
-import { Marquee, MarqueeItem } from "@/shared/ui/Marquee";
-import { cn } from "@/shared/lib/utils";
-import { PortfolioCategorySlide } from "./PortfolioCategorySlide";
+import { projects } from "@/entities/project"
+import { PORTFOLIO_CATEGORIES } from "@/entities/site"
+import { useState } from "react"
+import { ProjectModal } from "@/features/project-modal"
+import { motion } from "framer-motion"
+import { ArrowUpRight } from "lucide-react"
+import { Marquee, MarqueeItem } from "@/shared/ui/Marquee"
+import { cn } from "@/shared/lib/utils"
+import { PortfolioCategorySlide } from "./PortfolioCategorySlide"
 
 const categoryThumbnails: Record<string, string> = {
   web: projects.find((p) => p.title === "DASOM")?.thumbnail ?? projects[0].thumbnail,
   mobile: projects.find((p) => p.title === "WAIT:IT")?.thumbnail ?? projects[1].thumbnail,
   team: projects.find((p) => p.title === "써봄")?.thumbnail ?? projects[0].thumbnail,
-};
+}
 
-const sliderCategories = [...PORTFOLIO_CATEGORIES, ...PORTFOLIO_CATEGORIES];
+const sliderCategories = [...PORTFOLIO_CATEGORIES, ...PORTFOLIO_CATEGORIES]
 
 export const ProjectComponent = () => {
-  const [selectedProject, setSelectedProject] = useState<(typeof projects)[0] | null>(null);
-  const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+  const [selectedProject, setSelectedProject] = useState<(typeof projects)[0] | null>(null)
+  const [isProjectModalOpen, setIsProjectModalOpen] = useState(false)
+  const [activeCategory, setActiveCategory] = useState<string | null>(null)
 
   const handleProjectClick = (project: (typeof projects)[0]) => {
-    setSelectedProject(project);
-    setIsProjectModalOpen(true);
-  };
+    setSelectedProject(project)
+    setIsProjectModalOpen(true)
+  }
 
-  const activeCat = PORTFOLIO_CATEGORIES.find((c) => c.id === activeCategory);
-  const filteredProjects = activeCat
-    ? projects.filter((p) =>
-        (activeCat.projects as readonly string[]).includes(p.title)
-      )
-    : projects;
+  const activeCat = PORTFOLIO_CATEGORIES.find((c) => c.id === activeCategory)
+  const filteredProjects = activeCat ? projects.filter((p) => (activeCat.projects as readonly string[]).includes(p.title)) : projects
 
   const toggleCategory = (id: string) => {
-    setActiveCategory((prev) => (prev === id ? null : id));
-  };
+    setActiveCategory((prev) => (prev === id ? null : id))
+  }
 
   return (
-    <section
-      id="portfolio"
-      className="portfolio-section section-padding section-glow relative overflow-hidden"
-    >
+    <section id="portfolio" className="portfolio-section section-padding section-glow relative overflow-hidden">
       <div className="portfolio-section__glow" aria-hidden />
 
       <div className="container relative z-10 mb-8 md:mb-12">
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="portfolio-section__header"
-        >
+        <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="portfolio-section__header">
           <p className="portfolio-section__eyebrow">Portfolio</p>
           <h2 className="portfolio-section__title hero-headline">Selected Works</h2>
-          <p className="portfolio-section__subtitle">
-            카테고리를 선택하면 아래 프로젝트가 필터됩니다 · 호버 시 슬라이드 일시 정지
-          </p>
+          <p className="portfolio-section__subtitle">카테고리를 선택하면 아래 프로젝트가 필터됩니다 · 호버 시 슬라이드 일시 정지</p>
           <div className="portfolio-section__header-line" aria-hidden />
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 8 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="portfolio-filters"
-          role="tablist"
-          aria-label="프로젝트 카테고리"
-        >
-          <button
-            type="button"
-            role="tab"
-            aria-selected={!activeCategory}
-            onClick={() => setActiveCategory(null)}
-            className={cn(
-              "portfolio-filter",
-              !activeCategory && "portfolio-filter--active"
-            )}
-          >
+        <motion.div initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="portfolio-filters" role="tablist" aria-label="프로젝트 카테고리">
+          <button type="button" role="tab" aria-selected={!activeCategory} onClick={() => setActiveCategory(null)} className={cn("portfolio-filter", !activeCategory && "portfolio-filter--active")}>
             All
           </button>
           {PORTFOLIO_CATEGORIES.map((cat) => (
-            <button
-              key={cat.id}
-              type="button"
-              role="tab"
-              aria-selected={activeCategory === cat.id}
-              onClick={() => toggleCategory(cat.id)}
-              className={cn(
-                "portfolio-filter",
-                activeCategory === cat.id && "portfolio-filter--active"
-              )}
-            >
+            <button key={cat.id} type="button" role="tab" aria-selected={activeCategory === cat.id} onClick={() => toggleCategory(cat.id)} className={cn("portfolio-filter", activeCategory === cat.id && "portfolio-filter--active")}>
               {cat.label}
             </button>
           ))}
@@ -101,20 +60,8 @@ export const ProjectComponent = () => {
       <div className="portfolio-marquee-wrap marquee-fade portfolio-marquee-wrap--primary relative z-10 mb-4 md:mb-6">
         <Marquee speed="portfolio" pauseOnHover>
           {sliderCategories.map((cat, index) => (
-            <MarqueeItem
-              key={`${cat.id}-${index}`}
-              separator={false}
-              className="px-2 md:px-3"
-            >
-              <PortfolioCategorySlide
-                category={cat}
-                thumbnail={categoryThumbnails[cat.id]}
-                index={index % PORTFOLIO_CATEGORIES.length}
-                projectCount={cat.projects.length}
-                isActive={activeCategory === cat.id}
-                arrowDirection={index % 2 === 0 ? "right" : "left"}
-                onSelect={() => toggleCategory(cat.id)}
-              />
+            <MarqueeItem key={`${cat.id}-${index}`} separator={false} className="px-2 md:px-3">
+              <PortfolioCategorySlide category={cat} thumbnail={categoryThumbnails[cat.id]} index={index % PORTFOLIO_CATEGORIES.length} projectCount={cat.projects.length} isActive={activeCategory === cat.id} arrowDirection={index % 2 === 0 ? "right" : "left"} onSelect={() => toggleCategory(cat.id)} />
             </MarqueeItem>
           ))}
         </Marquee>
@@ -123,17 +70,10 @@ export const ProjectComponent = () => {
       <div className="portfolio-marquee-wrap marquee-fade portfolio-marquee-wrap--ghost relative z-10 mb-16 md:mb-24 opacity-35 pointer-events-none hidden md:block">
         <Marquee speed="portfolio" reverse>
           {sliderCategories.map((cat, index) => (
-            <MarqueeItem
-              key={`ghost-${cat.id}-${index}`}
-              separator={false}
-              className="px-2 md:px-3"
-            >
+            <MarqueeItem key={`ghost-${cat.id}-${index}`} separator={false} className="px-2 md:px-3">
               <div className="portfolio-slide portfolio-slide--ghost" aria-hidden>
                 <div className="portfolio-slide__preview min-h-[120px]">
-                  <div
-                    className="portfolio-slide__preview-img opacity-30"
-                    style={{ backgroundImage: `url(${categoryThumbnails[cat.id]})` }}
-                  />
+                  <div className="portfolio-slide__preview-img opacity-30" style={{ backgroundImage: `url(${categoryThumbnails[cat.id]})` }} />
                 </div>
               </div>
             </MarqueeItem>
@@ -142,73 +82,34 @@ export const ProjectComponent = () => {
       </div>
 
       <div className="container relative z-10">
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="portfolio-projects-head"
-        >
+        <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="portfolio-projects-head">
           <span className="portfolio-projects-head__line" aria-hidden />
-          <p className="portfolio-projects-head__label">
-            {activeCategory
-              ? `${activeCat?.label ?? ""} · ${filteredProjects.length} works`
-              : `All · ${filteredProjects.length} works`}
-          </p>
+          <p className="portfolio-projects-head__label">{activeCategory ? `${activeCat?.label ?? ""} · ${filteredProjects.length} works` : `All · ${filteredProjects.length} works`}</p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-5 md:gap-6">
           {filteredProjects.map((project, index) => (
-            <motion.button
-              key={project.title}
-              type="button"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              whileHover={{ y: -4 }}
-              onClick={() => handleProjectClick(project)}
-              className="portfolio-project-card group text-left"
-            >
-              <span className="portfolio-project-card__num">
-                {String(index + 1).padStart(2, "0")}
-              </span>
+            <motion.button key={project.title} type="button" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.08 }} whileHover={{ y: -4 }} onClick={() => handleProjectClick(project)} className="portfolio-project-card group text-left">
+              <span className="portfolio-project-card__num">{String(index + 1).padStart(2, "0")}</span>
               <div className="aspect-[16/10] overflow-hidden relative">
-                <img
-                  src={project.thumbnail}
-                  alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
+                <img src={project.thumbnail} alt={project.title} className="w-full h-full  group-hover:scale-105 transition-transform duration-700" />
                 <div className="portfolio-project-card__overlay" />
                 <div className="portfolio-project-card__view">View project</div>
               </div>
               <div className="p-6 md:p-8">
                 <div className="flex justify-between items-start gap-4 mb-2">
-                  <h4 className="text-xl md:text-2xl font-bold group-hover:text-pearl-accent transition-colors">
-                    {project.title}
-                  </h4>
+                  <h4 className="text-xl md:text-2xl font-bold group-hover:text-pearl-accent transition-colors">{project.title}</h4>
                   <ArrowUpRight className="w-5 h-5 shrink-0 text-pearl-accent opacity-0 group-hover:opacity-100 transition-all" />
                 </div>
-                <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
-                  {project.description}
-                </p>
-                {project.period && (
-                  <p className="text-[10px] tracking-[0.2em] uppercase text-pearl-accent/60 mt-4">
-                    {project.period}
-                  </p>
-                )}
+                <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">{project.description}</p>
+                {project.period && <p className="text-[10px] tracking-[0.2em] uppercase text-pearl-accent/60 mt-4">{project.period}</p>}
               </div>
             </motion.button>
           ))}
         </div>
       </div>
 
-      {isProjectModalOpen && selectedProject && (
-        <ProjectModal
-          project={selectedProject}
-          isOpen={isProjectModalOpen}
-          onClose={() => setIsProjectModalOpen(false)}
-        />
-      )}
+      {isProjectModalOpen && selectedProject && <ProjectModal project={selectedProject} isOpen={isProjectModalOpen} onClose={() => setIsProjectModalOpen(false)} />}
     </section>
-  );
-};
+  )
+}

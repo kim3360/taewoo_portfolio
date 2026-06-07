@@ -23,7 +23,7 @@ export const projects = [
     type: "web",
     thumbnail: "../assets/Mingling/Mingling_Thubnail.png",
     logo: "../assets/Mingling/Logo.png",
-    image: ["../assets/Mingling/1.png", "../assets/Mingling/1.png"],
+    image: ["../assets/Mingling/1.png", "../assets/Mingling/2.png", "../assets/Mingling/3.png", "../assets/Mingling/4.png", "../assets/Mingling/5.png", "../assets/Mingling/6.png"],
 
     title: "밍글링",
     description: "대학생들의 사고력 향상 위한 AI 피드백 기반 글쓰기 루틴 서비스",
