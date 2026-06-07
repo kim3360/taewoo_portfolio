@@ -18,6 +18,7 @@ interface ProjectModalProps {
   isOpen: boolean
   onClose: () => void
   project: {
+    type: string
     title: string
     description: string
     image: string[]
@@ -71,7 +72,6 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
                   {/* 이미지 */}
                   {project.image && project.image.length > 0 && (
                     <div className="space-y-4">
-                      {/* 메인 이미지 - 모바일 프레임 */}
                       <div className="relative">
                         <style>{`
                           .project-swiper .swiper-pagination-bullet {
@@ -82,75 +82,112 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
                             background: blue !important;
                           }
                         `}</style>
+
+                        {project.image.length > 1 && (
+                          <>
+                            <button
+                              ref={prevRef}
+                              type="button"
+                              aria-label="이전 이미지"
+                              className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/60 text-white shadow-lg backdrop-blur hover:bg-primary transition-all flex items-center justify-center"
+                            >
+                              <ChevronLeft className="w-5 h-5" />
+                            </button>
+                            <button
+                              ref={nextRef}
+                              type="button"
+                              aria-label="다음 이미지"
+                              className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/60 text-white shadow-lg backdrop-blur hover:bg-primary transition-all flex items-center justify-center"
+                            >
+                              <ChevronRight className="w-5 h-5" />
+                            </button>
+                          </>
+                        )}
+
                         {project.image.length === 1 ? (
-                          // 이미지가 1개일 때는 일반 이미지로 표시
                           <div className="flex justify-center items-center">
-                            {/* 스크린 */}
-                            <div className="relative w-full max-w-[760px] aspect-[760/469] overflow-hidden rounded-lg shadow-inner">
-                              <img src={project.image[0]} alt={`${project.title} - 이미지`} className="w-full h-full object-cover" />
-                            </div>
+                            {project.type === "web" ? (
+                              <div className="relative w-full max-w-[760px] aspect-[760/469] overflow-hidden rounded-lg shadow-inner">
+                                <img
+                                  src={project.image[0]}
+                                  alt={`${project.title} - 이미지`}
+                                  className="w-full h-full object-cover"
+                                />
+                              </div>
+                            ) : (
+                              <div className="relative w-[200px] h-[430px] rounded-[2rem] overflow-hidden bg-black shadow-inner">
+                                <img
+                                  src={project.image[0]}
+                                  alt={`${project.title} - 이미지`}
+                                  className="w-full h-full object-cover"
+                                />
+                              </div>
+                            )}
                           </div>
                         ) : (
-                          // 이미지가 여러 개일 때는 Swiper 사용
-                          <>
-                            {project.image.length > 1 && (
-                              <>
-                                <button ref={prevRef} className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/60 text-white shadow-lg backdrop-blur hover:bg-primary transition-all flex items-center justify-center">
-                                  <ChevronLeft className="w-5 h-5" />
-                                </button>
-                                <button ref={nextRef} className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-black/60 text-white shadow-lg backdrop-blur hover:bg-primary transition-all flex items-center justify-center">
-                                  <ChevronRight className="w-5 h-5" />
-                                </button>
-                              </>
-                            )}
-
-                            <Swiper
-                              modules={[Navigation, Pagination, Autoplay, Thumbs]}
-                              loop={project.image.length > 3}
-                              autoplay={{
-                                delay: 3000,
-                                disableOnInteraction: false,
-                                pauseOnMouseEnter: true,
-                              }}
-                              navigation={{
-                                prevEl: prevRef.current,
-                                nextEl: nextRef.current,
-                              }}
-                              onBeforeInit={(swiper) => {
-                                if (swiper.params.navigation && typeof swiper.params.navigation !== "boolean") {
-                                  swiper.params.navigation.prevEl = prevRef.current
-                                  swiper.params.navigation.nextEl = nextRef.current
-                                }
-                              }}
-                              pagination={project.image.length > 3 ? { clickable: true, dynamicBullets: true } : false}
-                              thumbs={{ swiper: thumbsSwiper }}
-                              breakpoints={{
-                                320: {
-                                  slidesPerView: 1,
-                                  spaceBetween: 10,
-                                },
-                                640: {
-                                  slidesPerView: 2,
-                                  spaceBetween: 15,
-                                },
-                                1024: {
-                                  slidesPerView: 3,
-                                  spaceBetween: 20,
-                                },
-                              }}
-                              className="project-swiper rounded-3xl overflow-visible h-[480px]"
-                            >
-                              {project.image.map((img, index) => (
-                                <SwiperSlide key={index}>
-                                  <div className="flex justify-center items-center">
-                                    <div className="relative w-[200px] h-[430px] rounded-[2rem] overflow-hidden bg-black shadow-inner">
-                                      <img src={img} alt={`${project.title} - 이미지 ${index + 1}`} className="w-full h-full object-cover" />
+                          <Swiper
+                            modules={[Navigation, Pagination, Autoplay, Thumbs]}
+                            loop={project.image.length > 1}
+                            autoplay={{
+                              delay: 3000,
+                              disableOnInteraction: false,
+                              pauseOnMouseEnter: true,
+                            }}
+                            navigation={{
+                              prevEl: prevRef.current,
+                              nextEl: nextRef.current,
+                            }}
+                            onBeforeInit={(swiper) => {
+                              if (swiper.params.navigation && typeof swiper.params.navigation !== "boolean") {
+                                swiper.params.navigation.prevEl = prevRef.current
+                                swiper.params.navigation.nextEl = nextRef.current
+                              }
+                            }}
+                            pagination={
+                              project.type === "mobile"
+                                ? { clickable: true, dynamicBullets: true }
+                                : { clickable: true }
+                            }
+                            thumbs={{ swiper: thumbsSwiper }}
+                            slidesPerView={1}
+                            spaceBetween={project.type === "web" ? 24 : 10}
+                            {...(project.type !== "web" && {
+                              breakpoints: {
+                                320: { slidesPerView: 1, spaceBetween: 10 },
+                                640: { slidesPerView: 2, spaceBetween: 15 },
+                                1024: { slidesPerView: 3, spaceBetween: 20 },
+                              },
+                            })}
+                            className={
+                              project.type === "web"
+                                ? "project-swiper project-swiper--web rounded-lg overflow-hidden"
+                                : "project-swiper rounded-3xl overflow-visible h-[480px]"
+                            }
+                          >
+                            {project.image.map((img, index) => (
+                              <SwiperSlide key={index}>
+                                <div className="flex justify-center items-center">
+                                  {project.type === "web" ? (
+                                    <div className="relative w-full max-w-[760px] aspect-[760/469] overflow-hidden rounded-lg shadow-inner">
+                                      <img
+                                        src={img}
+                                        alt={`${project.title} - 이미지 ${index + 1}`}
+                                        className="w-full h-full object-cover"
+                                      />
                                     </div>
-                                  </div>
-                                </SwiperSlide>
-                              ))}
-                            </Swiper>
-                          </>
+                                  ) : (
+                                    <div className="relative w-[200px] h-[430px] rounded-[2rem] overflow-hidden bg-black shadow-inner">
+                                      <img
+                                        src={img}
+                                        alt={`${project.title} - 이미지 ${index + 1}`}
+                                        className="w-full h-full object-cover"
+                                      />
+                                    </div>
+                                  )}
+                                </div>
+                              </SwiperSlide>
+                            ))}
+                          </Swiper>
                         )}
                       </div>
                     </div>
@@ -212,7 +249,7 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
                   {/* 상세 내용 */}
                   {project.details && (
                     <div>
-                      <h3 className="text-lg font-semibold mb-3">상세 내용</h3>
+                      <h3 className="text-lg font-semibold mb-3">트러블 슈팅</h3>
                       <div className="bg-muted/30 rounded-lg p-4 border border-border/50">
                         <p className="text-muted-foreground leading-relaxed whitespace-pre-line text-sm">{project.details}</p>
                       </div>

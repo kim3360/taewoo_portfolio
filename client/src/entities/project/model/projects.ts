@@ -1,6 +1,7 @@
 export const projects = [
   // 내폼리폼 프로젝트
   {
+    type: "web",
     thumbnail: "../assets/MyformReform/Myform_Reform_Thumbnail.jpg",
     logo: "../assets/Subom/Title_Logo.png",
     image: ["../assets/Subom/Subom_Login.png", "../assets/Subom/2.png", "../assets/Subom/3.png", "../assets/Subom/4.png", "../assets/Subom/5.png", "../assets/Subom/6.png", "../assets/Subom/7.png"],
@@ -19,9 +20,10 @@ export const projects = [
 
   // 스위프 웹 12기 밍글링 프로젝트
   {
+    type: "web",
     thumbnail: "../assets/Mingling/Mingling_Thubnail.png",
     logo: "../assets/Mingling/Logo.png",
-    image: ["../assets/Mingling/1.png"],
+    image: ["../assets/Mingling/1.png", "../assets/Mingling/1.png"],
 
     title: "밍글링",
     description: "대학생들의 사고력 향상 위한 AI 피드백 기반 글쓰기 루틴 서비스",
@@ -35,6 +37,7 @@ export const projects = [
 
   // 스위프 웹 11기 써봄 프로젝트
   {
+    type: "mobile",
     thumbnail: "../assets/Subom/subom_Thumbnail.png",
     logo: "../assets/Subom/Title_Logo.png",
     image: ["../assets/Subom/Subom_Login.png", "../assets/Subom/2.png", "../assets/Subom/3.png", "../assets/Subom/4.png", "../assets/Subom/5.png", "../assets/Subom/6.png", "../assets/Subom/7.png"],
@@ -60,6 +63,7 @@ export const projects = [
 
   //  WAIT:IT 프로젝트
   {
+    type: "mobile",
     thumbnail: "../assets/Wait/Group.png",
     logo: "../assets/Wait/Logo.png",
     image: ["../assets/Wait/1.png", "../assets/Wait/2.png", "../assets/Wait/3.png", "../assets/Wait/4.png"],
@@ -85,6 +89,7 @@ export const projects = [
 
   // 자료요정
   {
+    type: "mobile",
     thumbnail: "../assets/DataFairy/Data_Fairy_Thumbnail.png",
     logo: "../assets/DataFairy/Logo.png",
     image: ["../assets/DataFairy/1.png", "../assets/DataFairy/2.png", "../assets/DataFairy/3.png", "../assets/DataFairy/4.png"],
@@ -110,6 +115,7 @@ export const projects = [
 
   // DASOM 프로젝트
   {
+    type: "web",
     thumbnail: "../assets/DASOM/banner.png",
     logo: "../assets/DASOM/Logo.png",
     image: ["../assets/DASOM/1.png"],
