@@ -97,7 +97,7 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
                         {project.image.length === 1 ? (
                           <div className="flex justify-center items-center">
                             {project.type === "web" ? (
-                              <div className="relative w-full max-w-[760px] aspect-[760/469] overflow-hidden rounded-lg shadow-inner">
+                              <div className="relative w-full max-w-[760px] aspect-[760/469] overflow-hidden  rounded-lg shadow-inner">
                                 <img src={project.image[0]} alt={`${project.title} - 이미지`} className="w-full h-full object-cover" />
                               </div>
                             ) : (

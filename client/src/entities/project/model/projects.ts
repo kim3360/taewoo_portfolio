@@ -4,7 +4,7 @@ export const projects = [
     type: "web",
     thumbnail: "../assets/MyformReform/Myform_Reform_Thumbnail.jpg",
     logo: "../assets/Subom/Title_Logo.png",
-    image: ["../assets/Subom/Subom_Login.png", "../assets/Subom/2.png", "../assets/Subom/3.png", "../assets/Subom/4.png", "../assets/Subom/5.png", "../assets/Subom/6.png", "../assets/Subom/7.png"],
+    image: ["../assets/MyformReform/Myform_Reform1.png", "../assets/MyformReform/a.png", "../assets/Subom/3.png", "../assets/Subom/4.png", "../assets/Subom/5.png", "../assets/Subom/6.png", "../assets/Subom/7.png"],
 
     title: "내폼리폼",
     description: "스포츠 유니폼 리폼 구매자와 리폼러 연결 통합 플랫폼",
@@ -32,7 +32,7 @@ export const projects = [
     link: "#",
     liveDemo: "https://www.mingling.kr/",
     github: "https://github.com/SWYP-mingling/Frontend",
-    period: "2025.12 - 2025.01",
+    period: "2025.12 - 2026.02",
   },
 
   // 스위프 웹 11기 써봄 프로젝트
