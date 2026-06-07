@@ -4,7 +4,7 @@ export const projects = [
     type: "web",
     thumbnail: "../assets/MyformReform/Myform_Reform_Thumbnail.jpg",
     logo: "../assets/Subom/Title_Logo.png",
-    image: ["../assets/MyformReform/Myform_Reform1.png", "../assets/MyformReform/a.png", "../assets/Subom/3.png", "../assets/Subom/4.png", "../assets/Subom/5.png", "../assets/Subom/6.png", "../assets/Subom/7.png"],
+    image: ["../assets/MyformReform/Myform_Reform1.png", "../assets/MyformReform/Myform_Reform2.png", "../assets/MyformReform/Myform_Reform3.png", "../assets/MyformReform/Myform_Reform4.png", "../assets/MyformReform/Myform_Reform5.png", "../assets/MyformReform/Myform_Reform6.png"],
 
     title: "내폼리폼",
     description: "스포츠 유니폼 리폼 구매자와 리폼러 연결 통합 플랫폼",
@@ -16,6 +16,12 @@ export const projects = [
     period: "2025.12 - 2026.02",
     teamSize: "8명",
     members: "PM 1명, 디자이너 1명, 프론트엔드 3명, 백엔드 3명",
+    details: {
+      Problem: "스포츠 유니폼 리폼 구매자와 리폼러 연결 통합 플랫폼",
+      Cause: "bbbbbbbbbbbb",
+      Solution: "cc",
+      Result: "dd",
+    },
   },
 
   // 스위프 웹 12기 밍글링 프로젝트
@@ -53,12 +59,12 @@ export const projects = [
     teamSize: "8명",
     members: "PM 1명, 디자이너 1명, 프론트엔드 3명, 백엔드 3명",
     pdf: "../assets/Subom/SWYP_Subom.pdf",
-    details:
-      "React Native와 Expo를 활용하여 크로스 플랫폼 모바일 앱을 개발했습니다. 앱 구조는 컴포넌트 기반 아키텍처로 설계하여 재사용성과 유지보수성을 높였으며, TypeScript를 통해 타입 안정성을 확보했습니다.\n\n" +
-      "스크린샷 이미지에서 텍스트를 추출하기 위해 OCR(광학 문자 인식) 라이브러리를 활용했습니다. 이미지 전처리 과정을 거쳐 텍스트 인식 정확도를 향상시켰고, 다양한 폰트와 배경에서도 안정적으로 작동하도록 최적화했습니다.\n\n" +
-      "추출된 텍스트는 OpenAI API를 통해 자동으로 요약되고 카테고리로 분류됩니다. 프롬프트 엔지니어링을 통해 정확한 요약과 분류가 이루어지도록 최적화했으며, 사용자의 의도에 맞는 카테고리 자동 분류 로직을 구현했습니다.\n\n" +
-      "이미지 처리는 효율적인 저장 방식을 채택하여 디바이스 저장 공간을 최적화했습니다. 압축 알고리즘을 적용하여 이미지 크기를 줄이면서도 품질을 유지했고, 비동기 처리를 통해 사용자 경험을 개선했습니다.\n\n" +
-      "사용자 경험 개선을 위해 직관적인 UI/UX를 설계했습니다. 스타일 컴포넌트를 활용하여 일관된 디자인 시스템을 구축했고, 로딩 상태와 에러 처리를 명확하게 표시하여 사용자가 앱의 상태를 쉽게 파악할 수 있도록 했습니다. 또한 자동 저장 기능과 검색 기능을 구현하여 사용자가 저장한 자료를 빠르게 찾을 수 있도록 했습니다.",
+    details: {
+      Problem: "aaaaaaaaaaaa",
+      Cause: "bbbbbbbbbbbb",
+      Solution: "cc",
+      Result: "dd",
+    },
   },
 
   //  WAIT:IT 프로젝트

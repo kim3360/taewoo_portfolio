@@ -26,7 +26,12 @@ interface ProjectModalProps {
     link: string
     liveDemo?: string
     github?: string
-    details?: string
+    details?: {
+      Problem: string
+      Cause: string
+      Solution: string
+      Result: string
+    }
     period?: string
     teamSize?: string
     members?: string
@@ -213,14 +218,21 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
                   </div>
 
                   {/* 상세 내용 */}
-                  {project.details && (
-                    <div>
-                      <h3 className="text-lg font-semibold mb-3">트러블 슈팅</h3>
-                      <div className="bg-muted/30 rounded-lg p-4 border border-border/50">
-                        <p className="text-muted-foreground leading-relaxed whitespace-pre-line text-sm">{project.details}</p>
-                      </div>
+
+                  <div>
+                    <h3 className="text-lg font-semibold mb-3">트러블 슈팅</h3>
+
+                    <div className="bg-muted/30 rounded-lg p-4 border border-border/50">
+                      <h4 className="text-sm font-semibold mb-2 text-muted-foreground">문제</h4>
+                      <p className="text-muted-foreground leading-relaxed whitespace-pre-line text-sm">{project.details?.Problem}</p>
+                      <h4 className="text-sm font-semibold mb-2 text-muted-foreground">원인</h4>
+                      <p className="text-muted-foreground leading-relaxed whitespace-pre-line text-sm">{project.details?.Cause}</p>
+                      <h4 className="text-sm font-semibold mb-2 text-muted-foreground">해결 방법</h4>
+                      <p className="text-muted-foreground leading-relaxed whitespace-pre-line text-sm">{project.details?.Solution}</p>
+                      <h4 className="text-sm font-semibold mb-2 text-muted-foreground">결과</h4>
+                      <p className="text-muted-foreground leading-relaxed whitespace-pre-line text-sm">{project.details?.Result}</p>
                     </div>
-                  )}
+                  </div>
 
                   {/* Links */}
                   <div className="flex gap-3 pt-4">
