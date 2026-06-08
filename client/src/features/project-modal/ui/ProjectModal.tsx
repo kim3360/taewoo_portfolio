@@ -21,6 +21,7 @@ interface ProjectModalProps {
     type: string
     title: string
     description: string
+    Projectdescription?: string
     image: string[]
     tags: string[]
     link: string
@@ -165,7 +166,7 @@ export default function ProjectModal({ isOpen, onClose, project }: ProjectModalP
                   )}
                   <div>
                     <h3 className="text-lg font-semibold mb-3">프로젝트 설명</h3>
-                    <p className="text-muted-foreground leading-relaxed">{project.description}</p>
+                    <p className="text-muted-foreground pr-3 leading-relaxed">{project.Projectdescription}</p>
                   </div>
 
                   {/* 기술 스택 */}

@@ -34,11 +34,19 @@ export const projects = [
     title: "밍글링",
     description: "대학생들의 사고력 향상 위한 AI 피드백 기반 글쓰기 루틴 서비스",
 
+    Projectdescription:
+      "Mingling(밍글링) 은 모임 참석자들의 출발 위치를 바탕으로 가장 공평하고 이동이 편리한 중간 지점을 찾아주는 서비스입니다. 지인들과 약속 장소를 정할 때 어디서 만날까? 라는 고민과 위치 선정의 불공평함을 해결하기 위해 기획되었습니다. 단순한 물리적 중간 거리가 아닌 실제 지하철 이동 시간과 환승 횟수를 고려하여 서울 내 최적의 번화가와 모임의 목적(식당, 카페, 놀거리 등)에 맞는 장소를 추천해 줍니다.",
     tags: ["React", "TypeScript", "Tailwind CSS", "REST API", "OpenAI", "Zustand", "Storybook", "ZOD", "SSE", "TanstackQuery(ReactQuery)"],
     link: "#",
     liveDemo: "https://www.mingling.kr/",
     github: "https://github.com/SWYP-mingling/Frontend",
     period: "2025.12 - 2026.02",
+    details: {
+      Problem: "",
+      Cause: "",
+      Solution: "",
+      Result: "",
+    },
   },
 
   // 스위프 웹 11기 써봄 프로젝트
