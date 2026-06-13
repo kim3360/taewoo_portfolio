@@ -248,31 +248,17 @@ export const projects = [
       "getImageUrl() 유틸로 절대/상대 URL 혼용 문제 해결, 이미지 깨짐 방지",
       "Zustand persist + AsyncStorage로 대기 상태 영속화 — 앱 재시작 후에도 대기 정보 유지",
     ],
-    tags: [
-      "React Native",
-      "TypeScript",
-      "React Navigation",
-      "Zustand",
-      "AsyncStorage",
-      "Axios",
-      "REST API",
-      "react-native-maps",
-      "Google Maps SDK",
-    ],
+    tags: ["React Native", "TypeScript", "React Navigation", "Zustand", "AsyncStorage", "Axios", "REST API", "react-native-maps", "Google Maps SDK"],
     link: "#",
     github: "https://github.com/DMU-Capstone",
     period: "2025.03 - 2025.10",
     members: "프론트엔드 2명, 백엔드 1명",
 
     details: {
-      Problem:
-        "웹(어드민/유저)과 모바일이 한 레포에 있어 모바일 작업 시 웹 코드와 충돌하고, 빌드 설정이 꼬이는 문제가 반복됐습니다.",
-      Cause:
-        "web/, mobile/, packages/shared/ 경로가 뒤섞여 import가 깨졌고, Expo 기반 mobile/ 폴더와 RN CLI 앱이 공존하던 시기에 구조가 더 복잡해졌습니다. 삭제·이동 범위가 커 한 번 잘못 수정하면 전체 빌드가 실패하는 위험도 있었습니다.",
-      Solution:
-        "모바일 전용 레포로 분리하고 웹 관련 파일을 전량 제거했습니다. 이후 src/apis/, src/types/ 중심으로 폴더 구조를 재정리해 API·타입·화면 책임을 분리했습니다.",
-      Result:
-        "모바일 개발이 웹 코드와 분리되어 팀원 간 충돌과 빌드 이슈가 줄었고, 이후 인증·홈·매장 기능을 독립된 모바일 레포에서 안정적으로 이어갈 수 있는 기반이 마련됐습니다.",
+      Problem: "웹(어드민/유저)과 모바일이 한 레포에 있어 모바일 작업 시 웹 코드와 충돌하고, 빌드 설정이 꼬이는 문제가 반복됐습니다.",
+      Cause: "web/, mobile/, packages/shared/ 경로가 뒤섞여 import가 깨졌고, Expo 기반 mobile/ 폴더와 RN CLI 앱이 공존하던 시기에 구조가 더 복잡해졌습니다. 삭제·이동 범위가 커 한 번 잘못 수정하면 전체 빌드가 실패하는 위험도 있었습니다.",
+      Solution: "모바일 전용 레포로 분리하고 웹 관련 파일을 전량 제거했습니다. 이후 src/apis/, src/types/ 중심으로 폴더 구조를 재정리해 API·타입·화면 책임을 분리했습니다.",
+      Result: "모바일 개발이 웹 코드와 분리되어 팀원 간 충돌과 빌드 이슈가 줄었고, 이후 인증·홈·매장 기능을 독립된 모바일 레포에서 안정적으로 이어갈 수 있는 기반이 마련됐습니다.",
     },
   },
 
@@ -290,32 +276,41 @@ export const projects = [
     Projectdescription: "많은 사용자들이 스마트폰으로 강의자료, 회의 내용, 설정 정보 등을 스크린샷으로 저장하지만, 나중에 다시 확인하려고 할 때 어떤 내용인지 기억하기 어렵고, 정리되지 않아 찾기 힘든 문제가 발생합니다. 스크린샷 이미지 안의 텍스트를 자동으로 추출하고, OpenAI를 활용해 요약 + 카테고리 분류 + 폴더 저장까지 자동화합니다.",
     features: [
       {
-        title: "스크린샷 OCR",
-        description: "갤러리·카메라 이미지에서 텍스트를 자동 추출합니다.",
+        title: "이미지 등록",
+        description: "갤러리·카메라에서 스크린샷을 선택하거나 촬영해 자료 등록을 시작합니다. 업로드 전 리사이즈·압축으로 대용량 이미지도 안정적으로 전송합니다.",
       },
       {
-        title: "AI 요약 & 분류",
-        description: "OpenAI API로 추출 텍스트를 요약하고 카테고리별로 자동 분류합니다.",
+        title: "OCR 텍스트 추출",
+        description: "등록한 이미지에서 OCR(광학 문자 인식)으로 텍스트를 자동 추출합니다. 강의자료·회의 캡처 등 다양한 스크린샷에서 본문을 뽑아냅니다.",
       },
       {
-        title: "폴더·검색",
-        description: "분류된 자료를 폴더에 저장하고 키워드 검색으로 빠르게 찾습니다.",
+        title: "AI 요약·자동 분류",
+        description: "추출된 텍스트를 OpenAI API로 요약하고, 카테고리(강의·회의·메모 등)별로 자동 분류합니다. 제목·요약·태그를 생성해 한눈에 파악할 수 있습니다.",
+      },
+      {
+        title: "폴더·자료 관리",
+        description: "분류된 자료를 폴더 단위로 저장·조회합니다. 카테고리별 목록과 상세 화면에서 원본 이미지·추출 텍스트·AI 요약을 함께 확인합니다.",
+      },
+      {
+        title: "검색",
+        description: "키워드 검색으로 저장한 자료를 빠르게 찾습니다. 제목·요약·태그 기준으로 필터링해 필요한 스크린샷 자료에 접근합니다.",
       },
     ],
-    responsibilities: ["Expo 기반 React Native 앱 UI 구현", "이미지 업로드·OCR 결과·AI 응답 화면 상태 관리", "비동기 처리 중 로딩·에러 UX 설계"],
-    tags: ["React Native", "Expo", "TypeScript", "Style Component", "REST API", "OpenAI"],
+    responsibilities: ["Expo React Native 앱 단독 개발 — 화면·네비게이션·공통 UI 전체", "이미지 선택·업로드 UI 및 multipart REST API 연동", "OCR → AI 요약·분류 파이프라인 결과 화면, 단계별 로딩·에러·재시도 UX", "Styled Components 기반 공통 컴포넌트·화면 스타일 구성", "자료 목록·폴더·키워드 검색 API 연동", "고해상도 스크린샷 업로드 전 리사이즈·압축 처리"],
+    achievements: ["1인 프론트로 스크린샷 → OCR → AI 분류 → 저장 E2E 플로우 MVP 구현", "업로드→OCR→AI 단계별 진행 UI로 처리 대기 중 중복 요청·이탈 감소", "이미지 압축·업로드 최적화로 대용량 스크린샷 전송 안정화"],
+    tags: ["React Native", "Expo", "TypeScript", "Styled Components", "REST API", "OpenAI"],
     link: "#",
 
     github: "https://github.com/Zerotone-ClearShot",
     period: "2025.03 - 2025.03",
     members: "PM 1명, 프론트엔드 1명, 백엔드 2명",
     pdf: "../assets/DataFairy/CLEARSHOT.pdf",
-    details:
-      "React Native와 Expo를 활용하여 크로스 플랫폼 모바일 앱을 개발했습니다. 앱 구조는 컴포넌트 기반 아키텍처로 설계하여 재사용성과 유지보수성을 높였으며, TypeScript를 통해 타입 안정성을 확보했습니다.\n\n" +
-      "스크린샷 이미지에서 텍스트를 추출하기 위해 OCR(광학 문자 인식) 라이브러리를 활용했습니다. 이미지 전처리 과정을 거쳐 텍스트 인식 정확도를 향상시켰고, 다양한 폰트와 배경에서도 안정적으로 작동하도록 최적화했습니다.\n\n" +
-      "추출된 텍스트는 OpenAI API를 통해 자동으로 요약되고 카테고리로 분류됩니다. 프롬프트 엔지니어링을 통해 정확한 요약과 분류가 이루어지도록 최적화했으며, 사용자의 의도에 맞는 카테고리 자동 분류 로직을 구현했습니다.\n\n" +
-      "이미지 처리는 효율적인 저장 방식을 채택하여 디바이스 저장 공간을 최적화했습니다. 압축 알고리즘을 적용하여 이미지 크기를 줄이면서도 품질을 유지했고, 비동기 처리를 통해 사용자 경험을 개선했습니다.\n\n" +
-      "사용자 경험 개선을 위해 직관적인 UI/UX를 설계했습니다. 스타일 컴포넌트를 활용하여 일관된 디자인 시스템을 구축했고, 로딩 상태와 에러 처리를 명확하게 표시하여 사용자가 앱의 상태를 쉽게 파악할 수 있도록 했습니다. 또한 자동 저장 기능과 검색 기능을 구현하여 사용자가 저장한 자료를 빠르게 찾을 수 있도록 했습니다.",
+    details: {
+      Problem: "고해상도 스크린샷 업로드 시 요청 타임아웃·실패가 잦았고, OCR·AI 요약 처리(10초 이상) 대기 중 사용자가 버튼을 반복 클릭해 중복 자료가 저장되는 문제가 있었습니다.",
+      Cause: "갤러리 원본 이미지를 그대로 multipart 업로드해 payload가 커졌습니다. OCR 완료 후 OpenAI API 호출까지 순차 처리되는 동안 로딩 상태가 불명확하고, 버튼 비활성화·중복 요청 방어 로직이 없었습니다.",
+      Solution: "업로드 전 이미지 리사이즈·압축을 적용하고, 업로드 → OCR → AI 요약 단계별 진행 UI와 버튼 disabled 처리를 추가했습니다. 실패 시 재시도 안내와 함께 해당 단계에서 멈추도록 fallback UI를 구성했습니다.",
+      Result: "대용량 이미지 업로드 성공률이 개선됐고, AI 처리 중 중복 저장 케이스가 줄었습니다. 사용자가 현재 어느 단계가 진행 중인지 파악할 수 있어 OCR·요약 대기 UX가 안정화되었습니다.",
+    },
   },
 
   // DASOM 프로젝트

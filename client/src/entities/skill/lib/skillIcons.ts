@@ -39,6 +39,8 @@ import {
   SiAxios,
   SiFirebase,
   SiSentry,
+  SiOpenai,
+  SiExpo,
 } from "react-icons/si"
 import { FaGitAlt } from "react-icons/fa"
 
@@ -88,6 +90,10 @@ export const getSkillIcon = (skill: string) => {
     GraphQL: { Icon: SiGraphql, color: "#E10098" },
     "React Hook Form": { Icon: SiReacthookform, color: "#EC5990" },
     "RESTful API": { Icon: Globe, color: "#3B82F6" },
+    "REST API": { Icon: Globe, color: "#3B82F6" },
+    OpenAI: { Icon: SiOpenai, color: "#412991" },
+    Expo: { Icon: SiExpo, color: "#FFFFFF" },
+    "Styled Components": { Icon: SiSass, color: "#DB7093" },
     SSE: { Icon: Cloud, color: "#06B6D4" },
     "Firebase FCM": { Icon: SiFirebase, color: "#FFCA28" },
     PWA: { Icon: Smartphone, color: "#6366F1" },
