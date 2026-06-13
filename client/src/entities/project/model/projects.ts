@@ -42,26 +42,13 @@ export const projects = [
         description: "다중 상품 선택·수량 조절·배송비 포함 결제 금액 계산 후 PG 연동 결제를 지원합니다.",
       },
     ],
-    responsibilities: [
-      "마켓·장바구니·결제 페이지 UI 및 상태 흐름 설계·구현",
-      "PG SDK 연동, 결제 승인 API 호출 및 주문 상태 polling 처리",
-      "TanStack Query 기반 서버 상태 관리, Zustand 클라이언트 상태 분리",
-      "Zod 폼 검증, Storybook 공통 컴포넌트 문서화",
-      "SSE 기반 채팅 메시지 수신 및 UI 반영",
-    ],
-    achievements: [
-      "결제 완료 후 주문 상태 불일치·중복 PG 호출 이슈 해결",
-      "리폼 요청 → 견적 → 결제까지 핵심 사용자 플로우 MVP 구현",
-    ],
+    responsibilities: ["마켓·장바구니·결제 페이지 UI 및 상태 흐름 설계·구현", "PG SDK 연동, 결제 승인 API 호출 및 주문 상태 polling 처리", "TanStack Query 기반 서버 상태 관리, Zustand 클라이언트 상태 분리", "Zod 폼 검증, Storybook 공통 컴포넌트 문서화", "SSE 기반 채팅 메시지 수신 및 UI 반영"],
+    achievements: ["결제 완료 후 주문 상태 불일치·중복 PG 호출 이슈 해결", "리폼 요청 → 견적 → 결제까지 핵심 사용자 플로우 MVP 구현"],
     details: {
-      Problem:
-        "리폼 작업물·견적 확정 후 PG 결제를 진행하면, 결제창에서는 성공으로 보이는데 주문 상세는 '결제 대기'로 남거나 결제 완료 화면으로 넘어가지 않는 경우가 있었습니다. 또 결제 버튼을 빠르게 연타하면 PG 창이 중복으로 열리는 이슈도 발생했습니다.",
-      Cause:
-        "프론트에서 PG SDK의 success 콜백만으로 결제 완료를 처리했고, 실제 주문 상태 갱신은 백엔드 webhook·승인 API 이후에 이루어지는 구조였습니다. success redirect 시점과 서버 반영 시점 사이에 race condition이 생겼고, 결제 요청 중 버튼 비활성화·중복 요청 방어 로직이 없어 연타 시 orderId가 여러 번 생성될 수 있었습니다.",
-      Solution:
-        "결제 플로우를 'PG 창 호출 → success redirect → 서버 결제 승인 API 호출 → 주문 상태 polling' 순으로 분리했습니다. 결제 버튼 클릭 시 즉시 loading/disabled 처리하고, React Query mutation으로 승인 API를 호출한 뒤 완료 상태를 확인할 때까지 주문 상세를 refetch했습니다. 실패·타임아웃 시에는 재시도 안내와 함께 결제 대기 상태를 유지하도록 fallback UI를 추가했습니다.",
-      Result:
-        "결제 완료 후 주문 상태 불일치 케이스를 줄였고, 버튼 연타로 인한 중복 PG 호출도 방지했습니다. 사용자는 결제 → 승인 → 완료까지 한 화면에서 진행 상황을 확인할 수 있게 되어, 리폼 작업물 구매·견적 결제 흐름을 안정적으로 마무리할 수 있었습니다.",
+      Problem: "리폼 작업물·견적 확정 후 PG 결제를 진행하면, 결제창에서는 성공으로 보이는데 주문 상세는 '결제 대기'로 남거나 결제 완료 화면으로 넘어가지 않는 경우가 있었습니다. 또 결제 버튼을 빠르게 연타하면 PG 창이 중복으로 열리는 이슈도 발생했습니다.",
+      Cause: "프론트에서 PG SDK의 success 콜백만으로 결제 완료를 처리했고, 실제 주문 상태 갱신은 백엔드 webhook·승인 API 이후에 이루어지는 구조였습니다. success redirect 시점과 서버 반영 시점 사이에 race condition이 생겼고, 결제 요청 중 버튼 비활성화·중복 요청 방어 로직이 없어 연타 시 orderId가 여러 번 생성될 수 있었습니다.",
+      Solution: "결제 플로우를 'PG 창 호출 → success redirect → 서버 결제 승인 API 호출 → 주문 상태 polling' 순으로 분리했습니다. 결제 버튼 클릭 시 즉시 loading/disabled 처리하고, React Query mutation으로 승인 API를 호출한 뒤 완료 상태를 확인할 때까지 주문 상세를 refetch했습니다. 실패·타임아웃 시에는 재시도 안내와 함께 결제 대기 상태를 유지하도록 fallback UI를 추가했습니다.",
+      Result: "결제 완료 후 주문 상태 불일치 케이스를 줄였고, 버튼 연타로 인한 중복 PG 호출도 방지했습니다. 사용자는 결제 → 승인 → 완료까지 한 화면에서 진행 상황을 확인할 수 있게 되어, 리폼 작업물 구매·견적 결제 흐름을 안정적으로 마무리할 수 있었습니다.",
     },
   },
 
@@ -92,11 +79,7 @@ export const projects = [
         description: "산출된 중간 지점과 추천 장소를 링크로 공유해 참석자가 함께 확인할 수 있습니다.",
       },
     ],
-    responsibilities: [
-      "지도·장소 추천 결과 UI 및 반응형 레이아웃 구현",
-      "TanStack Query로 API 연동 및 로딩·에러 상태 처리",
-      "Zod 기반 입력 폼 검증",
-    ],
+    responsibilities: ["지도·장소 추천 결과 UI 및 반응형 레이아웃 구현", "TanStack Query로 API 연동 및 로딩·에러 상태 처리", "Zod 기반 입력 폼 검증"],
     tags: ["React", "TypeScript", "Tailwind CSS", "REST API", "OpenAI", "Zustand", "Storybook", "ZOD", "SSE", "TanstackQuery(ReactQuery)"],
     link: "#",
     liveDemo: "https://www.mingling.kr/",
@@ -121,8 +104,7 @@ export const projects = [
     title: "써봄",
     description: "대학생 대상 AI 피드백 기반 글쓰기 루틴 서비스",
 
-    Projectdescription:
-      "써봄은 대학생들의 글쓰기 습관을 돕는 서비스입니다. 사용자가 글을 작성하면 AI가 피드백을 제공하고, 루틴 형태로 꾸준히 글쓰기를 이어갈 수 있도록 설계되었습니다.",
+    Projectdescription: "써봄은 대학생들의 글쓰기 습관을 돕는 서비스입니다. 사용자가 글을 작성하면 AI가 피드백을 제공하고, 루틴 형태로 꾸준히 글쓰기를 이어갈 수 있도록 설계되었습니다.",
     features: [
       {
         title: "글쓰기 에디터",
@@ -141,11 +123,7 @@ export const projects = [
         description: "다른 사용자의 글을 읽고 반응하며 동기를 부여받을 수 있습니다.",
       },
     ],
-    responsibilities: [
-      "글 작성·피드백 결과 화면 UI 구현",
-      "OpenAI API 연동 및 스트리밍(SSE) 응답 UI 처리",
-      "Zustand·TanStack Query 기반 상태 관리",
-    ],
+    responsibilities: ["글 작성·피드백 결과 화면 UI 구현", "OpenAI API 연동 및 스트리밍(SSE) 응답 UI 처리", "Zustand·TanStack Query 기반 상태 관리"],
     tags: ["React", "TypeScript", "Tailwind CSS", "REST API", "OpenAI", "Zustand", "Storybook", "ZOD", "SSE", "TanstackQuery(ReactQuery)"],
     link: "#",
     liveDemo: "https://seobom.site",
@@ -190,11 +168,7 @@ export const projects = [
         description: "대기 순번이 가까워지면 푸시 알림으로 사용자에게 안내합니다.",
       },
     ],
-    responsibilities: [
-      "React Native 크로스 플랫폼 UI·네비게이션 구현",
-      "TanStack Query 캐싱 전략으로 API 호출 최적화",
-      "Zustand 전역 상태 및 Zod 폼 검증",
-    ],
+    responsibilities: ["React Native 크로스 플랫폼 UI·네비게이션 구현", "TanStack Query 캐싱 전략으로 API 호출 최적화", "Zustand 전역 상태 및 Zod 폼 검증"],
     tags: ["React", "React Native", "TypeScript", "Tailwind CSS", "REST API", "Zustand", "ZOD", "TanstackQuery(ReactQuery)"],
     link: "#",
     github: "https://github.com/DMU-Capstone",
@@ -221,8 +195,7 @@ export const projects = [
     title: "자료요정",
     description: "스크린샷 OCR + AI 요약·분류로 자료를 자동 정리하는 모바일 앱",
 
-    Projectdescription:
-      "많은 사용자들이 스마트폰으로 강의자료, 회의 내용, 설정 정보 등을 스크린샷으로 저장하지만, 나중에 다시 확인하려고 할 때 어떤 내용인지 기억하기 어렵고, 정리되지 않아 찾기 힘든 문제가 발생합니다. 스크린샷 이미지 안의 텍스트를 자동으로 추출하고, OpenAI를 활용해 요약 + 카테고리 분류 + 폴더 저장까지 자동화합니다.",
+    Projectdescription: "많은 사용자들이 스마트폰으로 강의자료, 회의 내용, 설정 정보 등을 스크린샷으로 저장하지만, 나중에 다시 확인하려고 할 때 어떤 내용인지 기억하기 어렵고, 정리되지 않아 찾기 힘든 문제가 발생합니다. 스크린샷 이미지 안의 텍스트를 자동으로 추출하고, OpenAI를 활용해 요약 + 카테고리 분류 + 폴더 저장까지 자동화합니다.",
     features: [
       {
         title: "스크린샷 OCR",
@@ -237,11 +210,7 @@ export const projects = [
         description: "분류된 자료를 폴더에 저장하고 키워드 검색으로 빠르게 찾습니다.",
       },
     ],
-    responsibilities: [
-      "Expo 기반 React Native 앱 UI 구현",
-      "이미지 업로드·OCR 결과·AI 응답 화면 상태 관리",
-      "비동기 처리 중 로딩·에러 UX 설계",
-    ],
+    responsibilities: ["Expo 기반 React Native 앱 UI 구현", "이미지 업로드·OCR 결과·AI 응답 화면 상태 관리", "비동기 처리 중 로딩·에러 UX 설계"],
     tags: ["React Native", "Expo", "TypeScript", "Style Component", "REST API", "OpenAI"],
     link: "#",
 
@@ -268,8 +237,7 @@ export const projects = [
     title: "DASOM",
     description: "동양미래대학교 컴퓨터공학부 전공동아리 다솜 공식 홈페이지",
 
-    Projectdescription:
-      "동아리 소개, 개발 기록, 회원 관리 등 동아리 운영에 필요한 기능을 제공하는 반응형 웹사이트입니다.",
+    Projectdescription: "동아리 소개, 개발 기록, 회원 관리 등 동아리 운영에 필요한 기능을 제공하는 반응형 웹사이트입니다.",
     features: [
       {
         title: "동아리 소개",
@@ -284,11 +252,7 @@ export const projects = [
         description: "회원가입·로그인·프로필 관리 기능으로 동아리 멤버를 관리합니다.",
       },
     ],
-    responsibilities: [
-      "React·TypeScript 기반 반응형 UI 구현",
-      "REST API 연동 및 인증 토큰 세션 관리",
-      "Tailwind CSS 디자인 시스템 적용",
-    ],
+    responsibilities: ["React·TypeScript 기반 반응형 UI 구현", "REST API 연동 및 인증 토큰 세션 관리", "Tailwind CSS 디자인 시스템 적용"],
     tags: ["React", "TypeScript", "Tailwind CSS", "REST API"],
     link: "#",
 
