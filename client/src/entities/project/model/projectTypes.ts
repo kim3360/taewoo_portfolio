@@ -29,5 +29,5 @@ export type ProjectBase = {
   features?: ProjectFeature[]
   responsibilities?: string[]
   achievements?: string[]
-  details?: ProjectDetails | string
+  details?: ProjectDetails
 }

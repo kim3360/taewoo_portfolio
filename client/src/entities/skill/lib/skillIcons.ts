@@ -1,15 +1,4 @@
-import {
-  Code2,
-  Box,
-  Terminal,
-  Monitor,
-  Globe,
-  Gauge,
-  Search,
-  Cloud,
-  Workflow,
-  TestTube2,
-} from "lucide-react";
+import { Code2, Box, Terminal, Monitor, Globe, Gauge, Search, Cloud, Workflow, TestTube2, CreditCard, Plug, Map, Layers } from "lucide-react"
 import {
   SiReact,
   SiReactrouter,
@@ -46,8 +35,9 @@ import {
   SiFramer,
   SiReacthookform,
   SiTestinglibrary,
-} from "react-icons/si";
-import { FaGitAlt } from "react-icons/fa";
+  SiGoogleanalytics,
+} from "react-icons/si"
+import { FaGitAlt } from "react-icons/fa"
 
 // 스킬 아이콘과 색상 매핑
 export const getSkillIcon = (skill: string) => {
@@ -55,10 +45,10 @@ export const getSkillIcon = (skill: string) => {
     string,
     {
       Icon: React.ComponentType<{
-        className?: string;
-        style?: React.CSSProperties;
-      }>;
-      color: string;
+        className?: string
+        style?: React.CSSProperties
+      }>
+      color: string
     }
   > = {
     // Core
@@ -87,11 +77,19 @@ export const getSkillIcon = (skill: string) => {
     "React Hook Form": { Icon: SiReacthookform, color: "#EC5990" },
     "RESTful API": { Icon: Globe, color: "#3B82F6" },
     SSE: { Icon: Cloud, color: "#06B6D4" },
+    WebSocket: { Icon: Plug, color: "#22C55E" },
+    Socket: { Icon: Plug, color: "#22C55E" },
+    "PG 결제": { Icon: CreditCard, color: "#6366F1" },
+    "PG Payment": { Icon: CreditCard, color: "#6366F1" },
 
     // UI & style
     "Tailwind CSS": { Icon: SiTailwindcss, color: "#06B6D4" },
     TailwindCSS: { Icon: SiTailwindcss, color: "#06B6D4" },
     Storybook: { Icon: SiStorybook, color: "#FF4785" },
+    "shadcn/ui": { Icon: Layers, color: "#FAFAFA" },
+    shadcn: { Icon: Layers, color: "#FAFAFA" },
+    "Google Analytics": { Icon: SiGoogleanalytics, color: "#E37400" },
+    "Kakao Map SDK": { Icon: Map, color: "#FEE500" },
     "Framer Motion": { Icon: SiFramer, color: "#0055FF" },
     "Responsive Design": { Icon: Monitor, color: "#6366F1" },
     "Performance Optimization": { Icon: Gauge, color: "#10B981" },
@@ -124,7 +122,7 @@ export const getSkillIcon = (skill: string) => {
     "CI/CD": { Icon: Workflow, color: "#7C3AED" },
     "VS Code": { Icon: Code2, color: "#007ACC" },
     Cursor: { Icon: Terminal, color: "#A8B2C4" },
-  };
+  }
 
-  return iconMap[skill] || { Icon: Code2, color: "#6366F1" };
-};
+  return iconMap[skill] || { Icon: Code2, color: "#6366F1" }
+}

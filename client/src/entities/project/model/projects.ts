@@ -4,7 +4,7 @@ export const projects = [
     slug: "myform-reform",
     type: "web",
     thumbnail: "../assets/MyformReform/Myform_Reform_Thumbnail.jpg",
-    logo: "",
+    logo: "../assets/MyformReform/Logo.png",
     image: ["../assets/MyformReform/Myform_Reform1.png", "../assets/MyformReform/Myform_Reform2.png", "../assets/MyformReform/Myform_Reform3.png", "../assets/MyformReform/Myform_Reform4.png", "../assets/MyformReform/Myform_Reform5.png", "../assets/MyformReform/Myform_Reform6.png"],
 
     title: "내폼리폼",
@@ -13,10 +13,10 @@ export const projects = [
     Projectdescription:
       "내폼리폼은 스포츠 유니폼·굿즈 리폼을 원하는 사용자와 리폼러를 연결하는 웹 플랫폼입니다. 기존에는 SNS, 당근, 카페 등에 정보가 흩어져 가격·후기 비교가 어렵고, 리폼러는 팔로워 없이 고객을 확보하기 힘든 구조였습니다.사용자는 리폼 요청을 등록하고 여러 리폼러의 견적을 받아 비교할 수 있으며, 리폼러는 작업물 판매·포트폴리오·후기를 한곳에서 관리합니다. 채팅으로 수거→작업→발송 단계를 공유해 진행 상황을 확인할 수 있습니다.",
 
-    tags: ["React", "TypeScript", "Tailwind CSS", "REST API", "OpenAI", "Zustand", "Storybook", "ZOD", "SSE", "TanstackQuery(ReactQuery)"],
+    tags: ["React", "TypeScript", "Tailwind CSS", "REST API", "WebSocket", "PG 결제", "Zustand", "Storybook", "ZOD", "SSE", "TanstackQuery"],
     link: "#",
     liveDemo: "https://myform-reform.vercel.app",
-    github: "https://github.com/Myform-Reform",
+    github: "https://github.com/UMC-9th-project/myform-reform-FE",
     period: "2025.12 - 2026.02",
 
     members: "PM 1명, 디자이너 2명, 프론트엔드 3명, 백엔드 5명",
@@ -67,29 +67,63 @@ export const projects = [
       "Mingling(밍글링)은 모임 참석자들의 출발 위치를 바탕으로 가장 공평하고 이동이 편리한 중간 지점을 찾아주는 서비스입니다. 지인들과 약속 장소를 정할 때 어디서 만날까? 라는 고민과 위치 선정의 불공평함을 해결하기 위해 기획되었습니다. 단순한 물리적 중간 거리가 아닌 실제 지하철 이동 시간과 환승 횟수를 고려하여 서울 내 최적의 번화가와 모임의 목적(식당, 카페, 놀거리 등)에 맞는 장소를 추천해 줍니다.",
     features: [
       {
-        title: "중간 지점 계산",
-        description: "참석자별 출발지 입력 후 지하철 이동 시간·환승을 반영한 공평한 중간 지점을 산출합니다.",
+        title: "모임 생성",
+        description: "모임 이름·목적(회의/친목)·세부 카테고리, 참여 인원(미정 가능), 출발지 입력 마감일을 설정해 모임을 생성하고 모임 페이지로 이동합니다.",
       },
       {
-        title: "목적별 장소 추천",
-        description: "식당, 카페, 놀거리 등 모임 목적에 맞는 주변 장소를 추천합니다.",
+        title: "모임 참여",
+        description: "공유 링크(/join/[id])로 닉네임 입력 후 참여합니다. 재촉 링크(?view=nudge) 지원으로 OG 이미지·문구를 분기해 미입력 멤버를 유도합니다.",
       },
       {
-        title: "약속 공유",
-        description: "산출된 중간 지점과 추천 장소를 링크로 공유해 참석자가 함께 확인할 수 있습니다.",
+        title: "출발지 입력·관리",
+        description: "역 검색으로 출발지 선택·등록·수정·삭제, 참여 현황 확인, 카카오맵 참여자 위치 시각화. 전원 입력 완료 시 결과보기가 활성화됩니다.",
+      },
+      {
+        title: "중간지점 결과",
+        description: "Top3 중간지점 추천, 평균 이동시간·밍글링 추천 순위 표시. 후보 선택 시 지도에 경로·중간지점 표시, 환승 경로 모달, 주변 장소 추천·결과 공유.",
+      },
+      {
+        title: "주변 장소 추천",
+        description: "중간지점 기준 주변 장소 리스트 조회, 식당·카페·놀거리 등 카테고리 필터. 장소 선택 시 지도 연동 및 카카오맵 외부 링크로 상세 확인.",
+      },
+      {
+        title: "공유·재촉",
+        description: "모임 초대 링크 공유, 출발지 미입력 멤버 재촉하기, 결과 페이지에서 산출 결과 공유를 지원합니다.",
+      },
+      {
+        title: "부가 기능",
+        description: "랜딩 페이지(서비스 소개·CTA), 이용약관/개인정보/피드백 모달. GA/GTM으로 계산·후보 조회·장소 클릭·외부 지도 등 이벤트 트래킹.",
       },
     ],
-    responsibilities: ["지도에 GPS 기반 현재 위치 마커 표시 및 위치 갱신 처리", "장소 추천·중간 지점 산출 결과에 대한 역(지하철) 조회 UI 구현", "TanStack Query로 API 연동 및 로딩·에러 상태 처리", "Zod 기반 입력 폼 검증"],
-    tags: ["React", "TypeScript", "Tailwind CSS", "REST API", "OpenAI", "Zustand", "Storybook", "ZOD", "SSE", "TanstackQuery(ReactQuery)"],
+    responsibilities: [
+      "서비스 랜딩·메인 페이지 UI 및 반응형·모바일 레이아웃 구현",
+      "모임 생성·참여 API 연동 및 Zod 폼 검증 — 백엔드 스키마·엔드포인트 협의",
+      "중간지점 결과 페이지 전담 — Top3 후보·평균 이동시간·추천 순위 UI, Kakao Map SDK 경로·마커 시각화",
+      "환승 경로 상세 모달 구현 및 결과보기 UX 개선",
+      "주변 장소 추천 — 모임 목적별 카테고리 필터, 장소 리스트↔지도 선택 연동 및 마커 표시",
+      "TanStack Query 기반 중간지점·장소 추천 데이터 연동, 로딩·에러·재조회 UX 처리",
+      "GA/GTM 전환 퍼널 이벤트 설계·적용 (중간지점 계산 → 후보 조회 → 장소 탐색 → 외부 지도 이동)",
+    ],
+    achievements: [
+      "장소 리스트·지도 선택 상태 불일치 해결 — 양방향 연동을 단일 상태로 통합",
+      "중간지점 결과·주변 장소 추천 핵심 플로우 프론트 전담 구현",
+      "GA 전환 퍼널 이벤트 정의로 서비스 핵심 행동(계산→조회→탐색) 추적 체계화",
+    ],
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "REST API", "Kakao Map SDK", "Google Analytics", "Zustand", "Storybook", "ZOD", "TanstackQuery(ReactQuery)"],
     link: "#",
     liveDemo: "https://www.mingling.kr/",
     github: "https://github.com/SWYP-mingling/Frontend",
     period: "2025.12 - 2026.02",
+    members: "PM 1명, 디자이너 1명, 프론트엔드 3명, 백엔드 3명",
     details: {
-      Problem: "",
-      Cause: "",
-      Solution: "",
-      Result: "",
+      Problem:
+        "주변 장소 추천에서 리스트에서 장소를 선택해도 지도 마커·포커스가 갱신되지 않거나, 지도에서 고른 장소가 리스트 하이라이트와 어긋나는 경우가 있었습니다. 카테고리 필터를 바꾼 뒤에는 이전에 선택한 장소가 그대로 강조되기도 했습니다.",
+      Cause:
+        "장소 리스트와 Kakao Map 마커 상태가 컴포넌트별로 분리되어 있어, API 재조회·필터 변경 시 선택값이 초기화되지 않았습니다. TanStack Query로 목록은 갱신됐지만 지도 overlay를 먼저 제거하지 않아 마커가 중복되거나 이전 위치가 남는 문제도 있었습니다.",
+      Solution:
+        "선택된 placeId를 상위 단일 상태로 올리고, 리스트 클릭·지도 마커 클릭이 같은 setter를 쓰도록 통일했습니다. 카테고리·좌표별 queryKey를 분리하고, refetch 완료 후 기존 overlay를 제거한 뒤 새 마커를 그리도록 effect 의존성을 맞췄습니다. 필터 변경 시 선택 상태도 함께 reset하도록 처리했습니다.",
+      Result:
+        "리스트↔지도 양방향 선택이 한 흐름으로 동작하게 되었고, 필터 전환 후 잘못된 장소가 강조되던 케이스를 줄였습니다. QA 과정에서 지도·리스트 불일치 관련 이슈가 크게 줄어 결과 탐색 UX가 안정화되었습니다.",
     },
   },
 
@@ -104,8 +138,7 @@ export const projects = [
     title: "써봄",
     description: "대학생 대상 AI 피드백 기반 글쓰기 루틴 PWA",
 
-    Projectdescription:
-      "써봄은 대학생들의 글쓰기 습관을 돕는 PWA 서비스입니다. 사용자가 글을 작성하면 AI가 피드백을 제공하고, 루틴 형태로 꾸준히 글쓰기를 이어갈 수 있도록 설계되었습니다. 모바일 웹 설치형(PWA)으로 제공되며, Google Analytics로 사용자 행동을 추적해 서비스를 개선했습니다.",
+    Projectdescription: "써봄은 대학생들의 글쓰기 습관을 돕는 PWA 서비스입니다. 사용자가 글을 작성하면 AI가 피드백을 제공하고, 루틴 형태로 꾸준히 글쓰기를 이어갈 수 있도록 설계되었습니다. 모바일 웹 설치형(PWA)으로 제공되며, Google Analytics로 사용자 행동을 추적해 서비스를 개선했습니다.",
     features: [
       {
         title: "글쓰기 에디터",
@@ -128,27 +161,8 @@ export const projects = [
         description: "Google Analytics로 페이지·이벤트를 추적해 사용자 행동(UT) 데이터를 수집·분석합니다.",
       },
     ],
-    responsibilities: [
-      "글 작성·피드백 결과 화면 UI 구현",
-      "SSE 기반 AI 피드백 스트리밍 응답 UI 처리",
-      "PWA manifest·service worker 설정 및 설치형 웹 구성",
-      "Google Analytics 이벤트·UT 추적 연동",
-      "Zustand·TanStack Query 기반 상태 관리",
-    ],
-    tags: [
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "PWA",
-      "REST API",
-      "OpenAI",
-      "SSE",
-      "Google Analytics",
-      "Zustand",
-      "Storybook",
-      "ZOD",
-      "TanstackQuery(ReactQuery)",
-    ],
+    responsibilities: ["글 작성·피드백 결과 화면 UI 구현", "SSE 기반 AI 피드백 스트리밍 응답 UI 처리", "PWA manifest·service worker 설정 및 설치형 웹 구성", "Google Analytics 이벤트·UT 추적 연동", "Zustand·TanStack Query 기반 상태 관리"],
+    tags: ["React", "TypeScript", "Tailwind CSS", "PWA", "REST API", "OpenAI", "SSE", "Google Analytics", "Zustand", "Storybook", "ZOD", "TanstackQuery(ReactQuery)"],
     link: "#",
     liveDemo: "https://seobom.site",
     github: "https://github.com/SWYP-SUBOM",
