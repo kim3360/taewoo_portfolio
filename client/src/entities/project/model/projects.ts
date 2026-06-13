@@ -141,28 +141,83 @@ export const projects = [
     Projectdescription: "써봄은 대학생들의 글쓰기 습관을 돕는 PWA 서비스입니다. 사용자가 글을 작성하면 AI가 피드백을 제공하고, 루틴 형태로 꾸준히 글쓰기를 이어갈 수 있도록 설계되었습니다. 모바일 웹 설치형(PWA)으로 제공되며, Google Analytics로 사용자 행동을 추적해 서비스를 개선했습니다.",
     features: [
       {
-        title: "글쓰기 에디터",
-        description: "주제·글감 기반 글 작성 및 임시 저장 기능을 제공합니다.",
+        title: "온보딩 & 인증",
+        description:
+          "카카오 OAuth 로그인, 닉네임 설정, 서비스 소개·가이드 화면을 제공합니다. 비회원(게스트)도 일부 기능을 이용할 수 있습니다.",
       },
       {
-        title: "AI 피드백 (SSE)",
-        description: "OpenAI API 응답을 SSE 스트리밍으로 받아 실시간 피드백 UI에 반영합니다.",
+        title: "홈 & 주제 선택",
+        description:
+          "오늘의 주제 캐러셀, 카테고리별 주제 탐색, 인기 글·배너, PWA 설치 안내를 홈에서 확인하고 주제 선택 후 글쓰기로 이동합니다.",
       },
       {
-        title: "PWA",
-        description: "홈 화면 추가·오프라인 캐싱 등 PWA 설정으로 앱처럼 설치·이용할 수 있습니다.",
+        title: "글쓰기",
+        description:
+          "선택한 주제에 대해 100~700자 의견을 작성합니다. 단계별 가이드, 임시저장·이어쓰기를 지원하며, 작성 완료 후 AI 피드백을 요청합니다.",
       },
       {
-        title: "글쓰기 루틴",
-        description: "주간·월간 목표 설정과 작성 기록으로 꾸준한 글쓰기 습관을 유도합니다.",
+        title: "AI 피드백",
+        description:
+          "AI가 글에 대한 피드백·보완 제안을 제공하고, 피드백·보완 페이지에서 확인할 수 있습니다. 별점 평가로 만족도를 남길 수 있습니다.",
       },
       {
-        title: "Google Analytics UT",
-        description: "Google Analytics로 페이지·이벤트를 추적해 사용자 행동(UT) 데이터를 수집·분석합니다.",
+        title: "피드 (커뮤니티)",
+        description:
+          "다른 사용자 글을 열람하고, 주제별·과거 주제별로 모아볼 수 있습니다. 좋아요 등 반응과 글 상세 보기를 지원합니다.",
+      },
+      {
+        title: "캘린더",
+        description:
+          "월별 글쓰기 기록을 시각화하고, 주간 챌린지·월간 훈련 현황을 확인합니다. 날짜별 작성 글을 조회할 수 있습니다.",
+      },
+      {
+        title: "마이페이지",
+        description:
+          "내 정보 관리, 작성 글·반응한 글 목록, 과거 AI 피드백 다시 보기 등 개인 활동 기록을 한곳에서 관리합니다.",
+      },
+      {
+        title: "알림",
+        description:
+          "SSE(Server-Sent Events) 실시간 알림을 지원합니다. 알림 목록 페이지에서 확인·관리할 수 있으며, 로그인 상태에 따라 연결이 자동 관리됩니다.",
+      },
+      {
+        title: "관리자",
+        description:
+          "관리자 로그인 후 주제(질문) 등록·승인·예약, 카테고리별 주제 관리, 다음날 요일 자동 등록, 주제 수정·상태 변경을 처리합니다.",
       },
     ],
-    responsibilities: ["글 작성·피드백 결과 화면 UI 구현", "SSE 기반 AI 피드백 스트리밍 응답 UI 처리", "PWA manifest·service worker 설정 및 설치형 웹 구성", "Google Analytics 이벤트·UT 추적 연동", "Zustand·TanStack Query 기반 상태 관리"],
-    tags: ["React", "TypeScript", "Tailwind CSS", "PWA", "REST API", "OpenAI", "SSE", "Google Analytics", "Zustand", "Storybook", "ZOD", "TanstackQuery(ReactQuery)"],
+    responsibilities: [
+      "프로젝트 초기 세팅 — 타이포·레이아웃, Storybook, 공통 Button·Header, Vercel 배포",
+      "온보딩·인증 전담 — 카카오 OAuth, 가이드 UI, Zustand 인증 상태, 리프레시 토큰 자동 재발급, 로그아웃·탈퇴 API",
+      "캘린더·마이페이지 UI 전체 구현 — 월별 기록·챌린지, 프로필·작성글·반응글, 이름 변경 API",
+      "SSE 실시간 알림 — 알림 API 연동, 전역 연결·토큰 갱신 재연결, 비로그인 비활성화",
+      "어드민 페이지 UI·API 전체 구현 — 주제 승인·예약·수정, AI 토픽 자동생성, React.memo·캐시 업데이트 최적화",
+      "GA4 이벤트 유틸 설계·전 서비스 퍼널 적용 — 온보딩·글쓰기·피드·캘린더 등, 중복 이벤트 방지",
+      "비회원(게스트) UX — 캘린더·프로필 진입, 작성 유도 바텀시트, 이탈 시 상태 초기화",
+      "글 반응 API·에러 페이지 등 기타 기능 보완",
+    ],
+    achievements: [
+      "온보딩·인증 플로우 프론트 전담 — 카카오 로그인·토큰 갱신·가이드 UX 전 과정 구현",
+      "SSE 전역 연결·토큰 갱신 재연결로 로그인 유지 중 알림 누락 이슈 해결",
+      "어드민 페이지 React.memo·캐시 직접 업데이트로 목록 렌더링 최적화",
+    ],
+    tags: [
+      "React 19",
+      "TypeScript",
+      "Vite",
+      "TanStack Query",
+      "Zustand",
+      "Axios",
+      "React Router",
+      "Tailwind CSS",
+      "Framer Motion",
+      "SSE",
+      "PWA",
+      "OAuth",
+      "GA4",
+      "Sentry",
+      "Vercel",
+    ],
     link: "#",
     liveDemo: "https://seobom.site",
     github: "https://github.com/SWYP-SUBOM",
@@ -170,10 +225,14 @@ export const projects = [
     members: "PM 1명, 디자이너 1명, 프론트엔드 3명, 백엔드 3명",
     pdf: "../assets/Subom/SWYP_Subom.pdf",
     details: {
-      Problem: "aaaaaaaaaaaa",
-      Cause: "bbbbbbbbbbbb",
-      Solution: "cc",
-      Result: "dd",
+      Problem:
+        "로그인 상태를 유지한 채 서비스를 사용하다 보면 SSE 알림 연결이 끊기고, 재로그인하기 전까지 새 알림이 오지 않는 경우가 있었습니다. 토큰 갱신 직후에도 알림이 복구되지 않는 케이스가 반복됐습니다.",
+      Cause:
+        "SSE 연결이 페이지·컴포넌트 단위로 관리되어 토큰 refresh 이후 재연결 로직이 없었습니다. 비로그인·타임아웃·연결 상태 표시 처리도 화면마다 분산되어 인증 상태와 알림 연동이 어긋났습니다.",
+      Solution:
+        "SSE 연결을 전역에서 관리하고, 토큰 갱신 시 기존 연결을 정리한 뒤 자동 재연결하도록 구현했습니다. 알림 API 연동과 함께 비로그인 시 알림 비활성화, 연결 타임아웃·활성화 아이콘을 헤더와 통합해 상태를 한곳에서 보이게 했습니다.",
+      Result:
+        "로그인 유지 중 알림 누락 케이스를 줄였고, 인증·알림 흐름이 안정화되었습니다. 이후 온보딩·어드민 등 다른 영역 작업 시에도 동일한 인증·이벤트 패턴을 재사용할 수 있는 기반이 되었습니다.",
     },
   },
 

@@ -1,4 +1,4 @@
-import { Code2, Box, Terminal, Monitor, Globe, Gauge, Search, Cloud, Workflow, TestTube2, CreditCard, Plug, Map, Layers } from "lucide-react"
+import { Code2, Box, Terminal, Monitor, Globe, Gauge, Search, Cloud, Workflow, TestTube2, CreditCard, Plug, Map, Layers, Smartphone, KeyRound } from "lucide-react"
 import {
   SiReact,
   SiReactrouter,
@@ -36,6 +36,9 @@ import {
   SiReacthookform,
   SiTestinglibrary,
   SiGoogleanalytics,
+  SiAxios,
+  SiFirebase,
+  SiSentry,
 } from "react-icons/si"
 import { FaGitAlt } from "react-icons/fa"
 
@@ -53,6 +56,7 @@ export const getSkillIcon = (skill: string) => {
   > = {
     // Core
     React: { Icon: SiReact, color: "#61DAFB" },
+    "React 19": { Icon: SiReact, color: "#61DAFB" },
     "React Native": { Icon: SiReact, color: "#61DAFB" },
     "React · React Native": { Icon: SiReact, color: "#61DAFB" },
     TypeScript: { Icon: SiTypescript, color: "#3178C6" },
@@ -70,13 +74,20 @@ export const getSkillIcon = (skill: string) => {
     Zod: { Icon: SiZod, color: "#3E63DD" },
     ZOD: { Icon: SiZod, color: "#3E63DD" },
     TanstackQuery: { Icon: SiReactquery, color: "#FF4154" },
+    "TanStack Query": { Icon: SiReactquery, color: "#FF4154" },
     "TanstackQuery(ReactQuery)": { Icon: SiReactquery, color: "#FF4154" },
+    Axios: { Icon: SiAxios, color: "#5A29E4" },
     "React Router": { Icon: SiReactrouter, color: "#CA4245" },
     "React-Router-Dom v6": { Icon: SiReactrouter, color: "#CA4245" },
     GraphQL: { Icon: SiGraphql, color: "#E10098" },
     "React Hook Form": { Icon: SiReacthookform, color: "#EC5990" },
     "RESTful API": { Icon: Globe, color: "#3B82F6" },
     SSE: { Icon: Cloud, color: "#06B6D4" },
+    "Firebase FCM": { Icon: SiFirebase, color: "#FFCA28" },
+    PWA: { Icon: Smartphone, color: "#6366F1" },
+    OAuth: { Icon: KeyRound, color: "#F59E0B" },
+    GA4: { Icon: SiGoogleanalytics, color: "#E37400" },
+    Sentry: { Icon: SiSentry, color: "#362D59" },
     WebSocket: { Icon: Plug, color: "#22C55E" },
     Socket: { Icon: Plug, color: "#22C55E" },
     "PG 결제": { Icon: CreditCard, color: "#6366F1" },
