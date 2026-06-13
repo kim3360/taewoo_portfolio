@@ -24,10 +24,4 @@ export const PORTFOLIO_CATEGORIES = [
     description: "Explore my journey in Mobile",
     projects: ["WAIT:IT", "자료요정"],
   },
-  {
-    id: "team",
-    label: "TEAM",
-    description: "Explore my team projects",
-    projects: ["써봄", "WAIT:IT", "DASOM", "자료요정"],
-  },
 ] as const

@@ -711,7 +711,7 @@
   }
 
   .landing-timeline--activities .timeline-row--compact {
-    grid-template-columns: 92px minmax(0, 1fr);
+    grid-template-columns: minmax(108px, auto) minmax(0, 1fr);
     gap: 0.5rem 1rem;
     padding-top: 0.625rem;
     padding-bottom: 0.625rem;
@@ -1010,11 +1010,11 @@
   }
 
   .timeline-row--compact {
-    @apply grid-cols-[72px_1fr] sm:grid-cols-[80px_1fr] gap-2 sm:gap-3 py-2 md:py-2.5;
+    @apply grid-cols-[minmax(108px,auto)_minmax(0,1fr)] gap-2 sm:gap-3 py-2 md:py-2.5;
   }
 
   .timeline-row--compact .timeline-row__period {
-    @apply text-[10px] md:text-[11px];
+    @apply text-[10px] md:text-[11px] whitespace-nowrap shrink-0;
   }
 
   .timeline-row--compact .timeline-row__title {
@@ -1026,7 +1026,7 @@
   }
 
   .timeline-row__period {
-    @apply text-xs md:text-sm text-muted-foreground font-medium tabular-nums;
+    @apply text-xs md:text-sm text-muted-foreground font-medium tabular-nums whitespace-nowrap shrink-0;
   }
 
   .timeline-row__title {

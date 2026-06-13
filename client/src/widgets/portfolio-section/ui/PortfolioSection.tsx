@@ -11,7 +11,6 @@ import { PortfolioCategorySlide } from "./PortfolioCategorySlide"
 const categoryThumbnails: Record<string, string> = {
   web: projects.find((p) => p.title === "DASOM")?.thumbnail ?? projects[0].thumbnail,
   mobile: projects.find((p) => p.title === "WAIT:IT")?.thumbnail ?? projects[1].thumbnail,
-  team: projects.find((p) => p.title === "써봄")?.thumbnail ?? projects[0].thumbnail,
 }
 
 const sliderCategories = [...PORTFOLIO_CATEGORIES, ...PORTFOLIO_CATEGORIES]
@@ -34,7 +33,7 @@ export const ProjectComponent = () => {
         <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="portfolio-section__header">
           <p className="portfolio-section__eyebrow">Portfolio</p>
           <h2 className="portfolio-section__title hero-headline">Selected Works</h2>
-          <p className="portfolio-section__subtitle">카테고리를 선택하면 아래 프로젝트가 필터됩니다 · 호버 시 슬라이드 일시 정지</p>
+          <p className="portfolio-section__subtitle">카테고리를 선택하면 아래 프로젝트가 필터됩니다 </p>
           <div className="portfolio-section__header-line" aria-hidden />
         </motion.div>
 
