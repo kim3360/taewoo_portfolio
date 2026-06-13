@@ -1,7 +1,7 @@
-import { projects } from "@/entities/project"
+import { projects, getProjectPath } from "@/entities/project"
 import { PORTFOLIO_CATEGORIES } from "@/entities/site"
 import { useState } from "react"
-import { ProjectModal } from "@/features/project-modal"
+import { Link } from "wouter"
 import { motion } from "framer-motion"
 import { ArrowUpRight } from "lucide-react"
 import { Marquee, MarqueeItem } from "@/shared/ui/Marquee"
@@ -17,14 +17,7 @@ const categoryThumbnails: Record<string, string> = {
 const sliderCategories = [...PORTFOLIO_CATEGORIES, ...PORTFOLIO_CATEGORIES]
 
 export const ProjectComponent = () => {
-  const [selectedProject, setSelectedProject] = useState<(typeof projects)[0] | null>(null)
-  const [isProjectModalOpen, setIsProjectModalOpen] = useState(false)
   const [activeCategory, setActiveCategory] = useState<string | null>(null)
-
-  const handleProjectClick = (project: (typeof projects)[0]) => {
-    setSelectedProject(project)
-    setIsProjectModalOpen(true)
-  }
 
   const activeCat = PORTFOLIO_CATEGORIES.find((c) => c.id === activeCategory)
   const filteredProjects = activeCat ? projects.filter((p) => (activeCat.projects as readonly string[]).includes(p.title)) : projects
@@ -89,27 +82,27 @@ export const ProjectComponent = () => {
 
         <div className="grid md:grid-cols-2 gap-5 md:gap-6">
           {filteredProjects.map((project, index) => (
-            <motion.button key={project.title} type="button" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.08 }} whileHover={{ y: -4 }} onClick={() => handleProjectClick(project)} className="portfolio-project-card group text-left">
-              <span className="portfolio-project-card__num">{String(index + 1).padStart(2, "0")}</span>
-              <div className="aspect-[16/10] overflow-hidden relative">
-                <img src={project.thumbnail} alt={project.title} className="w-full h-full  group-hover:scale-105 transition-transform duration-700" />
-                <div className="portfolio-project-card__overlay" />
-                <div className="portfolio-project-card__view">View project</div>
-              </div>
-              <div className="p-6 md:p-8">
-                <div className="flex justify-between items-start gap-4 mb-2">
-                  <h4 className="text-xl md:text-2xl font-bold group-hover:text-pearl-accent transition-colors">{project.title}</h4>
-                  <ArrowUpRight className="w-5 h-5 shrink-0 text-pearl-accent opacity-0 group-hover:opacity-100 transition-all" />
+            <Link key={project.slug} href={getProjectPath(project.slug)}>
+              <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: index * 0.08 }} whileHover={{ y: -4 }} className="portfolio-project-card group text-left cursor-pointer">
+                <span className="portfolio-project-card__num">{String(index + 1).padStart(2, "0")}</span>
+                <div className="aspect-[16/10] overflow-hidden relative">
+                  <img src={project.thumbnail} alt={project.title} className="w-full h-full group-hover:scale-105 transition-transform duration-700" />
+                  <div className="portfolio-project-card__overlay" />
+                  <div className="portfolio-project-card__view">View project</div>
                 </div>
-                <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">{project.description}</p>
-                {project.period && <p className="text-[10px] tracking-[0.2em] uppercase text-pearl-accent/60 mt-4">{project.period}</p>}
-              </div>
-            </motion.button>
+                <div className="p-6 md:p-8">
+                  <div className="flex justify-between items-start gap-4 mb-2">
+                    <h4 className="text-xl md:text-2xl font-bold group-hover:text-pearl-accent transition-colors">{project.title}</h4>
+                    <ArrowUpRight className="w-5 h-5 shrink-0 text-pearl-accent opacity-0 group-hover:opacity-100 transition-all" />
+                  </div>
+                  <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">{project.description}</p>
+                  {project.period ? <p className="text-[10px] tracking-[0.2em] uppercase text-pearl-accent/60 mt-4">{project.period}</p> : null}
+                </div>
+              </motion.div>
+            </Link>
           ))}
         </div>
       </div>
-
-      {isProjectModalOpen && selectedProject && <ProjectModal project={selectedProject} isOpen={isProjectModalOpen} onClose={() => setIsProjectModalOpen(false)} />}
     </section>
   )
 }

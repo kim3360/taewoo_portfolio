@@ -1,6 +1,7 @@
 export const projects = [
   // 내폼리폼 프로젝트
   {
+    slug: "myform-reform",
     type: "web",
     thumbnail: "../assets/MyformReform/Myform_Reform_Thumbnail.jpg",
     logo: "",
@@ -19,6 +20,39 @@ export const projects = [
     period: "2025.12 - 2026.02",
 
     members: "PM 1명, 디자이너 2명, 프론트엔드 3명, 백엔드 5명",
+    features: [
+      {
+        title: "리폼 작업물 마켓",
+        description: "리폼러가 등록한 작업물을 탐색·구매할 수 있는 마켓 플레이스. 상품 상세, 옵션 선택, 장바구니 담기까지 이어지는 구매 흐름을 제공합니다.",
+      },
+      {
+        title: "리폼 요청 & 견적 제안",
+        description: "사용자가 사진·설명과 함께 리폼 요청을 등록하고, 여러 리폼러로부터 견적을 받아 가격·스타일·납기를 비교할 수 있습니다.",
+      },
+      {
+        title: "리폼러 프로필 & 포트폴리오",
+        description: "리폼러별 작업물, 후기, 평점을 한곳에서 확인해 신뢰할 수 있는 제작자를 선택할 수 있습니다.",
+      },
+      {
+        title: "실시간 채팅",
+        description: "요청·주문 건별 채팅방에서 문의와 진행 상황(수거 → 작업 → 발송)을 실시간으로 공유합니다.",
+      },
+      {
+        title: "장바구니 & PG 결제",
+        description: "다중 상품 선택·수량 조절·배송비 포함 결제 금액 계산 후 PG 연동 결제를 지원합니다.",
+      },
+    ],
+    responsibilities: [
+      "마켓·장바구니·결제 페이지 UI 및 상태 흐름 설계·구현",
+      "PG SDK 연동, 결제 승인 API 호출 및 주문 상태 polling 처리",
+      "TanStack Query 기반 서버 상태 관리, Zustand 클라이언트 상태 분리",
+      "Zod 폼 검증, Storybook 공통 컴포넌트 문서화",
+      "SSE 기반 채팅 메시지 수신 및 UI 반영",
+    ],
+    achievements: [
+      "결제 완료 후 주문 상태 불일치·중복 PG 호출 이슈 해결",
+      "리폼 요청 → 견적 → 결제까지 핵심 사용자 플로우 MVP 구현",
+    ],
     details: {
       Problem:
         "리폼 작업물·견적 확정 후 PG 결제를 진행하면, 결제창에서는 성공으로 보이는데 주문 상세는 '결제 대기'로 남거나 결제 완료 화면으로 넘어가지 않는 경우가 있었습니다. 또 결제 버튼을 빠르게 연타하면 PG 창이 중복으로 열리는 이슈도 발생했습니다.",
@@ -33,16 +67,36 @@ export const projects = [
 
   // 스위프 웹 12기 밍글링 프로젝트
   {
+    slug: "mingling",
     type: "web",
     thumbnail: "../assets/Mingling/Mingling_Thubnail.png",
     logo: "../assets/Mingling/Logo.png",
     image: ["../assets/Mingling/1.png", "../assets/Mingling/2.png", "../assets/Mingling/3.png", "../assets/Mingling/4.png", "../assets/Mingling/5.png", "../assets/Mingling/6.png"],
 
     title: "밍글링",
-    description: "대학생들의 사고력 향상 위한 AI 피드백 기반 글쓰기 루틴 서비스",
+    description: "모임 참석자 위치 기반 최적 중간 지점·장소 추천 서비스",
 
     Projectdescription:
-      "Mingling(밍글링) 은 모임 참석자들의 출발 위치를 바탕으로 가장 공평하고 이동이 편리한 중간 지점을 찾아주는 서비스입니다. 지인들과 약속 장소를 정할 때 어디서 만날까? 라는 고민과 위치 선정의 불공평함을 해결하기 위해 기획되었습니다. 단순한 물리적 중간 거리가 아닌 실제 지하철 이동 시간과 환승 횟수를 고려하여 서울 내 최적의 번화가와 모임의 목적(식당, 카페, 놀거리 등)에 맞는 장소를 추천해 줍니다.",
+      "Mingling(밍글링)은 모임 참석자들의 출발 위치를 바탕으로 가장 공평하고 이동이 편리한 중간 지점을 찾아주는 서비스입니다. 지인들과 약속 장소를 정할 때 어디서 만날까? 라는 고민과 위치 선정의 불공평함을 해결하기 위해 기획되었습니다. 단순한 물리적 중간 거리가 아닌 실제 지하철 이동 시간과 환승 횟수를 고려하여 서울 내 최적의 번화가와 모임의 목적(식당, 카페, 놀거리 등)에 맞는 장소를 추천해 줍니다.",
+    features: [
+      {
+        title: "중간 지점 계산",
+        description: "참석자별 출발지 입력 후 지하철 이동 시간·환승을 반영한 공평한 중간 지점을 산출합니다.",
+      },
+      {
+        title: "목적별 장소 추천",
+        description: "식당, 카페, 놀거리 등 모임 목적에 맞는 주변 장소를 추천합니다.",
+      },
+      {
+        title: "약속 공유",
+        description: "산출된 중간 지점과 추천 장소를 링크로 공유해 참석자가 함께 확인할 수 있습니다.",
+      },
+    ],
+    responsibilities: [
+      "지도·장소 추천 결과 UI 및 반응형 레이아웃 구현",
+      "TanStack Query로 API 연동 및 로딩·에러 상태 처리",
+      "Zod 기반 입력 폼 검증",
+    ],
     tags: ["React", "TypeScript", "Tailwind CSS", "REST API", "OpenAI", "Zustand", "Storybook", "ZOD", "SSE", "TanstackQuery(ReactQuery)"],
     link: "#",
     liveDemo: "https://www.mingling.kr/",
@@ -58,14 +112,40 @@ export const projects = [
 
   // 스위프 웹 11기 써봄 프로젝트
   {
+    slug: "seobom",
     type: "mobile",
     thumbnail: "../assets/Subom/subom_Thumbnail.png",
     logo: "../assets/Subom/Title_Logo.png",
     image: ["../assets/Subom/Subom_Login.png", "../assets/Subom/2.png", "../assets/Subom/3.png", "../assets/Subom/4.png", "../assets/Subom/5.png", "../assets/Subom/6.png", "../assets/Subom/7.png"],
 
     title: "써봄",
-    description: "대학생들의 사고력 향상 위한 AI 피드백 기반 글쓰기 루틴 서비스",
+    description: "대학생 대상 AI 피드백 기반 글쓰기 루틴 서비스",
 
+    Projectdescription:
+      "써봄은 대학생들의 글쓰기 습관을 돕는 서비스입니다. 사용자가 글을 작성하면 AI가 피드백을 제공하고, 루틴 형태로 꾸준히 글쓰기를 이어갈 수 있도록 설계되었습니다.",
+    features: [
+      {
+        title: "글쓰기 에디터",
+        description: "주제·글감 기반 글 작성 및 임시 저장 기능을 제공합니다.",
+      },
+      {
+        title: "AI 피드백",
+        description: "작성한 글에 대해 AI가 구조·표현·논리 관점의 피드백을 생성합니다.",
+      },
+      {
+        title: "글쓰기 루틴",
+        description: "주간·월간 목표 설정과 작성 기록으로 꾸준한 글쓰기 습관을 유도합니다.",
+      },
+      {
+        title: "커뮤니티",
+        description: "다른 사용자의 글을 읽고 반응하며 동기를 부여받을 수 있습니다.",
+      },
+    ],
+    responsibilities: [
+      "글 작성·피드백 결과 화면 UI 구현",
+      "OpenAI API 연동 및 스트리밍(SSE) 응답 UI 처리",
+      "Zustand·TanStack Query 기반 상태 관리",
+    ],
     tags: ["React", "TypeScript", "Tailwind CSS", "REST API", "OpenAI", "Zustand", "Storybook", "ZOD", "SSE", "TanstackQuery(ReactQuery)"],
     link: "#",
     liveDemo: "https://seobom.site",
@@ -83,6 +163,7 @@ export const projects = [
 
   //  WAIT:IT 프로젝트
   {
+    slug: "wait-it",
     type: "mobile",
     thumbnail: "../assets/Wait/Group.png",
     logo: "../assets/Wait/Logo.png",
@@ -91,6 +172,29 @@ export const projects = [
     title: "WAIT:IT",
     description: "오프라인 공간에서 줄서기를 간편하게 만들어주는 웨이팅 시스템",
 
+    features: [
+      {
+        title: "원격 웨이팅",
+        description: "매장 방문 전 앱에서 대기 번호를 발급하고 순서·예상 시간을 확인합니다.",
+      },
+      {
+        title: "실시간 대기 현황",
+        description: "REST API 폴링으로 대기 인원·예상 시간을 실시간 동기화합니다.",
+      },
+      {
+        title: "위치 기반 매장 검색",
+        description: "GPS와 지도 API로 주변 매장을 검색하고 거리순으로 정렬합니다.",
+      },
+      {
+        title: "대기 알림",
+        description: "대기 순번이 가까워지면 푸시 알림으로 사용자에게 안내합니다.",
+      },
+    ],
+    responsibilities: [
+      "React Native 크로스 플랫폼 UI·네비게이션 구현",
+      "TanStack Query 캐싱 전략으로 API 호출 최적화",
+      "Zustand 전역 상태 및 Zod 폼 검증",
+    ],
     tags: ["React", "React Native", "TypeScript", "Tailwind CSS", "REST API", "Zustand", "ZOD", "TanstackQuery(ReactQuery)"],
     link: "#",
     github: "https://github.com/DMU-Capstone",
@@ -108,14 +212,36 @@ export const projects = [
 
   // 자료요정
   {
+    slug: "data-fairy",
     type: "mobile",
     thumbnail: "../assets/DataFairy/Data_Fairy_Thumbnail.png",
     logo: "../assets/DataFairy/Logo.png",
     image: ["../assets/DataFairy/1.png", "../assets/DataFairy/2.png", "../assets/DataFairy/3.png", "../assets/DataFairy/4.png"],
 
     title: "자료요정",
-    description: "많은 사용자들이 스마트폰으로 강의자료, 회의 내용, 설정 정보 등을 스크린샷으로 저장하지만, 나중에 다시 확인하려고 할 때 어떤 내용인지 기억하기 어렵고, 정리되지 않아 찾기 힘든 문제가 발생합니다. 이를 해결하기 위해, 스크린샷 이미지 안의 텍스트를 자동으로 추출하고, OpenAI를 활용해 요약 + 카테고리 분류 + 폴더 저장까지 자동화하는 서비스",
+    description: "스크린샷 OCR + AI 요약·분류로 자료를 자동 정리하는 모바일 앱",
 
+    Projectdescription:
+      "많은 사용자들이 스마트폰으로 강의자료, 회의 내용, 설정 정보 등을 스크린샷으로 저장하지만, 나중에 다시 확인하려고 할 때 어떤 내용인지 기억하기 어렵고, 정리되지 않아 찾기 힘든 문제가 발생합니다. 스크린샷 이미지 안의 텍스트를 자동으로 추출하고, OpenAI를 활용해 요약 + 카테고리 분류 + 폴더 저장까지 자동화합니다.",
+    features: [
+      {
+        title: "스크린샷 OCR",
+        description: "갤러리·카메라 이미지에서 텍스트를 자동 추출합니다.",
+      },
+      {
+        title: "AI 요약 & 분류",
+        description: "OpenAI API로 추출 텍스트를 요약하고 카테고리별로 자동 분류합니다.",
+      },
+      {
+        title: "폴더·검색",
+        description: "분류된 자료를 폴더에 저장하고 키워드 검색으로 빠르게 찾습니다.",
+      },
+    ],
+    responsibilities: [
+      "Expo 기반 React Native 앱 UI 구현",
+      "이미지 업로드·OCR 결과·AI 응답 화면 상태 관리",
+      "비동기 처리 중 로딩·에러 UX 설계",
+    ],
     tags: ["React Native", "Expo", "TypeScript", "Style Component", "REST API", "OpenAI"],
     link: "#",
 
@@ -133,14 +259,36 @@ export const projects = [
 
   // DASOM 프로젝트
   {
+    slug: "dasom",
     type: "web",
     thumbnail: "../assets/DASOM/banner.png",
     logo: "../assets/DASOM/Logo.png",
     image: ["../assets/DASOM/1.png"],
 
     title: "DASOM",
-    description: "동양미래대학교 컴퓨터공학부 전공동아리 다솜의 공식 홈페이지입니다. 동아리 소개, 개발 기록, 회원 관리 등 동아리 운영에 필요한 기능을 제공하는 반응형 웹사이트입니다.",
+    description: "동양미래대학교 컴퓨터공학부 전공동아리 다솜 공식 홈페이지",
 
+    Projectdescription:
+      "동아리 소개, 개발 기록, 회원 관리 등 동아리 운영에 필요한 기능을 제공하는 반응형 웹사이트입니다.",
+    features: [
+      {
+        title: "동아리 소개",
+        description: "동아리 목적, 활동 내용, 멤버 소개를 시각적으로 전달합니다.",
+      },
+      {
+        title: "개발 기록",
+        description: "동아리 프로젝트를 카드 형태로 표시하고 필터·검색으로 탐색합니다.",
+      },
+      {
+        title: "회원 관리",
+        description: "회원가입·로그인·프로필 관리 기능으로 동아리 멤버를 관리합니다.",
+      },
+    ],
+    responsibilities: [
+      "React·TypeScript 기반 반응형 UI 구현",
+      "REST API 연동 및 인증 토큰 세션 관리",
+      "Tailwind CSS 디자인 시스템 적용",
+    ],
     tags: ["React", "TypeScript", "Tailwind CSS", "REST API"],
     link: "#",
 
