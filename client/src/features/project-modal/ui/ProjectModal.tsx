@@ -34,7 +34,6 @@ interface ProjectModalProps {
       Result: string
     }
     period?: string
-    teamSize?: string
     members?: string
     logo?: string
     pdf?: string

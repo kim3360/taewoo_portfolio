@@ -3,24 +3,31 @@ export const projects = [
   {
     type: "web",
     thumbnail: "../assets/MyformReform/Myform_Reform_Thumbnail.jpg",
-    logo: "../assets/Subom/Title_Logo.png",
+    logo: "",
     image: ["../assets/MyformReform/Myform_Reform1.png", "../assets/MyformReform/Myform_Reform2.png", "../assets/MyformReform/Myform_Reform3.png", "../assets/MyformReform/Myform_Reform4.png", "../assets/MyformReform/Myform_Reform5.png", "../assets/MyformReform/Myform_Reform6.png"],
 
     title: "내폼리폼",
     description: "스포츠 유니폼 리폼 구매자와 리폼러 연결 통합 플랫폼",
+
+    Projectdescription:
+      "내폼리폼은 스포츠 유니폼·굿즈 리폼을 원하는 사용자와 리폼러를 연결하는 웹 플랫폼입니다. 기존에는 SNS, 당근, 카페 등에 정보가 흩어져 가격·후기 비교가 어렵고, 리폼러는 팔로워 없이 고객을 확보하기 힘든 구조였습니다.사용자는 리폼 요청을 등록하고 여러 리폼러의 견적을 받아 비교할 수 있으며, 리폼러는 작업물 판매·포트폴리오·후기를 한곳에서 관리합니다. 채팅으로 수거→작업→발송 단계를 공유해 진행 상황을 확인할 수 있습니다.",
 
     tags: ["React", "TypeScript", "Tailwind CSS", "REST API", "OpenAI", "Zustand", "Storybook", "ZOD", "SSE", "TanstackQuery(ReactQuery)"],
     link: "#",
     liveDemo: "https://myform-reform.vercel.app",
     github: "https://github.com/Myform-Reform",
     period: "2025.12 - 2026.02",
-    teamSize: "8명",
-    members: "PM 1명, 디자이너 1명, 프론트엔드 3명, 백엔드 3명",
+
+    members: "PM 1명, 디자이너 2명, 프론트엔드 3명, 백엔드 5명",
     details: {
-      Problem: "스포츠 유니폼 리폼 구매자와 리폼러 연결 통합 플랫폼",
-      Cause: "bbbbbbbbbbbb",
-      Solution: "cc",
-      Result: "dd",
+      Problem:
+        "리폼 작업물·견적 확정 후 PG 결제를 진행하면, 결제창에서는 성공으로 보이는데 주문 상세는 '결제 대기'로 남거나 결제 완료 화면으로 넘어가지 않는 경우가 있었습니다. 또 결제 버튼을 빠르게 연타하면 PG 창이 중복으로 열리는 이슈도 발생했습니다.",
+      Cause:
+        "프론트에서 PG SDK의 success 콜백만으로 결제 완료를 처리했고, 실제 주문 상태 갱신은 백엔드 webhook·승인 API 이후에 이루어지는 구조였습니다. success redirect 시점과 서버 반영 시점 사이에 race condition이 생겼고, 결제 요청 중 버튼 비활성화·중복 요청 방어 로직이 없어 연타 시 orderId가 여러 번 생성될 수 있었습니다.",
+      Solution:
+        "결제 플로우를 'PG 창 호출 → success redirect → 서버 결제 승인 API 호출 → 주문 상태 polling' 순으로 분리했습니다. 결제 버튼 클릭 시 즉시 loading/disabled 처리하고, React Query mutation으로 승인 API를 호출한 뒤 완료 상태를 확인할 때까지 주문 상세를 refetch했습니다. 실패·타임아웃 시에는 재시도 안내와 함께 결제 대기 상태를 유지하도록 fallback UI를 추가했습니다.",
+      Result:
+        "결제 완료 후 주문 상태 불일치 케이스를 줄였고, 버튼 연타로 인한 중복 PG 호출도 방지했습니다. 사용자는 결제 → 승인 → 완료까지 한 화면에서 진행 상황을 확인할 수 있게 되어, 리폼 작업물 구매·견적 결제 흐름을 안정적으로 마무리할 수 있었습니다.",
     },
   },
 
@@ -64,7 +71,6 @@ export const projects = [
     liveDemo: "https://seobom.site",
     github: "https://github.com/SWYP-SUBOM",
     period: "2025.10 - 2025.11",
-    teamSize: "8명",
     members: "PM 1명, 디자이너 1명, 프론트엔드 3명, 백엔드 3명",
     pdf: "../assets/Subom/SWYP_Subom.pdf",
     details: {
@@ -89,7 +95,6 @@ export const projects = [
     link: "#",
     github: "https://github.com/DMU-Capstone",
     period: "2025.03 - 2025.10",
-    teamSize: "3명",
     members: "프론트엔드 2명, 백엔드 1명",
 
     details:
@@ -116,7 +121,6 @@ export const projects = [
 
     github: "https://github.com/Zerotone-ClearShot",
     period: "2025.03 - 2025.03",
-    teamSize: "4명",
     members: "PM 1명, 프론트엔드 1명, 백엔드 2명",
     pdf: "../assets/DataFairy/CLEARSHOT.pdf",
     details:
@@ -142,7 +146,7 @@ export const projects = [
 
     github: "https://github.com/DASOM-GitHub",
     period: "2024.07 - 2025.01",
-    teamSize: "6명",
+
     members: "프론트엔드 4명, 백엔드 2명",
 
     details:
