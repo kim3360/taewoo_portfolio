@@ -284,22 +284,6 @@
     @apply text-4xl md:text-5xl lg:text-[3.25rem] font-extrabold uppercase tracking-tight leading-none text-foreground;
   }
 
-  .portfolio-slide__title-char--accent {
-    @apply relative inline-block;
-  }
-
-  .portfolio-slide__dot {
-    position: absolute;
-    top: -0.35em;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 0.45em;
-    height: 0.45em;
-    border-radius: 50%;
-    background: var(--pearl-accent);
-    box-shadow: 0 0 20px rgba(248, 91, 225, 0.8);
-  }
-
   .portfolio-slide__active-badge {
     @apply shrink-0 text-[9px] font-bold uppercase tracking-[0.2em] text-pearl-accent px-2 py-1 rounded border border-pearl-accent/40 bg-pearl-accent/10;
   }

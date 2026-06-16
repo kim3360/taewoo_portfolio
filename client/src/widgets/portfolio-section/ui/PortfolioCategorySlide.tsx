@@ -63,13 +63,7 @@ export function PortfolioCategorySlide({
 
       <div className="portfolio-slide__body">
         <div className="portfolio-slide__title-wrap">
-          <h3 className="portfolio-slide__title">
-            <span className="portfolio-slide__title-char portfolio-slide__title-char--accent">
-              {category.label[0]}
-              <span className="portfolio-slide__dot" aria-hidden />
-            </span>
-            {category.label.slice(1)}
-          </h3>
+          <h3 className="portfolio-slide__title">{category.label}</h3>
           {isActive && (
             <span className="portfolio-slide__active-badge">Selected</span>
           )}
