@@ -20,12 +20,12 @@ export const profile = {
 
 export const awards = [
   {
-    period: "2026",
+    period: "2026.02",
     title: "UMC 9기 데모데이",
     subtitle: "스포츠 유니폼 리폼 구매자와 리폼러 연결 통합 플랫폼 (대상)",
   },
   {
-    period: "2025",
+    period: "2025.11",
     title: "SWYP WEB 11th",
     subtitle: "AI 기반 글쓰기 루틴 웹 서비스 (대상)",
   },
@@ -43,7 +43,7 @@ export const awards = [
 
 export const internships = [
   {
-    period: "2025",
+    period: "2025.07 - 2025.08",
     title: "엠클라우독",
     subtitle: "모바일개발팀 인턴 · React Native",
   },
