@@ -49,19 +49,21 @@ export function MarqueeItem({
   children,
   className,
   separator = true,
+  nowrap = true,
 }: {
-  children: React.ReactNode;
-  className?: string;
-  separator?: boolean;
+  children: React.ReactNode
+  className?: string
+  separator?: boolean
+  nowrap?: boolean
 }) {
   return (
     <span className={cn("flex shrink-0 items-center", className)}>
-      <span className="whitespace-nowrap">{children}</span>
+      {nowrap ? <span className="whitespace-nowrap">{children}</span> : children}
       {separator && (
         <span className="mx-6 md:mx-10 text-muted-foreground/40" aria-hidden>
           •
         </span>
       )}
     </span>
-  );
+  )
 }

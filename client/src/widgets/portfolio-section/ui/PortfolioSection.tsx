@@ -6,14 +6,7 @@ import { motion } from "framer-motion"
 import { ArrowUpRight } from "lucide-react"
 import { Marquee, MarqueeItem } from "@/shared/ui/Marquee"
 import { cn } from "@/shared/lib/utils"
-import { PortfolioCategorySlide } from "./PortfolioCategorySlide"
-
-const categoryThumbnails: Record<string, string> = {
-  web: projects.find((p) => p.title === "DASOM")?.thumbnail ?? projects[0].thumbnail,
-  mobile: projects.find((p) => p.title === "WAIT:IT")?.thumbnail ?? projects[1].thumbnail,
-}
-
-const sliderCategories = [...PORTFOLIO_CATEGORIES, ...PORTFOLIO_CATEGORIES]
+import { PortfolioProjectSlide } from "./PortfolioProjectSlide"
 
 export const ProjectComponent = () => {
   const [activeCategory, setActiveCategory] = useState<string | null>(null)
@@ -49,23 +42,23 @@ export const ProjectComponent = () => {
         </motion.div>
       </div>
 
-      <div className="portfolio-marquee-wrap marquee-fade portfolio-marquee-wrap--primary relative z-10 mb-4 md:mb-6">
+      <div className="portfolio-marquee-wrap portfolio-marquee-wrap--primary relative z-10 mb-4 md:mb-6 py-3">
         <Marquee speed="portfolio" pauseOnHover>
-          {sliderCategories.map((cat, index) => (
-            <MarqueeItem key={`${cat.id}-${index}`} separator={false} className="px-2 md:px-3">
-              <PortfolioCategorySlide category={cat} thumbnail={categoryThumbnails[cat.id]} index={index % PORTFOLIO_CATEGORIES.length} projectCount={cat.projects.length} isActive={activeCategory === cat.id} arrowDirection={index % 2 === 0 ? "right" : "left"} onSelect={() => toggleCategory(cat.id)} />
+          {projects.map((project, index) => (
+            <MarqueeItem key={project.slug} separator={false} nowrap={false} className="px-2 md:px-3">
+              <PortfolioProjectSlide project={project} index={index} />
             </MarqueeItem>
           ))}
         </Marquee>
       </div>
 
-      <div className="portfolio-marquee-wrap marquee-fade portfolio-marquee-wrap--ghost relative z-10 mb-16 md:mb-24 opacity-35 pointer-events-none hidden md:block">
+      <div className="portfolio-marquee-wrap portfolio-marquee-wrap--ghost relative z-10 mb-16 md:mb-24 opacity-35 pointer-events-none hidden md:block">
         <Marquee speed="portfolio" reverse>
-          {sliderCategories.map((cat, index) => (
-            <MarqueeItem key={`ghost-${cat.id}-${index}`} separator={false} className="px-2 md:px-3">
+          {projects.map((project) => (
+            <MarqueeItem key={`ghost-${project.slug}`} separator={false} nowrap={false} className="px-2 md:px-3">
               <div className="portfolio-slide portfolio-slide--ghost" aria-hidden>
                 <div className="portfolio-slide__preview min-h-[120px]">
-                  <div className="portfolio-slide__preview-img opacity-30" style={{ backgroundImage: `url(${categoryThumbnails[cat.id]})` }} />
+                  <div className="portfolio-slide__preview-img opacity-30" style={{ backgroundImage: `url(${project.thumbnail})` }} />
                 </div>
               </div>
             </MarqueeItem>

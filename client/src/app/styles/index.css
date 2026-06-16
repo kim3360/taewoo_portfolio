@@ -191,6 +191,10 @@
     mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
   }
 
+  .portfolio-marquee-wrap--primary {
+    @apply py-3 md:py-4;
+  }
+
   .portfolio-slide {
     @apply relative flex flex-col w-[min(82vw,340px)] sm:w-[360px] md:w-[400px] lg:w-[440px] overflow-hidden rounded-2xl border border-border/50 transition-all duration-500;
     min-height: 440px;
@@ -284,12 +288,24 @@
     @apply text-4xl md:text-5xl lg:text-[3.25rem] font-extrabold uppercase tracking-tight leading-none text-foreground;
   }
 
+  .portfolio-slide__title--project {
+    @apply text-2xl md:text-3xl normal-case tracking-tight leading-tight;
+  }
+
+  .portfolio-slide__description {
+    @apply text-xs md:text-sm text-muted-foreground leading-snug line-clamp-2 min-h-[2.5rem] md:min-h-[2.75rem];
+  }
+
+  .portfolio-slide:hover .portfolio-slide__description {
+    @apply text-foreground/85;
+  }
+
   .portfolio-slide__active-badge {
     @apply shrink-0 text-[9px] font-bold uppercase tracking-[0.2em] text-pearl-accent px-2 py-1 rounded border border-pearl-accent/40 bg-pearl-accent/10;
   }
 
   .portfolio-slide__journey {
-    @apply flex items-center gap-3 w-full;
+    @apply flex items-center gap-3 w-full mt-auto;
   }
 
   .portfolio-slide__journey--reverse {
@@ -297,7 +313,7 @@
   }
 
   .portfolio-slide__journey-text {
-    @apply text-xs md:text-sm text-muted-foreground shrink-0 max-w-[9rem] sm:max-w-none leading-snug transition-colors duration-300;
+    @apply text-xs md:text-sm text-muted-foreground shrink-0 max-w-[7.5rem] sm:max-w-[9rem] leading-snug line-clamp-2 transition-colors duration-300;
   }
 
   .portfolio-slide:hover .portfolio-slide__journey-text,
