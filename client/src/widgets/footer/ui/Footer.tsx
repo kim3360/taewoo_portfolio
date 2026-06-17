@@ -3,8 +3,8 @@ import { motion } from "framer-motion"
 
 const links = [
   { label: "Home", href: "#home" },
-  { label: "Projects", href: "#portfolio" },
   { label: "Skills", href: "#services" },
+  { label: "Projects", href: "#portfolio" },
   { label: "Letter", href: "#cover-letter" },
   { label: "Contact", href: "#contactme" },
 ]

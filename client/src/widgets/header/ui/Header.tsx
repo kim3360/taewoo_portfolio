@@ -6,8 +6,8 @@ import { profile } from "@/entities/profile";
 
 const navItems = [
   { label: "Home", href: "#home" },
-  { label: "Projects", href: "#portfolio" },
   { label: "Skills", href: "#skills" },
+  { label: "Projects", href: "#portfolio" },
   { label: "Letter", href: "#cover-letter" },
 ];
 
