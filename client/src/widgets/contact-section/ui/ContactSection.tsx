@@ -4,6 +4,12 @@ import { motion } from "framer-motion"
 import { Github, Mail, ArrowUpRight } from "lucide-react"
 import { sendContactMessage } from "@/features/contact-form"
 
+const whyMePoints = [
+  "React와 TypeScript를 중심으로 웹·모바일 서비스를 직접 다뤄 본 경험이 있습니다. UI 구현부터 API 연동, 상태 관리까지 담당하며 디자이너·백엔드와 긴밀히 소통해 왔습니다. 팀 목표를 우선하며 일정 안에 완성도 있는 결과를 만들어냅니다.",
+  "사용자가 처음 만나는 화면부터 로딩·에러 처리까지 세심하게 다룹니다. 재사용 가능한 컴포넌트와 읽기 쉬운 코드를 지향하고, 동작과 경험 두 가지를 모두 놓치지 않으려 합니다. 유지보수하기 좋은 프론트엔드가 팀 전체의 속도를 높인다고 믿습니다.",
+  "새로운 기술을 빠르게 익혀 프로젝트에 적용하는 것을 즐기며, 함께 배우고 성장할 수 있는 환경을 찾고 있습니다. 코드 리뷰와 피드백을 주고받으며 서로의 결과물을 높이는 문화를 좋아합니다. 좋은 제품을 만들기 위해 끊임없이 고민하고 실행하는 동료와 일하고 싶습니다.",
+]
+
 const socialLinks = [
   {
     label: "Email",
@@ -126,9 +132,12 @@ export const ContactComponent = () => {
             <span className="w-8 h-px bg-pearl-accent" />
             Why me?
           </h3>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl">
-            <p className="text-muted-foreground leading-[1.85] text-sm md:text-base">프론트엔드 개발과 UI 구현, API 연동 경험을 바탕으로 디자이너·백엔드 팀과 원활히 협업합니다. 깔끔한 코드와 사용자 경험을 동시에 추구합니다.</p>
-            <p className="text-muted-foreground leading-[1.85] text-sm md:text-base">새로운 기술을 배우고 적용하는 것을 즐기며, 함께 성장할 수 있는 환경을 찾고 있습니다.</p>
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+            {whyMePoints.map((text) => (
+              <p key={text} className="text-muted-foreground leading-[1.85] text-sm md:text-base">
+                {text}
+              </p>
+            ))}
           </div>
         </motion.div>
 
