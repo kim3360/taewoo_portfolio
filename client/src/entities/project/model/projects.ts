@@ -1,4 +1,88 @@
 export const projects = [
+  // 디벨리 프로젝트
+  {
+    slug: "dvely",
+    type: "web",
+    thumbnail: "../assets/Dvely/Dvely_Thumbnail.png",
+    logo: "../assets/Dvely/Logo.png",
+    image: ["../assets/Dvely/1.png", "../assets/Dvely/2.png", "../assets/Dvely/3.png"],
+
+    period: "2026.03 - ing",
+    title: "Dvely",
+    description: "AI Agent 기반 웹서비스 운영 자동화 플랫폼",
+
+    Projectdescription:
+      "Dvely는 AI로 만든 웹 결과물이 실제 운영 가능한 서비스가 되기까지의 전체 흐름을 연결하는 플랫폼입니다. GitHub OAuth로 로그인한 뒤 저장소를 불러와 프로젝트를 생성하고, 자연어 대화로 UI·기능을 수정하는 AI 에이전트 워크스페이스에서 사이트 미리보기와 코드 diff를 확인할 수 있습니다. 배포 파이프라인 UI를 통해 GitHub Pages 등 정적 사이트 배포까지 이어지는 MVP를 목표로 개발 중입니다.",
+
+    tags: [
+      "React 19",
+      "TypeScript",
+      "Vite",
+      "TanStack Router",
+      "TanStack Query",
+      "Zustand",
+      "Axios",
+      "Zod",
+      "Tailwind CSS",
+      "shadcn/ui",
+      "Radix UI",
+      "i18next",
+      "OAuth",
+      "GitHub",
+      "ESLint",
+      "Prettier",
+    ],
+    link: "#",
+    github: "https://github.com/Dvely",
+
+    features: [
+      {
+        title: "인증",
+        description:
+          "GitHub OAuth 단일 로그인을 지원합니다. 콜백 처리, 연동 상태 확인, 연동 해제가 가능하며 서비스 세션과 GitHub 토큰을 분리해 관리합니다.",
+      },
+      {
+        title: "프로젝트 관리",
+        description:
+          "프로젝트 목록·상세·개요 화면을 제공합니다. 새 프로젝트 생성, GitHub 저장소 불러오기, 프로젝트 설정, 활동 로그, 커밋 이력, 저장소 상태 조회를 지원합니다.",
+      },
+      {
+        title: "AI 에이전트 워크스페이스",
+        description:
+          "/project/$slug/agent 경로에서 자연어 대화로 UI·기능 수정을 요청합니다. 대화 목록·이어하기, 사이트 미리보기 패널, 삭제된 대화 휴지통 복구를 제공합니다.",
+      },
+      {
+        title: "코드·변경 확인",
+        description:
+          "/project/$slug/code에서 코드 탐색기와 Side-by-side diff 뷰로 AI가 제안한 변경 사항을 비교·검토할 수 있습니다.",
+      },
+      {
+        title: "배포 파이프라인",
+        description:
+          "/project/$slug/pipeline에서 배포 워크플로·파이프라인 관련 UI를 제공합니다. MVP 목표는 GitHub Pages 등 정적 사이트 배포입니다.",
+      },
+      {
+        title: "기타 화면",
+        description:
+          "랜딩(서비스 소개), 홈(프로젝트·템플릿), 설정(계정·GitHub 연동·자동 승인 정책), 도움말, 분석, 휴지통 화면을 포함합니다.",
+      },
+    ],
+    responsibilities: [
+      "React 19 + Vite 8 기반 프론트엔드 아키텍처 구성 — TanStack Router 파일 기반 라우트, 레이아웃·가드 설계",
+      "TanStack Query·Zustand로 서버·클라이언트 상태 분리, Axios + Zod 기반 API 연동·폼 검증",
+      "shadcn/ui·Radix UI 컴포넌트로 프로젝트 관리·설정·에이전트 워크스페이스 UI 구현",
+      "GitHub OAuth 연동 흐름(콜백·연동 상태·해제) 및 세션·토큰 분리 관리 UI",
+      "AI 에이전트 워크스페이스 — 대화 목록, 미리보기 패널, 휴지통 복구 UX",
+      "코드 탐색기·Side-by-side diff 뷰, 배포 파이프라인 화면 구현",
+      "i18next 기반 한국어 우선 다국어(i18n) 적용, Geist·Pretendard 폰트 시스템 구성",
+    ],
+    achievements: [
+      "파일 기반 TanStack Router로 프로젝트·에이전트·코드·파이프라인 등 다중 워크스페이스 라우트 구조 정립",
+      "GitHub OAuth부터 프로젝트 생성·저장소 연동까지 핵심 온보딩 플로우 MVP 구현",
+      "AI 에이전트 대화 + 미리보기 + diff 확인이 한 화면에서 이어지는 워크스페이스 UX 설계",
+    ],
+  },
+
   // 내폼리폼 프로젝트
   {
     slug: "myform-reform",
