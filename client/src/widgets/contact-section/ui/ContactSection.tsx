@@ -82,8 +82,8 @@ export const ContactComponent = () => {
           <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}>
             <p className="text-base md:text-lg font-medium mb-4 text-muted-foreground">Let&apos;s</p>
             <h2 className="display-title text-[clamp(4rem,14vw,9rem)] mb-8 gradient-text">Connect</h2>
-            <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-2">Have a project in mind or just want to say hi?</p>
-            <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-10">Drop me a message, I&apos;d love to hear from you!</p>
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-2">저에 대해 궁금한 점이 있으시다면 편하게 연락 주세요.</p>
+            <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-10">경력, 프로젝트, 협업 방식 등 무엇이든 괜찮습니다. 메시지 남겨 주시면 성심껏 답변드리겠습니다.</p>
 
             <div className="flex flex-col gap-3">
               {socialLinks.map((link) => (

@@ -128,9 +128,9 @@ export const projects = [
     image: ["../assets/Subom/Subom_Login.png", "../assets/Subom/2.png", "../assets/Subom/3.png", "../assets/Subom/4.png", "../assets/Subom/5.png", "../assets/Subom/6.png", "../assets/Subom/7.png"],
 
     title: "써봄",
-    description: "대학생 대상 AI 피드백 기반 글쓰기 루틴 PWA",
+    description: "대학생 대상 AI 피드백 기반 글쓰기 루틴",
 
-    Projectdescription: "써봄은 대학생들의 글쓰기 습관을 돕는 PWA 서비스입니다. 사용자가 글을 작성하면 AI가 피드백을 제공하고, 루틴 형태로 꾸준히 글쓰기를 이어갈 수 있도록 설계되었습니다. 모바일 웹 설치형(PWA)으로 제공되며, Google Analytics로 사용자 행동을 추적해 서비스를 개선했습니다.",
+    Projectdescription: "써봄은 대학생들의 글쓰기 습관을 돕는 서비스입니다. 사용자가 글을 작성하면 AI가 피드백을 제공하고, 루틴 형태로 꾸준히 글쓰기를 이어갈 수 있도록 설계되었습니다.",
     features: [
       {
         title: "온보딩 & 인증",
