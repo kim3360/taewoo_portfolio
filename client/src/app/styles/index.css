@@ -1317,7 +1317,7 @@
   }
 
   .cover-letter-section__trigger {
-    @apply px-6 py-5 sm:px-7 md:px-10 md:py-6 lg:px-12 lg:py-7;
+    @apply px-6 py-5 md:px-8 md:py-6 lg:px-10 lg:py-7;
   }
 
   .cover-letter-section__trigger[data-slot="accordion-trigger"] svg {
@@ -1349,11 +1349,15 @@
   }
 
   .cover-letter-section__content {
-    @apply border-t border-border/40 px-6 pb-6 pt-0 sm:px-7 md:px-10 md:pb-8 lg:px-12 lg:pb-9;
+    @apply pb-0;
+  }
+
+  .cover-letter-section__content > div {
+    @apply border-t border-border/40 px-6 pb-6 pt-0 md:px-8 md:pb-8 lg:px-10 lg:pb-9;
   }
 
   .cover-letter-section__body {
-    @apply pt-5 text-base leading-[1.85] text-muted-foreground md:text-lg md:leading-[1.8] whitespace-pre-line break-words;
+    @apply pt-5 pl-14 md:pl-[4.5rem] lg:pl-[5.5rem] text-base leading-[1.85] text-muted-foreground md:text-lg md:leading-[1.8] max-w-4xl whitespace-pre-line;
   }
 
   .fields-nav {

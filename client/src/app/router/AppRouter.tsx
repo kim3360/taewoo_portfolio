@@ -1,8 +1,8 @@
-import { Route, Switch } from "wouter";
-import { HomePage } from "@/pages/home";
-import { ProjectDetailPage } from "@/pages/project-detail";
-import { NotFoundPage } from "@/pages/not-found";
-import { ScrollToTop } from "./ScrollToTop";
+import { Route, Switch } from "wouter"
+import { HomePage } from "@/pages/home"
+import { ProjectDetailPage } from "@/pages/project-detail"
+import { NotFoundPage } from "@/pages/not-found"
+import { ScrollToTop } from "./ScrollToTop"
 
 export function AppRouter() {
   return (
@@ -15,5 +15,5 @@ export function AppRouter() {
         <Route component={NotFoundPage} />
       </Switch>
     </>
-  );
+  )
 }
